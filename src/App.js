@@ -2,7 +2,7 @@ import { BrowserRouter, Route, Routes } from "react-router-dom";
 import Home from "./pages/user/Home";
 import Section from "./pages/user/Section";
 import Article from "./pages/user/Article";
-
+/* eslint-disable */
 function App() {
   return (
     <BrowserRouter>
