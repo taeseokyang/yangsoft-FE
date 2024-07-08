@@ -39,15 +39,26 @@ const Language = styled.div`
   color: ${(props) => (props.isOn ? "#000000" : "#909090")};
 
 `;
+
+const TodayDate = styled.div`
+    font-weight: 200;
+    display: none;
+    @media screen and (max-width: 600px) {
+      display: inline-block;
+    }
+    
+`;
+
 const TopHeader = () => {
   return (
     <Container>
       <Layout>
         <Content>
-          <Languages>
+           <TodayDate>Tuesday, May 7, 2024</TodayDate>
+          {/* <Languages>
             <Language isOn={1==1}>ENG</Language>
             <Language isOn={1==2}>KOR</Language>
-          </Languages>
+          </Languages> */}
           <Login>Login</Login>
         </Content>
       </Layout>

@@ -28,6 +28,7 @@ padding: 20px 0px;
 `;
 const ArticleList = styled.div`
   /* max-width: 800px; */
+  font-family: "Playfair Display", serif;
 
 `;
 
@@ -70,8 +71,8 @@ const BottomInfo = styled.div`
   flex-direction: row;
   gap: 10px;
   font-size: 13px;
-  /* position: absolute; */
-  /* bottom: 20px; */
+  /* font-family:  */
+  
 `;
 const Reporter = styled.div`
   color: #000000;

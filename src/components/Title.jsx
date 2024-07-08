@@ -11,11 +11,11 @@ const Content = styled.div`
     justify-content: center; 
     align-items: center; 
     @media screen and (max-width: 600px) {
-      height: 150px;
+      height: 90px;
     }
 `;
 const TitleImg = styled.img`
-    width: 330px;
+    width: 380px;
     @media screen and (max-width: 600px) {
       width: 230px;
     }
@@ -23,10 +23,10 @@ const TitleImg = styled.img`
 const TodayDate = styled.div`
     text-align: center;
     width: 320px;
-    margin-top: 30px;
+    margin-top: 15px;
     font-weight: 200;
     @media screen and (max-width: 600px) {
-      margin-top: 20px;
+      display: none;
     }
     
 `;

@@ -4,6 +4,7 @@ import { ArticleTitle, ArticleSubTitle, SectionTitle, Reporter, BoxContainer } f
 
 const Container = styled.div`
 background: #ffffff;
+
 `;
 
 const Content = styled.div`
@@ -21,6 +22,7 @@ const Articles = styled.div`
       flex-direction: column;
   }
     gap: 20px;
+    font-family: "Playfair Display", serif;
 
 `;
 
@@ -39,18 +41,16 @@ const BigArticle = styled.div`
   }
   border-right: 1px solid #eeeeee;
 `;
-const BigImg = styled.div`
-    width: 100%;
-    height: 250px;
-    background: #eeeeee;
-`;
+
 const BigTextBox = styled.div`
 `;
 const BigTitle = styled.div`
   font-size: 22px;
+  font-weight: 600;
 `;
 const Title = styled.div`
   font-size: 20px;
+  font-weight: 600;
 `;
 const BigSubTitle = styled.div`
   font-size: 17px;
@@ -66,6 +66,22 @@ const OtherArticle = styled.div`
   }
 `;
 
+const BigImg = styled.div`
+    width: 100%;
+    height: 100%;
+`;
+const ImgBox = styled.div`
+    width: 100%;
+    height: 250px;
+    background: #eeeeee;
+`;
+const Source = styled.div`
+  font-size: 12px;
+  color: #aaaaaa;
+  text-align: right;
+
+`;
+
 const Body1 = () => {
   return (
     <Container>
@@ -73,9 +89,11 @@ const Body1 = () => {
         <SectionTitle>In GCU</SectionTitle>
         <Articles>
         <BigArticle>
-          <BigImg>
-
-          </BigImg>
+            <ImgBox>
+            <BigImg></BigImg>
+            <Source>Provided by yang</Source>
+            </ImgBox>
+   
           <BigTextBox>
             <BigTitle>Shining College Life with English, a New Beginning</BigTitle>
             <BigSubTitle>Shining College Life with English, a New Beginning</BigSubTitle>

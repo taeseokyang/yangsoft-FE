@@ -5,12 +5,16 @@ import { BoxContainer } from "./StyledComponents";
 const Content = styled.div`
     border-top: 1px solid #0D1C51;
     border-bottom: 2px solid #0D1C51;
-    height: 50px;
+    height: 40px;
     display: flex;
     align-items: center; 
     flex-direction: row;
     position: relative;
     overflow: hidden;
+    @media screen and (max-width: 600px) {
+      height: 40px;
+    }
+    font-family: "Playfair Display", serif;
 `;
 
 const SectionBar = styled.div`
@@ -32,8 +36,9 @@ const SectionBar = styled.div`
 const SectionTitle = styled.div`
     position: relative;
     color: #0D1C51;
-    font-weight: 400;
-    line-height: 50px;
+    font-weight: 500;
+    font-size: 17px;
+    line-height: 40px;
     white-space: nowrap;
 `;
 const UnderBar = styled.div`
