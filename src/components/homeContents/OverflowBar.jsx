@@ -4,7 +4,6 @@ import { ArticleTitle, ArticleSubTitle, SectionTitle, Reporter } from "../../com
 
 const Container = styled.div`
 background: #0D1C51;
-
 `;
 
 const Content = styled.div`
@@ -32,7 +31,7 @@ const OverflowBar = () => {
     <Container>
         <Content>
           <TextBox>
-            <SectionTitle color="w">Gachonian</SectionTitle>
+            <SectionTitle color="w">GACHONIAN</SectionTitle>
             <ArticleTitle color="w">We are Students and Entrepreneurs; Stories of Cocone School Entrepreneurs</ArticleTitle>
             <Reporter color="w">By Tae-seok Yang</Reporter>
           </TextBox>

@@ -42,10 +42,10 @@ const Language = styled.div`
 
 const TodayDate = styled.div`
     font-weight: 200;
-    display: none;
+    /* display: none;
     @media screen and (max-width: 600px) {
       display: inline-block;
-    }
+    } */
     
 `;
 
@@ -54,7 +54,7 @@ const TopHeader = () => {
     <Container>
       <Layout>
         <Content>
-           <TodayDate>Tuesday, May 7, 2024</TodayDate>
+           <TodayDate>Published on May 7, 2024</TodayDate>
           {/* <Languages>
             <Language isOn={1==1}>ENG</Language>
             <Language isOn={1==2}>KOR</Language>

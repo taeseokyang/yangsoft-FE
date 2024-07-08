@@ -100,13 +100,13 @@ const ArticleHeader = () => {
       <Content>
         <OriginalContent show={showOriginalContent}>
           <Link to={"/"}>
-            <TitleImg src="/images/title.png" alt="Title" />
+            <TitleImg src="/images/title.svg" alt="Title" />
           </Link>
         </OriginalContent>
         <AlternateContent show={showAlternateContent}>
           <LeftTitle>
             <Link to={"/"}>
-              <TitleImg src="/images/title.png" alt="Title" />
+              <TitleImg src="/images/title.svg" alt="Title" />
             </Link>
           </LeftTitle>
           <ArticleTitle>

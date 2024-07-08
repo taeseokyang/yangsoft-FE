@@ -34,12 +34,16 @@ const BigArticle = styled.div`
     display: flex;
     flex-direction: row;
     gap: 10px;
+    padding-right: 10px;
     flex: 2;
     @media screen and (max-width: 600px) {
       flex-direction: column;
       flex: 1;
   }
   border-right: 1px solid #eeeeee;
+  @media screen and (max-width: 600px) {
+      border-right: none;
+  }
 `;
 
 const BigTextBox = styled.div`
@@ -60,7 +64,7 @@ const OtherArticle = styled.div`
   display: flex;
   flex-direction: column;
   gap: 10px;
-  & :not(:last-child) {
+  > :not(:last-child) {
     border-bottom: 1px solid #eeeeee;
     /* padding-right: 10px; Add padding to create space between border and content */
   }
@@ -86,7 +90,7 @@ const Body1 = () => {
   return (
     <Container>
         <Content>
-        <SectionTitle>In GCU</SectionTitle>
+        <SectionTitle>IN GCU</SectionTitle>
         <Articles>
         <BigArticle>
             <ImgBox>
@@ -97,19 +101,23 @@ const Body1 = () => {
           <BigTextBox>
             <BigTitle>Shining College Life with English, a New Beginning</BigTitle>
             <BigSubTitle>Shining College Life with English, a New Beginning</BigSubTitle>
+            <Reporter>By Tae-seok Yang</Reporter>
           </BigTextBox>
         </BigArticle>
         <OtherArticle>
           <Article>
-          <Title>Shining College Life with English, a New Beginning</Title>
+            <Title>Shining College Life with English, a New Beginning</Title>
+            <Reporter>By Tae-seok Yang</Reporter>
           </Article>
          
           <Article>
           <Title>Shining College Life with English, a New Beginning</Title>
+          <Reporter>By Tae-seok Yang</Reporter>
           </Article>
          
           <Article>
           <Title>Shining College Life with English, a New Beginning</Title>
+          <Reporter>By Tae-seok Yang</Reporter>
           </Article>
          
         </OtherArticle>

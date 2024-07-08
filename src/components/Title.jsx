@@ -5,7 +5,7 @@ import { BoxContainer } from "./StyledComponents";
 
 
 const Content = styled.div`
-    height: 200px;
+    height: 150px;
     display: flex;
     flex-direction: column;
     justify-content: center; 
@@ -15,7 +15,7 @@ const Content = styled.div`
     }
 `;
 const TitleImg = styled.img`
-    width: 380px;
+    width: 500px;
     @media screen and (max-width: 600px) {
       width: 230px;
     }
@@ -23,20 +23,27 @@ const TitleImg = styled.img`
 const TodayDate = styled.div`
     text-align: center;
     width: 320px;
-    margin-top: 15px;
+    margin-top: 5px;
     font-weight: 200;
     @media screen and (max-width: 600px) {
       display: none;
     }
     
 `;
+const TitleText = styled.div`
+    font-size: 70px;
+    font-weight: 900;
+    font-family: "Playfair Display", serif;
+    color: #0D1C51;
+`;
 
 const Title = () => {
   return (
     <BoxContainer>
       <Content>
-      <Link to={"/"}><TitleImg src="/images/title.png"></TitleImg></Link>
-      <TodayDate>Tuesday, May 7, 2024</TodayDate>
+      <Link to={"/"}><TitleImg src="/images/title.svg"></TitleImg></Link>
+      {/* <Link to={"/"}><TitleText>The Gachon Herald</TitleText></Link> */}
+      {/* <TodayDate>Published on May 7, 2024</TodayDate> */}
     </Content>
 
     </BoxContainer>

@@ -47,6 +47,7 @@ const ArticleInfo = styled.div`
 const TextBox = styled.div`
   color: #000000;
   font-size: 20px;
+  margin-right: 10px;
 `;
 const ArticleImg = styled.img`
 width: 400px;

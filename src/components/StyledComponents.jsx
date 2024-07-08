@@ -19,13 +19,13 @@ export const BoxContainer = styled.div`
 
 export const SectionTitle = styled.div`
     font-size: 17px;
-    font-weight: 800;
+    font-weight: 400;
     color: ${({ color }) => (color == "w" ? "#ffffff" : "#0D1C51")};
     margin-bottom: 5px;
 `;
 
 export const ArticleTitle = styled.div`
-    font-size: 30px;
+    font-size: 35px;
     font-weight: 600;
     color: ${({ color }) => (color == "w" ? "#ffffff" : "#000000")};
     font-family: "Playfair Display", serif;

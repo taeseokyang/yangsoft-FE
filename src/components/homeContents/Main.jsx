@@ -56,17 +56,18 @@ const Main = () => {
   return (
     <Container>
           <Content>
+          <TextBox>
+            <SectionTitle>COVER STORY</SectionTitle>
+            <ArticleTitle>Retreat of South Korea's Environmental Policy</ArticleTitle>
+            <ArticleSubTitle>Reacting to the Extension of the Regulation Transition Period for Disposable Items</ArticleSubTitle>
+            <Reporter>By Tae-seok Yang</Reporter>
+        </TextBox>
             <ImgBox>
             <MainArticleImg src="/images/test.jpg"></MainArticleImg>
             <Source>Provided by yang</Source>
             </ImgBox>
 
-        <TextBox>
-            <SectionTitle>Cover Story</SectionTitle>
-            <ArticleTitle>Retreat of South Korea's Environmental Policy</ArticleTitle>
-            <ArticleSubTitle>Reacting to the Extension of the Regulation Transition Period for Disposable Items</ArticleSubTitle>
-            <Reporter>By Tae-seok Yang</Reporter>
-        </TextBox>
+       
     </Content>
 
     </Container>
