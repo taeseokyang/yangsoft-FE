@@ -16,6 +16,7 @@ const Content = styled.div`
 `;
 
 const Articles = styled.div`
+    margin-top: 15px;
     display: flex;
     flex-direction: row;
     @media screen and (max-width: 600px) {
@@ -57,8 +58,11 @@ const Title = styled.div`
   font-weight: 600;
 `;
 const BigSubTitle = styled.div`
-  font-size: 17px;
+  font-size: 16px;
+  font-weight: 600;
+  color:#9e9e9e;
 `;
+
 const OtherArticle = styled.div`
   flex: 1;
   display: flex;
@@ -70,18 +74,16 @@ const OtherArticle = styled.div`
   }
 `;
 
-const BigImg = styled.div`
+const BigImg = styled.img`
     width: 100%;
-    height: 100%;
 `;
 const ImgBox = styled.div`
     width: 100%;
-    height: 250px;
-    background: #eeeeee;
 `;
 const Source = styled.div`
   font-size: 12px;
   color: #aaaaaa;
+  margin-top: 5px;
   text-align: right;
 
 `;
@@ -94,31 +96,29 @@ const Body1 = () => {
         <Articles>
         <BigArticle>
             <ImgBox>
-            <BigImg></BigImg>
+            <BigImg src="/images/test2.png"></BigImg>
             <Source>Provided by yang</Source>
             </ImgBox>
    
           <BigTextBox>
-            <BigTitle>Shining College Life with English, a New Beginning</BigTitle>
-            <BigSubTitle>Shining College Life with English, a New Beginning</BigSubTitle>
-            <Reporter>By Tae-seok Yang</Reporter>
+            <BigTitle>Gachon University Establishes the First AI College in South Korea</BigTitle>
+            <BigSubTitle>Advancing Convergence Education in Humanities and AI to Foster T-shaped Talents</BigSubTitle>
+            <Reporter>By Su-hyun Kim</Reporter>
           </BigTextBox>
         </BigArticle>
         <OtherArticle>
           <Article>
             <Title>Shining College Life with English, a New Beginning</Title>
-            <Reporter>By Tae-seok Yang</Reporter>
+            <BigSubTitle>Exploring Language Learning and Cultural Exchange Opportunities at Gachon University: A Guide for Students</BigSubTitle>
+            <Reporter>By Min-jeong Ju</Reporter>
           </Article>
          
           <Article>
-          <Title>Shining College Life with English, a New Beginning</Title>
-          <Reporter>By Tae-seok Yang</Reporter>
+          <Title>Increasing Early and Regular Admission Applications of Gachon University in 2024.</Title>
+          <BigSubTitle>Gachon University focuses on the High-Tech Industry.</BigSubTitle>
+          <Reporter>By Si-on Kim</Reporter>
           </Article>
          
-          <Article>
-          <Title>Shining College Life with English, a New Beginning</Title>
-          <Reporter>By Tae-seok Yang</Reporter>
-          </Article>
          
         </OtherArticle>
       </Articles>

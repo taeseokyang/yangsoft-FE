@@ -14,24 +14,28 @@ padding: 20px 0px;
 display: flex;
 flex-direction: column;
 gap: 20px;
-
 `;
+
+const LineBox = styled.div`
+padding: 0px 20px;
+`;
+
 
 const Contents = () => {
   return (
     <Container>
       <Main></Main>
-      <Line></Line>
+      <LineBox><Line></Line></LineBox>
       <Body1></Body1>
       <OverflowBar></OverflowBar>
       <Body3></Body3>
-      <Line></Line>
+      <LineBox><Line></Line></LineBox>
       <Body2></Body2>
       <OverflowBar></OverflowBar>
       <Body1></Body1>
-      <Line></Line>
+      <LineBox><Line></Line></LineBox>
       <Body2></Body2>
-      <Line></Line>
+      <LineBox><Line></Line></LineBox>
       <Body1></Body1>
     </Container>
   );

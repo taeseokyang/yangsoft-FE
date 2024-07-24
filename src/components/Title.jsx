@@ -5,7 +5,7 @@ import { BoxContainer } from "./StyledComponents";
 
 
 const Content = styled.div`
-    height: 150px;
+    height: 250px;
     display: flex;
     flex-direction: column;
     justify-content: center; 
@@ -43,7 +43,7 @@ const Title = () => {
       <Content>
       <Link to={"/"}><TitleImg src="/images/title.svg"></TitleImg></Link>
       {/* <Link to={"/"}><TitleText>The Gachon Herald</TitleText></Link> */}
-      {/* <TodayDate>Published on May 7, 2024</TodayDate> */}
+      <TodayDate>Published on May 7, 2024</TodayDate>
     </Content>
 
     </BoxContainer>

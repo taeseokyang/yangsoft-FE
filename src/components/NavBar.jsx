@@ -14,7 +14,7 @@ const Content = styled.div`
     @media screen and (max-width: 600px) {
       height: 40px;
     }
-    font-family: "Playfair Display", serif;
+    /* font-family: "Playfair Display", serif; */
 `;
 
 const SectionBar = styled.div`
@@ -36,7 +36,7 @@ const SectionBar = styled.div`
 const SectionTitle = styled.div`
     position: relative;
     color: #0D1C51;
-    font-weight: 500;
+    font-weight: 400;
     font-size: 17px;
     line-height: 40px;
     white-space: nowrap;

@@ -49,6 +49,11 @@ const Title = styled.div`
   font-size: 20px;
   font-weight: 600;
 `;
+const Subtitle = styled.div`
+  font-size: 16px;
+  font-weight: 600;
+  color: #9e9e9e;
+`;
 
 const Part1 = styled.div`
   flex: 3;
@@ -78,12 +83,11 @@ const BigImgArticle = styled.div`
   /* padding-bottom: 10px; */
   display: flex;
   flex-direction: column;
-  /* gap: 10px; */
   padding: 10px 0px;
 `;
 
-const BigArticleImg = styled.div`
-  height: 300px;
+const BigArticleImg = styled.img`
+  /* height: 300px; */
   width: 100%;
   background: #eeeeee;
 `;
@@ -93,10 +97,11 @@ const TextBox = styled.div`
 
 `;
 
-const ArticleImg = styled.div`
+const ArticleImg = styled.img`
   height: 150px;
   width: 300px;
   background: #eeeeee;
+  border: 1px solid #eeeeee;
 `;
 
 
@@ -105,39 +110,43 @@ const Body3 = () => {
     <Container>
       <Content>
         <Part1>
-          <SectionTitle>IN GCU</SectionTitle>
+          <SectionTitle>FEATURE</SectionTitle>
           <Articles>
             <ImgArticle>
-            <ArticleImg>
+            <ArticleImg src="/images/test5.png">
 
             </ArticleImg>
             <TextBox>
-              <Title>Shining College Life with English, a New Beginning</Title>
+              <Title>Seoul's Spring - The Intersection of History and Desire in 1979</Title>
+              <Subtitle>What is the truth of Seoul's Spring amidst the confrontation of power and beliefs?</Subtitle>
+              <Reporter>By Su-hyeon Kim</Reporter>
+              </TextBox>
+            </ImgArticle>
+            <ImgArticle>
+            <ArticleImg src="/images/test6.png">
+
+            </ArticleImg>
+            <TextBox>
+            <Title>Continued Deficit Prompts Carrot Market to Adopt a New Name</Title>
+              <Subtitle>Transformation into a Local Community, 'Carrot'</Subtitle>
               <Reporter>By Tae-seok Yang</Reporter>
               </TextBox>
             </ImgArticle>
 
-            <Article>
-              <Title>Shining College Life with English, a New Beginning</Title>
-              <Reporter>By Tae-seok Yang</Reporter>
-            </Article>
 
-            <Article>
-              <Title>Shining College Life with English, a New Beginning</Title>
-              <Reporter>By Tae-seok Yang</Reporter>
-            </Article>
 
           </Articles>
         </Part1>
 
         <Part2>
-          <SectionTitle>IN GCU</SectionTitle>
+          <SectionTitle>PHOTO ESSAY</SectionTitle>
           <Articles>
             <BigImgArticle>
-            <BigArticleImg></BigArticleImg>
+            <BigArticleImg src="/images/test4.png"></BigArticleImg>
               <TextBox>
-              <Title>Shining College Life with English, a New Beginning</Title>
-              <Reporter>By Tae-seok Yang</Reporter>
+              <Title>Flowers that bloom once a year</Title>
+              <Subtitle>May the new semester bloom like beautiful cherry blossoms</Subtitle>
+              <Reporter>By Min-jeong Ju</Reporter>
               </TextBox>
             
             </BigImgArticle>

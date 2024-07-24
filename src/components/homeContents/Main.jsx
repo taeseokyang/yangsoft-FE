@@ -40,6 +40,7 @@ const Source = styled.div`
 `;
 const MainArticleImg = styled.img`
   width: 100%;
+  border-radius: 0px;
   /* height: 100%; */
     
 `;
@@ -58,13 +59,13 @@ const Main = () => {
           <Content>
           <TextBox>
             <SectionTitle>COVER STORY</SectionTitle>
-            <ArticleTitle>Retreat of South Korea's Environmental Policy</ArticleTitle>
+            <ArticleTitle>South Korea's Environmental Policy in Retreat</ArticleTitle>
             <ArticleSubTitle>Reacting to the Extension of the Regulation Transition Period for Disposable Items</ArticleSubTitle>
             <Reporter>By Tae-seok Yang</Reporter>
         </TextBox>
             <ImgBox>
             <MainArticleImg src="/images/test.jpg"></MainArticleImg>
-            <Source>Provided by yang</Source>
+            <Source>Photo by Yang</Source>
             </ImgBox>
 
        

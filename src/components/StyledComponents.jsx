@@ -19,28 +19,28 @@ export const BoxContainer = styled.div`
 
 export const SectionTitle = styled.div`
     font-size: 17px;
-    font-weight: 400;
+    font-weight: 700;
     color: ${({ color }) => (color == "w" ? "#ffffff" : "#0D1C51")};
-    margin-bottom: 5px;
+    
 `;
 
 export const ArticleTitle = styled.div`
-    font-size: 35px;
+    font-size: 36px;
     font-weight: 600;
+    margin-top: 10px;
+    margin-bottom: 10px;
     color: ${({ color }) => (color == "w" ? "#ffffff" : "#000000")};
-    font-family: "Playfair Display", serif;
 `;
 
 export const ArticleSubTitle = styled.div`
     font-size: 20px;
-    font-weight: 400;
-    color: ${({ color }) => (color == "w" ? "#ffffff" : "#000000")};
-    font-family: "Playfair Display", serif;
+    font-weight: 600;
+    color: ${({ color }) => (color == "w" ? "#ffffff" : "#9e9e9e")};
 `;
 
 export const Reporter = styled.div`
     margin-top: 10px;
-    font-size: 15px;
-    font-weight: 600;
-    color: ${({ color }) => (color == "w" ? "#ffffff" : "#848484")};
+    font-size: 14px;
+    font-weight: 400;
+    color: ${({ color }) => (color == "w" ? "#ffffff" : "#c5c5c5")};
 `;

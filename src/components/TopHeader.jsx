@@ -54,12 +54,12 @@ const TopHeader = () => {
     <Container>
       <Layout>
         <Content>
-           <TodayDate>Published on May 7, 2024</TodayDate>
+           <TodayDate>Today Date: May 7, 2024</TodayDate>
           {/* <Languages>
             <Language isOn={1==1}>ENG</Language>
             <Language isOn={1==2}>KOR</Language>
           </Languages> */}
-          <Login>Login</Login>
+          <Login></Login>
         </Content>
       </Layout>
       <Dummy></Dummy>

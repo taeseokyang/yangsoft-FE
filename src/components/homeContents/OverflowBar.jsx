@@ -22,20 +22,30 @@ const TextBox = styled.div`
 
 
 const ImgBox = styled.div`
-  background: #ffffff;
-  height: 180px;
+  /* height: 250px; */
+  display: flex;
+  flex-direction: row;
+  align-items: center; 
+  
   flex: 1;
+  text-align: right;
 `;
+const Img = styled.img`
+  /* height: 100%; */
+  width: 100%;
+`;
+
 const OverflowBar = () => {
   return (
     <Container>
         <Content>
           <TextBox>
             <SectionTitle color="w">GACHONIAN</SectionTitle>
-            <ArticleTitle color="w">We are Students and Entrepreneurs; Stories of Cocone School Entrepreneurs</ArticleTitle>
+            <ArticleTitle color="w">Are You a Carrot?</ArticleTitle>
+            <ArticleSubTitle color="w">The developer of Carrot Market search service, Cho Yongjin.</ArticleSubTitle>
             <Reporter color="w">By Tae-seok Yang</Reporter>
           </TextBox>
-          <ImgBox />
+          <ImgBox><Img src="/images/test3.png"></Img></ImgBox>
         </Content>
     </Container>
   );

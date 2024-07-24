@@ -71,9 +71,15 @@ const TextBox = styled.div`
 
 `;
 
-const ArticleImg = styled.div`
+const Subtitle = styled.div`
+  font-size: 16px;
+  font-weight: 600;
+  color: #9e9e9e;
+`;
+
+const ArticleImg = styled.img`
   height: 150px;
-  width: 300px;
+  /* width: 300px; */
   background: #eeeeee;
 `;
 
@@ -83,19 +89,20 @@ const Body2 = () => {
     <Container>
       <Content>
         <Part>
-          <SectionTitle>IN GCU</SectionTitle>
+          <SectionTitle>MOVIE</SectionTitle>
           <Articles>
             <ImgArticle>
-            <ArticleImg>
+            <ArticleImg src="/images/test7.png">
 
             </ArticleImg>
             <TextBox>
-              <Title>Shining College Life with English, a New Beginning</Title>
+              <Title>The Tragic Life of Alan Turing</Title>
+              <Subtitle>The Enigma Decryption Mission of the Nazis, 'The Imitation Game'</Subtitle>
               <Reporter>By Tae-seok Yang</Reporter>
               </TextBox>
             </ImgArticle>
 
-            <Article>
+            {/* <Article>
               <Title>Shining College Life with English, a New Beginning</Title>
               <Reporter>By Tae-seok Yang</Reporter>
             </Article>
@@ -103,20 +110,21 @@ const Body2 = () => {
             <Article>
               <Title>Shining College Life with English, a New Beginning</Title>
               <Reporter>By Tae-seok Yang</Reporter>
-            </Article>
+            </Article> */}
 
           </Articles>
         </Part>
 
         <Part>
-          <SectionTitle>IN GCU</SectionTitle>
+          <SectionTitle>BOOK</SectionTitle>
           <Articles>
             <ImgArticle>
-            <ArticleImg>
-              
-              </ArticleImg>
+            <ArticleImg src="/images/test8.png">
+
+            </ArticleImg>
               <TextBox>
-              <Title>Shining College Life with English, a New Beginning</Title>
+              <Title>How People Conform to an Unjust Society</Title>
+              <Subtitle>Kindred, by Octavia E. Butler.</Subtitle>
               <Reporter>By Tae-seok Yang</Reporter>
               </TextBox>
             
@@ -124,6 +132,7 @@ const Body2 = () => {
 
             <Article>
               <Title>Shining College Life with English, a New Beginning</Title>
+              <Subtitle>Kindred, by Octavia E. Butler.</Subtitle>
               <Reporter>By Tae-seok Yang</Reporter>
             </Article>
           </Articles>

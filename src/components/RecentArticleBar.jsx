@@ -14,19 +14,19 @@ const Content = styled.div`
 
 
 const Title = styled.div`
-  font-size: 12px;
-  font-weight: 600;
+  font-size: 14px;
+  font-weight: 400;
   color: #b7b7b7;
 `;
 
 const SectionTitle = styled.div`
-  font-size: 12px;
+  font-size: 14px;
   font-weight: 600;
   white-space: nowrap;
 `;
 
 const ArticleTitle = styled.div`
-  font-size: 12px;
+  font-size: 14px;
   font-weight: 400;
   white-space: nowrap;
   /* text-overflow: ellipsis; */
