@@ -10,6 +10,7 @@ import Contents from "../../components/homeContents/Contents";
 import RecentArticleBar from "../../components/RecentArticleBar";
 
 
+
 const Home = () => {
   return (
     <PageContainer>
