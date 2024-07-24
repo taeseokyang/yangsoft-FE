@@ -26,17 +26,15 @@ const Contents = () => {
     <Container>
       <Main></Main>
       <LineBox><Line></Line></LineBox>
-      <Body1></Body1>
-      <OverflowBar></OverflowBar>
       <Body3></Body3>
-      <LineBox><Line></Line></LineBox>
-      <Body2></Body2>
       <OverflowBar></OverflowBar>
       <Body1></Body1>
       <LineBox><Line></Line></LineBox>
+      <Body1></Body1>
+      <OverflowBar></OverflowBar>
       <Body2></Body2>
       <LineBox><Line></Line></LineBox>
-      <Body1></Body1>
+      <Body2></Body2>
     </Container>
   );
 };

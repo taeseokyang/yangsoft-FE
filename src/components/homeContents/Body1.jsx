@@ -92,7 +92,7 @@ const Body1 = () => {
   return (
     <Container>
         <Content>
-        <SectionTitle>IN GCU</SectionTitle>
+        <SectionTitle>In GCU</SectionTitle>
         <Articles>
         <BigArticle>
             <ImgBox>

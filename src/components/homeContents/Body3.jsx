@@ -110,7 +110,7 @@ const Body3 = () => {
     <Container>
       <Content>
         <Part1>
-          <SectionTitle>FEATURE</SectionTitle>
+          <SectionTitle>Feature</SectionTitle>
           <Articles>
             <ImgArticle>
             <ArticleImg src="/images/test5.png">
@@ -139,7 +139,7 @@ const Body3 = () => {
         </Part1>
 
         <Part2>
-          <SectionTitle>PHOTO ESSAY</SectionTitle>
+          <SectionTitle>Photo Essay</SectionTitle>
           <Articles>
             <BigImgArticle>
             <BigArticleImg src="/images/test4.png"></BigArticleImg>

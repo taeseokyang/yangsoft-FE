@@ -40,7 +40,7 @@ const OverflowBar = () => {
     <Container>
         <Content>
           <TextBox>
-            <SectionTitle color="w">GACHONIAN</SectionTitle>
+            <SectionTitle color="w">Gachonian</SectionTitle>
             <ArticleTitle color="w">Are You a Carrot?</ArticleTitle>
             <ArticleSubTitle color="w">The developer of Carrot Market search service, Cho Yongjin.</ArticleSubTitle>
             <Reporter color="w">By Tae-seok Yang</Reporter>

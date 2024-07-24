@@ -89,7 +89,7 @@ const Body2 = () => {
     <Container>
       <Content>
         <Part>
-          <SectionTitle>MOVIE</SectionTitle>
+          <SectionTitle>Movie</SectionTitle>
           <Articles>
             <ImgArticle>
             <ArticleImg src="/images/test7.png">
@@ -116,7 +116,7 @@ const Body2 = () => {
         </Part>
 
         <Part>
-          <SectionTitle>BOOK</SectionTitle>
+          <SectionTitle>Book</SectionTitle>
           <Articles>
             <ImgArticle>
             <ArticleImg src="/images/test8.png">

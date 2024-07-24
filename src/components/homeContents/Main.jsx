@@ -19,7 +19,7 @@ max-width: 1200px;
 
 const ImgBox = styled.div`
     /* height: 350px; */
-    flex: 3;  
+    flex: 2;  
     /* background: #eeeeee; */
     @media screen and (max-width: 600px) {
       flex: none;
@@ -46,8 +46,7 @@ const MainArticleImg = styled.img`
 `;
 
 const TextBox = styled.div`
-
-flex: 2;
+flex: 3;
 `;
 
 
@@ -58,7 +57,7 @@ const Main = () => {
     <Container>
           <Content>
           <TextBox>
-            <SectionTitle>COVER STORY</SectionTitle>
+            <SectionTitle>Cover Story</SectionTitle>
             <ArticleTitle>South Korea's Environmental Policy in Retreat</ArticleTitle>
             <ArticleSubTitle>Reacting to the Extension of the Regulation Transition Period for Disposable Items</ArticleSubTitle>
             <Reporter>By Tae-seok Yang</Reporter>
