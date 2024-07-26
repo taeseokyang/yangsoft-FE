@@ -6,18 +6,16 @@ import Title from "../../components/Title";
 import NavBar from "../../components/NavBar";
 import TopHeader from "../../components/TopHeader";
 import Footer from "../../components/Footer";
-import Articles from "../../components/Articles";
+import ArticleList from "../../components/ArticleList";
 
 
 const Section = () => {
   return (
     <PageContainer>
-        <TopHeader></TopHeader>
+      <TopHeader></TopHeader>
         <Title></Title>
         <NavBar></NavBar>
-
-        <Articles></Articles>
-
+        <ArticleList></ArticleList>
         <Footer></Footer>
     </PageContainer>
   );

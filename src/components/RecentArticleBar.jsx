@@ -1,16 +1,26 @@
 import { useState, useEffect } from "react";
 import styled, { keyframes } from "styled-components";
-import { BoxContainer } from "./StyledComponents";
+// import { BoxContainer } from "./StyledComponents";
+
+
+const Container = styled.div`
+/* background: #f7f7f7; */
+`;
 
 const Content = styled.div`
-  border-bottom: 1px solid #cfcfcf;
-  height: 30px;
   display: flex;
-  align-items: center; 
-  flex-direction: row;
   gap: 10px;
   overflow: hidden;
+
+  /* padding: 30px 20px; */
+  display: flex;
+  max-width: 1200px;
+  margin: 0px auto;
+  flex-direction: row;
+  padding: 10px 20px;
 `;
+
+
 
 
 const Title = styled.div`
@@ -80,15 +90,18 @@ const RecentArticleBar = () => {
   const { section, title } = Articles[currentArticleIndex];
 
   return (
-    <BoxContainer>
+    <Container>
         <Content>
-        <Title>Latest</Title>
+        {/* <Title>Latest</Title> */}
       <AnimatedSectionTitle key={section}>{section}</AnimatedSectionTitle>
       <AnimatedArticleTitle key={title}>{title}</AnimatedArticleTitle>
         </Content>
 
-    </BoxContainer>
+    </Container>
   );
 };
 
 export default RecentArticleBar;
+
+
+

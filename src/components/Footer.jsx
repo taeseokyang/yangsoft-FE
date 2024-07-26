@@ -1,24 +1,23 @@
 import { Link } from "react-router-dom";
 import styled from "styled-components";
+import { Container} from "./StyledComponents";
 
 
-const Container = styled.div`
-
-`;
 const Dummy = styled.div`
   height: 100px;
 `;
 const Layout = styled.div`
+    margin-top: 100px;
     position: absolute;
     left: 0;
     width: 100%;
     height: 100px;
-    border-top: 1px solid #e8e8e8;
+    background: #f1f1f1;
 
 `;
 const Content = styled.div`
-  padding: 10px 20px;
-  max-width: 1200px;
+  padding: 20px 20px;
+  max-width: 1000px;
   margin: 0px auto;
   display: flex;
     align-items: center; 
@@ -42,7 +41,6 @@ const Footer = () => {
       </Layout>
       <Dummy></Dummy>
     </Container>
-   
   );
 };
 

@@ -1,28 +1,31 @@
 import { Link } from "react-router-dom";
 import styled from "styled-components";
-import { BoxContainer } from "./StyledComponents";
+import { Container } from "./StyledComponents";
 
-const Content = styled.div`
-    border-top: 1px solid #0D1C51;
-    border-bottom: 2px solid #0D1C51;
-    height: 40px;
+const Content = styled.div` 
+    margin: 0px auto;
+  padding: 0px 20px;
+  max-width: 1000px;
     display: flex;
     align-items: center; 
     flex-direction: row;
     position: relative;
     overflow: hidden;
     @media screen and (max-width: 600px) {
-      height: 40px;
+      /* height: 40px; */
     }
-    /* font-family: "Playfair Display", serif; */
+    margin-bottom: 10px;
 `;
 
 const SectionBar = styled.div`
     height: 100%;
+    width: 100%;
     color: #ffffff;
+    background: #f8f8f8;
+    padding: 10px 10px;
+    border-radius: 7px;
     display: flex;
     align-items: center; 
-    flex-direction: row;
     gap: 20px;
     /* width: 80%; */
     overflow-x: auto;
@@ -31,14 +34,14 @@ const SectionBar = styled.div`
     display: none;
     }
     scrollbar-width: none;
-    padding-right: 70px;
+    /* padding-right: 70px; */
 `;
 const SectionTitle = styled.div`
     position: relative;
-    color: #0D1C51;
+    color: #000000;
     font-weight: 400;
-    font-size: 17px;
-    line-height: 40px;
+    font-size: 16px;
+    /* line-height: 40px; */
     white-space: nowrap;
 `;
 const UnderBar = styled.div`
@@ -47,6 +50,7 @@ const UnderBar = styled.div`
     left: 0;
     width: 100%;
     height: 2px;
+    border-radius: 7px;
     background: #ffffff;
 `;
 const Section = styled.div`
@@ -56,40 +60,23 @@ const Section = styled.div`
     align-items: center; 
 
     &:hover ${UnderBar} {
-        background-color: #0D1C51;
+        background-color: #000000;
     }
 `;
 const GradationBar = styled.div`
     position: absolute;
-    right: 30px;
+    right: 0px;
     width: 50px;
     height: 100%;
-    /* background: #eeeeee; */
     background: linear-gradient(to right, rgba(255, 255, 255, 0), #ffffff);
-`;
-
-const Search = styled.div`
-    width: 30px;   
-    height: 100%;
-    padding-left: 10px;
-    background: #ffffff;
-    position: absolute;
-    right: 0;
-    z-index: 1;
-    display: flex;
-    align-items: center; 
-`;
-
-const SearchIcon = styled.img`
-    width: 20px;
 `;
 
 const NavBar = () => {
     const sections = [
         "Cover Story",
-        "Feature", 
+        "Feature",
         "World Wide",
-        "Brief", 
+        "Brief",
         "Gachonian",
         "Campus Talk",
         "Book",
@@ -98,32 +85,24 @@ const NavBar = () => {
         "Experience",
         "Editorial"
     ];
-  
+
     return (
-      <BoxContainer>
-        <Content>
-        <SectionBar>
-            {sections.map((section, index) => (
-
-                <Section>
-                    <Link to={"/section/"+section}>
-                    <SectionTitle>{section}</SectionTitle>
-                    
-                    <UnderBar></UnderBar>
-                    </Link>
-                </Section>
-            
-            ))}
-            
-        </SectionBar>
-        <GradationBar></GradationBar>
-        <Search>
-            <SearchIcon src="/images/search.svg"></SearchIcon>
-        </Search>
-
-        </Content>
-      </BoxContainer>
+        <Container>
+            <Content>
+                <SectionBar>
+                    {sections.map((section, index) => (
+                        <Section>
+                            <Link to={"/section/" + section}>
+                                <SectionTitle>{section}</SectionTitle>
+                                {/* <UnderBar></UnderBar> */}
+                            </Link>
+                        </Section>
+                    ))}
+                </SectionBar>
+                {/* <GradationBar></GradationBar> */}
+            </Content>
+        </Container>
     );
-  };
+};
 
 export default NavBar;

@@ -1,7 +1,6 @@
 import { Link, useParams } from "react-router-dom";
 import styled from "styled-components";
 import { useState, useEffect } from 'react';
-import Main from "../../components/homeContents/Main";
 import ArticleHeader from "../../components/ArticleHeader";
 import { ThinPageContainer } from "../../components/StyledComponents";
 import Footer from "../../components/Footer";
