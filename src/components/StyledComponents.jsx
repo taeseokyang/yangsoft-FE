@@ -70,9 +70,14 @@ export const BigImageBox = styled.div`
 `;
 
 export const Section = styled.div`
+    display: inline-block;
   font-size: 14px;
   font-weight: 600;
   margin-bottom: 5px;
+  background: #f8f8f8;
+  color: #000000;
+  padding: 5px 10px;
+  border-radius: 7px;
   &:hover{
     text-decoration: underline;
   }

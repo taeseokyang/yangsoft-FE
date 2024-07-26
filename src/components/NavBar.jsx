@@ -22,7 +22,7 @@ const SectionBar = styled.div`
     width: 100%;
     color: #ffffff;
     background: #f8f8f8;
-    padding: 10px 10px;
+    padding: 5px 10px;
     border-radius: 7px;
     display: flex;
     align-items: center; 
@@ -58,9 +58,10 @@ const Section = styled.div`
     position: relative;
     display: flex;
     align-items: center; 
-
-    &:hover ${UnderBar} {
-        background-color: #000000;
+    border-radius: 7px;
+    padding: 5px 10px;
+    &:hover{
+        background: #e9e9e9;
     }
 `;
 const GradationBar = styled.div`
