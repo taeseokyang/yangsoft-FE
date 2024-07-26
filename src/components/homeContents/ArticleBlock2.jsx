@@ -2,6 +2,20 @@ import { Link } from "react-router-dom";
 import styled from "styled-components";
 import { Container, Content, Block1, BlockBox, ImageBox, Image, Section, Title1, SubTitle1, Reporter1 } from "../StyledComponents";
 
+const Mobile = styled.div` 
+    display: none;
+    @media screen and (max-width: 600px) {
+      display: block;
+    }
+`;
+
+const PC = styled.div` 
+    display: block;
+    @media screen and (max-width: 600px) {
+      display: none;
+    }
+`;
+
 const ArticleBlock2 = () => {
   const Articles = [
     {
@@ -29,23 +43,38 @@ const ArticleBlock2 = () => {
   return (
     <Container>
       <Content>
-        <BlockBox>
-          {Articles.map((article, index) => (
-            <Block1>
-              <Section>{article.section}</Section>
-              <Title1>{article.title}</Title1>
-              <SubTitle1>{article.subtitle}</SubTitle1>
-              <Reporter1>By {article.reporter}</Reporter1>
-            </Block1>
-          ))}
-        </BlockBox>
-        <BlockBox>
-          {Articles.map((article, index) => (
-            <Block1>
-              <ImageBox><Image src={article.img}></Image></ImageBox>
-            </Block1>
-          ))}
-        </BlockBox>
+        <PC>
+          <BlockBox>
+            {Articles.map((article, index) => (
+              <Block1>
+                <Section>{article.section}</Section>
+                <Title1>{article.title}</Title1>
+                <SubTitle1>{article.subtitle}</SubTitle1>
+                <Reporter1>By {article.reporter}</Reporter1>
+              </Block1>
+            ))}
+          </BlockBox>
+          <BlockBox>
+            {Articles.map((article, index) => (
+              <Block1>
+                <ImageBox><Image src={article.img}></Image></ImageBox>
+              </Block1>
+            ))}
+          </BlockBox>
+        </PC>
+        <Mobile>
+          <BlockBox>
+            {Articles.map((article, index) => (
+              <Block1>
+                <Section>{article.section}</Section>
+                <Title1>{article.title}</Title1>
+                <SubTitle1>{article.subtitle}</SubTitle1>
+                <Reporter1>By {article.reporter}</Reporter1>
+                <ImageBox><Image src={article.img}></Image></ImageBox>
+              </Block1>
+            ))}
+          </BlockBox>
+        </Mobile>
       </Content>
     </Container>
   );

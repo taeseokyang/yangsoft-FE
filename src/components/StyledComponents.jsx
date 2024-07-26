@@ -33,7 +33,7 @@ export const Block3 = styled.div`
 
 export const ImageBox = styled.div`
   width: 100%;
-  height: 180px;
+  /* height: 180px; */
   background: #eeeeee;
   border-radius: 7px;
   overflow: hidden;
@@ -46,7 +46,7 @@ export const Image = styled.img`
 
 export const BigImageBox = styled.div`
   width: 100%;
-  height: 450px;
+  /* height: 450px; */
   /* background: #eeeeee; */
   border-radius: 7px;
   position: relative;
