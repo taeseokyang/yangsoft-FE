@@ -81,15 +81,28 @@ export const Section = styled.div`
 display: inline-block;
   font-size: 12px;
   font-weight: 600;
-  margin-bottom: 5px;
-  /* background: #f8f8f8;
-  color: #000000;
-  padding: 5px 10px;
-  border-radius: 7px; */
+  margin-left: 5px;
   &:hover{
     text-decoration: underline;
   }
 `;
+export const Dot = styled.div`
+  display: inline-block;
+  width: 7px;
+  height: 7px;
+  background: #000000;
+`;
+
+
+export const SectionBox = styled.div`
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  /* margin-bottom: 5px; */
+  margin-bottom: 3px;
+  
+`;
+
 export const Date = styled.div`
 display: inline-block;
   font-size: 12px;

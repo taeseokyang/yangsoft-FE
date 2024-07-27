@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 import styled from "styled-components";
-import { Container, Content, Block1, BlockBox, ImageBox, Image, Section, Title1, SubTitle1, Reporter1, Copy } from "../StyledComponents";
+import { Container, Content, Block1, BlockBox, ImageBox, Image, Section, Title1, SubTitle1, Reporter1, Copy, SectionBox, Dot } from "../StyledComponents";
 import VerticalLine from "./VerticalLine";
 import HorizontalLine from "./HorizontalLine";
 
@@ -53,7 +53,9 @@ const ArticleBlock2 = () => {
             {Articles.map((article, index) => (
               <Block1>
                 <Link to={"/section/" + article.section}>
-                  <Section>{article.section}</Section>
+                <SectionBox>
+                  <Dot></Dot><Section>{article.section}</Section>
+                </SectionBox>
                 </Link>
                 <Link to={"/article/" + 1}>
                   <Title1>{article.title}</Title1>
