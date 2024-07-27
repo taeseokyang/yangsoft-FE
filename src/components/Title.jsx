@@ -28,8 +28,8 @@ export const TitleImg = styled.img`
 
 export const Left = styled.div`
   display: inline-block;
-  font-size: 18px;
-  font-weight: 600;
+  font-size: 16px;
+  font-weight: 400;
   text-align: left;
   flex:1;
   @media screen and (max-width: 600px) {
@@ -38,8 +38,8 @@ export const Left = styled.div`
 `;
 export const Right = styled.div`
   display: inline-block;
-  font-size: 18px;
-  font-weight: 600;
+  font-size: 16px;
+  font-weight: 400;
   text-align: right;
   flex:1;
   @media screen and (max-width: 600px) {
