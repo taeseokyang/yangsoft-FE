@@ -13,6 +13,7 @@ export const Content = styled.div`
 export const BlockBox = styled.div`
   display: flex;
   flex-direction: row;
+  
   gap: 20px;
   @media screen and (max-width: 600px) {
     flex-direction: column;
@@ -20,11 +21,11 @@ export const BlockBox = styled.div`
 
 `;
 export const Block1 = styled.div`
-  /* background: #eeeeee; */
+  /* background: #f3f3f3; */
   flex-basis: calc((100% - 30px) / 3);
 `;
 export const Block2 = styled.div`
-/* background: #eeeeee; */
+/* background: #f3f3f3; */
   flex-basis: calc((100%) / 3 * 2);
 `;
 export const Block3 = styled.div`
@@ -42,6 +43,13 @@ export const ImageBox = styled.div`
 
 export const Image = styled.img`
   width: 100%;
+`;
+
+export const Copy = styled.div`
+  width: 100%;
+  font-size: 10px;
+  color: #959595;
+  text-align: right;
 `;
 
 export const BigImageBox = styled.div`
@@ -71,13 +79,13 @@ export const BigImageBox = styled.div`
 
 export const Section = styled.div`
     display: inline-block;
-  font-size: 14px;
+  font-size: 12px;
   font-weight: 600;
   margin-bottom: 5px;
-  background: #f8f8f8;
+  /* background: #f8f8f8;
   color: #000000;
   padding: 5px 10px;
-  border-radius: 7px;
+  border-radius: 7px; */
   &:hover{
     text-decoration: underline;
   }
@@ -92,8 +100,9 @@ export const Title1 = styled.div`
 `;
 
 export const SubTitle1 = styled.div`
-  font-size: 20px;
+  font-size: 18px;
   font-weight: 400;
+  color: #767676;
   margin-bottom: 5px;
 `;
 

@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 import styled from "styled-components";
-import { Container, Content, Block1, Block2, BlockBox, ImageBox, Section, Title1, SubTitle1, Reporter1 } from "./StyledComponents";
+import { Container, Content, Block1, Block2, BlockBox, ImageBox, Image, Section, Title1, SubTitle1, Reporter1 } from "./StyledComponents";
 
 const ArticleList = () => {
   const Articles = [
@@ -54,7 +54,7 @@ const ArticleList = () => {
               <Reporter1>By {article.reporter}</Reporter1>
             </Block2>
             <Block1>
-              <ImageBox></ImageBox>
+              <ImageBox><Image src="/images/test8.png"></Image></ImageBox>
             </Block1>
           </BlockBox>
         </Content>

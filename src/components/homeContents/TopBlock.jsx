@@ -2,10 +2,11 @@ import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import styled from "styled-components";
 import { Container, Content, Block1, Block2, BlockBox } from "../StyledComponents";
+import VerticalLine from "./VerticalLine";
 
 const Text1 = styled.div`
-  font-size: 50px;
-  font-weight: 600;
+  font-size: 40px;
+  font-weight: 800;
   margin-bottom: 20px;
   @media screen and (max-width: 600px) {
     font-size: 30px;
@@ -13,14 +14,14 @@ const Text1 = styled.div`
 `;
 const Text2 = styled.div`
   font-size: 30px;
-  font-weight: 600;
+  font-weight: 800;
   margin-bottom: 20px;
   @media screen and (max-width: 600px) {
     font-size: 24px;
     }
 `;
 const Text3 = styled.div`
-  font-size: 20px;
+  font-size: 16px;
   font-weight: 400;
   margin-bottom: 10px;
   &:hover{
@@ -66,15 +67,16 @@ const TopBlock = () => {
       <Content>
         <BlockBox>
           <Block2>
-            <Text1>Last published on<br />July 25, 2024</Text1>
+            <Text1>Last published on July 25, 2024</Text1>
             <Text2>Now is {formatTime(currentTime)}</Text2>
             <Ad></Ad>
           </Block2>
+          <VerticalLine></VerticalLine>
           <Block1>
             <Text2>Editor's Picks</Text2>
             {Picks.map((pick, index) => (
               <Link to="/" key={index}>
-                <Text3>{pick}</Text3>
+                <Text3>- {pick}</Text3>
               </Link>
             ))}
           </Block1>

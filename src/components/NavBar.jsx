@@ -21,12 +21,21 @@ const SectionBar = styled.div`
     height: 100%;
     width: 100%;
     color: #ffffff;
-    background: #f8f8f8;
-    padding: 5px 10px;
-    border-radius: 7px;
+    /* background: #f8f8f8;
+    padding: 5px 5px;
+    border-radius: 7px; */
+    padding-bottom: 10px;
+    @media screen and (max-width: 600px) {
+        padding-bottom: 5px;
+    }
+    border-bottom: 1.5px solid #000000;
+
     display: flex;
     align-items: center; 
-    gap: 20px;
+    gap: 10px;
+    @media screen and (max-width: 600px) {
+        gap: 5px;
+    }
     /* width: 80%; */
     overflow-x: auto;
 
@@ -39,7 +48,7 @@ const SectionBar = styled.div`
 const SectionTitle = styled.div`
     position: relative;
     color: #000000;
-    font-weight: 400;
+    font-weight: 500;
     font-size: 16px;
     /* line-height: 40px; */
     white-space: nowrap;
@@ -60,8 +69,11 @@ const Section = styled.div`
     align-items: center; 
     border-radius: 7px;
     padding: 5px 10px;
+    @media screen and (max-width: 600px) {
+        padding: 5px 5px;
+    }
     &:hover{
-        background: #e9e9e9;
+        background: #f0f0f0;
     }
 `;
 const GradationBar = styled.div`
