@@ -78,7 +78,7 @@ export const BigImageBox = styled.div`
 `;
 
 export const Section = styled.div`
-    display: inline-block;
+display: inline-block;
   font-size: 12px;
   font-weight: 600;
   margin-bottom: 5px;
@@ -89,6 +89,12 @@ export const Section = styled.div`
   &:hover{
     text-decoration: underline;
   }
+`;
+export const Date = styled.div`
+display: inline-block;
+  font-size: 12px;
+  font-weight: 600;
+  margin-bottom: 5px;
 `;
 export const Title1 = styled.div`
   font-size: 20px;

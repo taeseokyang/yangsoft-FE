@@ -52,18 +52,26 @@ const ArticleBlock2 = () => {
           <BlockBox>
             {Articles.map((article, index) => (
               <Block1>
-                <Section>{article.section}</Section>
-                <Title1>{article.title}</Title1>
+                <Link to={"/section/" + article.section}>
+                  <Section>{article.section}</Section>
+                </Link>
+                <Link to={"/article/" + 1}>
+                  <Title1>{article.title}</Title1>
+                </Link>
                 <SubTitle1>{article.subtitle}</SubTitle1>
-                <Reporter1>By {article.reporter}</Reporter1>
+                <Link to={"/reporter/" + 1}>
+                  <Reporter1>By {article.reporter}</Reporter1>
+                </Link>
               </Block1>
-
             ))}
           </BlockBox>
           <BlockBox>
             {Articles.map((article, index) => (
               <Block1>
-                <ImageBox><Image src={article.img}></Image></ImageBox>
+                <Link to={"/article/" + 1}>
+                  <ImageBox><Image src={article.img}></Image></ImageBox>
+                </Link>
+
                 <Copy>{article.copy}</Copy>
               </Block1>
             ))}
@@ -72,15 +80,14 @@ const ArticleBlock2 = () => {
         <Mobile>
           <BlockBox>
             {Articles.map((article, index) => (
-                <Block1>
-                  <Section>{article.section}</Section>
-                  <Title1>{article.title}</Title1>
-                  <SubTitle1>{article.subtitle}</SubTitle1>
-                  <Reporter1>By {article.reporter}</Reporter1>
-                  <ImageBox><Image src={article.img}></Image></ImageBox>
-                  <Copy>{article.copy}</Copy>
-                </Block1>
-               
+              <Block1>
+                <Section>{article.section}</Section>
+                <Title1>{article.title}</Title1>
+                <SubTitle1>{article.subtitle}</SubTitle1>
+                <Reporter1>By {article.reporter}</Reporter1>
+                <ImageBox><Image src={article.img}></Image></ImageBox>
+                <Copy>{article.copy}</Copy>
+              </Block1>
             ))}
           </BlockBox>
         </Mobile>

@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 import styled from "styled-components";
-import { Container, Content, Block1, Block2, BlockBox, ImageBox, Image, Section, Title1, SubTitle1, Reporter1 } from "./StyledComponents";
+import { Container, Content, Block1, Block2, BlockBox, ImageBox, Image, Section, Title1, SubTitle1, Reporter1, Copy, Date } from "./StyledComponents";
 
 const ArticleList = () => {
   const Articles = [
@@ -48,13 +48,20 @@ const ArticleList = () => {
         <Content>
           <BlockBox>
             <Block2>
-              {/* <Section>{article.section}</Section> */}
-              <Title1>{article.title}</Title1>
+              <Date>July 5, 2024</Date>
+              <Link to={"/article/" + 1}>
+                <Title1>{article.title}</Title1>
+              </Link>
               <SubTitle1>{article.subtitle}</SubTitle1>
-              <Reporter1>By {article.reporter}</Reporter1>
+              <Link to={"/reporter/" + 1}>
+                <Reporter1>By {article.reporter}</Reporter1>
+              </Link>
             </Block2>
             <Block1>
-              <ImageBox><Image src="/images/test8.png"></Image></ImageBox>
+            <Link to={"/article/" + 1}>
+              <ImageBox><Image src="/images/test.jpg"></Image></ImageBox>
+            </Link>
+            <Copy>Provided by NYT</Copy>
             </Block1>
           </BlockBox>
         </Content>

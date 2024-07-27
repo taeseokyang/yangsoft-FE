@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from "react-router-dom";
 import styled from "styled-components";
+// import { Section } from "./StyledComponents";
 
 const Container = styled.div``;
 
@@ -18,48 +19,47 @@ const Content = styled.div`
 
   height: 50px;
   display: flex;
-  justify-content: center;
   align-items: center;
-  font-size: 13px;
-  font-weight: 500;
   border-bottom: 1px solid #e8e8e8;
 `;
 
 const TitleImg = styled.img`
   background: #ffffff;
-  height: 30px;
+  height: 20px;
 `;
 
 const OriginalContent = styled.div`
+  width: 100%;
   position: absolute;
   transition: opacity 0.5s ease-in-out, transform 0.5s ease-in-out;
   opacity: ${({ show }) => (show ? 1 : 0)};
 `;
 
 const AlternateContent = styled.div`
+  width: 100%;
   position: absolute;
   transition: opacity 0.5s ease-in-out, transform 0.5s ease-in-out;
   opacity: ${({ show }) => (show ? 1 : 0)};
   transform: ${({ show }) => (show ? 'translateY(0)' : 'translateY(10px)')};
-  display: flex;
-  align-items: center;
-  width: 100%;
-  justify-content: space-between;
 `;
 
 const LeftTitle = styled.div`
   margin-left: 20px;
+  z-index: 1;
   @media screen and (max-width: 600px) {
     display: none;
   }
 `;
 
 const ArticleTitle = styled.div`
-  position: absolute;
-  left: 50%;
-  transform: translateX(-50%);
-  white-space: nowrap;
-
+text-align: center;
+font-size: 14px;
+  font-weight: 600;
+`;
+const ArticleSection = styled.div`
+  text-align: center;
+  font-size: 14px;
+  font-weight: 800;
 `;
 
 const ArticleHeader = () => {
@@ -98,17 +98,19 @@ const ArticleHeader = () => {
   return (
     <Container>
       <Content>
+        <LeftTitle>
+        <Link to={"/"}>
+            <TitleImg src="/images/tgh.svg" alt="Title" />
+            </Link>
+        </LeftTitle>
         <OriginalContent show={showOriginalContent}>
-          <Link to={"/"}>
-            <TitleImg src="/images/title.svg" alt="Title" />
-          </Link>
+          <ArticleSection>
+            <Link to={"/"}>
+              Cover Story
+            </Link>
+          </ArticleSection>
         </OriginalContent>
         <AlternateContent show={showAlternateContent}>
-          <LeftTitle>
-            <Link to={"/"}>
-              <TitleImg src="/images/title.svg" alt="Title" />
-            </Link>
-          </LeftTitle>
           <ArticleTitle>
             South Korea's Environmental Policy in Retreat
           </ArticleTitle>

@@ -4,23 +4,16 @@ import { useState, useEffect } from 'react';
 import ArticleHeader from "../../components/ArticleHeader";
 import { ThinPageContainer } from "../../components/StyledComponents";
 import Footer from "../../components/Footer";
-import Title from "../../components/Title";
-import NavBar from "../../components/NavBar";
-import TopHeader from "../../components/TopHeader";
 
 const ArticleTitle = styled.div`
-  margin-top: 50px;
+  margin-top: 30px;
   color: #000000;
   font-size: 40px;
   font-weight: 600;
-  line-height: 100%;
 `;
 const ArticleSubTitle = styled.div`
-  margin-top: 10px;
-  color: #000000;
-  font-size: 24px;
-  font-weight: 400;
-  line-height: 100%;
+  color: #adadad;
+  font-size: 20px;
 `;
 
 const Separator = styled.div`
@@ -31,49 +24,15 @@ const Separator = styled.div`
 const ArticleBody = styled.div`
   display: flex;
   flex-direction: column;
-  font-size: 18px;
-  font-weight: 400;
-  line-height: 150%;
+  font-size: 20px;
   & img{
     align-items: center; 
     margin: 0px auto;
     width: 100%;
-    border-radius: 7px;
   }
 `;
 
-const InfoBox = styled.div`
-  margin-top: 50px;
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  justify-content: space-between;
-
-`;
-const ReporterBox = styled.div`
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-`;
-const ReporterImg = styled.div`
-  width: 40px;
-  height: 40px;
-  border: 1px solid #eeeeee;
-  border-radius: 100px;
-
-`;
-const ReporterName = styled.div`
-  font-size: 14px;
-  font-weight: 600;
-  margin-left: 10px;
-`;
-const Date = styled.div`
-  font-size: 14px;
-  font-weight: 600;
-`;
-
-
-const Article = () => {
+const Reporter = () => {
   const { articleId } = useParams();
 
   const content = `
@@ -120,22 +79,10 @@ const Article = () => {
 
   return (
     <ThinPageContainer>
-       {/* <TopHeader></TopHeader> */}
-       <ArticleHeader></ArticleHeader>
+      <ArticleHeader></ArticleHeader>
       <ArticleTitle>{article.title}</ArticleTitle>
       <ArticleSubTitle>{article.subTitle}</ArticleSubTitle>
-      {/* <Separator></Separator> */}
-      <InfoBox>
-        <ReporterBox>
-          <ReporterImg>
-
-          </ReporterImg>
-          <ReporterName>
-          By Tae-seok Yang
-          </ReporterName>
-        </ReporterBox>
-        <Date>July 5, 2024</Date>
-      </InfoBox>
+      <Separator></Separator>
       <ArticleBody  dangerouslySetInnerHTML={{ __html: content }}>
       </ArticleBody>
       <Footer></Footer>
@@ -143,4 +90,4 @@ const Article = () => {
   );
 };
 
-export default Article;
+export default Reporter;

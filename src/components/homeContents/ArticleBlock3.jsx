@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 import styled from "styled-components";
-import { Container, Content, Block3, BlockBox, BigImageBox,Image, Section, Title1, SubTitle1, Reporter1, BigImageInfoBox } from "../StyledComponents";
+import { Container, Content, Block3, BlockBox, BigImageBox, Image, Section, Title1, SubTitle1, Reporter1, BigImageInfoBox } from "../StyledComponents";
 
 const ArticleBlock3 = () => {
   const Article = {
@@ -17,10 +17,16 @@ const ArticleBlock3 = () => {
             <BigImageBox>
               <Image src="/images/pt.png"></Image>
               <div>
-                <Section>{Article.section}</Section>
-                <Title1>{Article.title}</Title1>
+                <Link to={"/section/" + Article.section}>
+                  <Section>{Article.section}</Section>
+                </Link>
+                <Link to={"/article/" + 1}>
+                  <Title1>{Article.title}</Title1>
+                </Link>
                 <SubTitle1>{Article.subtitle}</SubTitle1>
-                <Reporter1>By {Article.reporter}</Reporter1>
+                <Link to={"/reporter/" + 1}>
+                  <Reporter1>By {Article.reporter}</Reporter1>
+                </Link>
               </div>
             </BigImageBox>
           </Block3>

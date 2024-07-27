@@ -5,15 +5,15 @@ import { Container, Content, Block1, Block2, BlockBox } from "../StyledComponent
 import VerticalLine from "./VerticalLine";
 
 const Text1 = styled.div`
-  font-size: 40px;
+  font-size: 36px;
   font-weight: 800;
-  margin-bottom: 20px;
+  margin-bottom: 10px;
   @media screen and (max-width: 600px) {
     font-size: 30px;
     }
 `;
 const Text2 = styled.div`
-  font-size: 30px;
+  font-size: 26px;
   font-weight: 800;
   margin-bottom: 20px;
   @media screen and (max-width: 600px) {
@@ -29,10 +29,36 @@ const Text3 = styled.div`
   }
 `;
 
-const Ad = styled.div`
-  height: 150px;
+const Ad = styled.img`
+  width: 100%;
+  margin-top: 50px;
+  /* height: 150px; */
   background: #eeeeee;
+  /* position: absolute;
+  bottom: 0px; */
   border-radius: 7px;
+`;
+
+const Dot = styled.div`
+  display: inline-block;
+  width: 7px;
+  height: 7px;
+  background: #000000;
+`;
+
+const Section = styled.div`
+  font-size: 12px;
+  font-weight: 600;
+  margin-left: 5px;
+`;
+
+const SectionBox = styled.div`
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  /* margin-bottom: 5px; */
+  margin-bottom: 3px;
+  
 `;
 
 const TopBlock = () => {
@@ -69,14 +95,18 @@ const TopBlock = () => {
           <Block2>
             <Text1>Last published on July 25, 2024</Text1>
             <Text2>Now is {formatTime(currentTime)}</Text2>
-            <Ad></Ad>
+            <Ad src="/images/aaa.svg"></Ad>
           </Block2>
           <VerticalLine></VerticalLine>
           <Block1>
             <Text2>Editor's Picks</Text2>
             {Picks.map((pick, index) => (
-              <Link to="/" key={index}>
-                <Text3>- {pick}</Text3>
+              <Link to={"/article/"+ 1}key={index}>
+                <SectionBox>
+                <Dot></Dot><Section>Cover Story</Section>
+                </SectionBox>
+
+                <Text3>{pick}</Text3>
               </Link>
             ))}
           </Block1>
