@@ -37,6 +37,9 @@ const Ad = styled.img`
   /* position: absolute;
   bottom: 0px; */
   border-radius: 7px;
+  @media screen and (max-width: 600px) {
+    margin-top: 0px;
+    }
 `;
 
 const Dot = styled.div`
