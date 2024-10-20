@@ -17,7 +17,7 @@ const Layout = styled.div`
 `;
 const Content = styled.div`
   padding: 20px 20px;
-  max-width: 1000px;
+  max-width: 1200px;
   margin: 0px auto;
   display: flex;
     align-items: center; 

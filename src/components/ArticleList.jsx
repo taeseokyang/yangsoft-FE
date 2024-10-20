@@ -1,6 +1,15 @@
 import { Link } from "react-router-dom";
 import styled from "styled-components";
 import { Container, Content, Block1, Block2, BlockBox, ImageBox, Image, Section, Title1, SubTitle1, Reporter1, Copy, Date } from "./StyledComponents";
+import HorizontalLine from "./homeContents/HorizontalLine2";
+
+
+const SectionTitle = styled.div`
+  font-size: 20px;
+  font-weight: 800;
+  margin-bottom: 20px;
+  color: #3E5977;
+`;
 
 const ArticleList = () => {
   const Articles = [
@@ -43,9 +52,10 @@ const ArticleList = () => {
   ];
   return (
     <Container>
-
+      <Content>
+      <SectionTitle>Cover Story</SectionTitle>
       {Articles.map((article, index) => (
-        <Content>
+          <div>
           <BlockBox>
             <Block2>
               <Date>July 5, 2024</Date>
@@ -63,10 +73,13 @@ const ArticleList = () => {
             </Link>
             <Copy>Provided by NYT</Copy>
             </Block1>
+            
           </BlockBox>
-        </Content>
+          <HorizontalLine></HorizontalLine>
+          </div>
+       
       ))}
-
+ </Content>
     </Container>
   );
 };

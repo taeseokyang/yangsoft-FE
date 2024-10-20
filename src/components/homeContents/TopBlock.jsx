@@ -13,77 +13,51 @@ const Text1 = styled.div`
     }
 `;
 const Text2 = styled.div`
-  font-size: 26px;
-  font-weight: 800;
+  font-size: 20px;
+  font-weight: 700;
+  color: #3E5977;
   margin-bottom: 20px;
   @media screen and (max-width: 600px) {
     font-size: 24px;
     }
 `;
 const Text3 = styled.div`
-  font-size: 16px;
-  font-weight: 400;
+  font-size: 14px;
+  font-weight: 500;
   margin-bottom: 10px;
   &:hover{
     text-decoration: underline;
   }
 `;
 
-const Ad = styled.img`
+const BigImageBox = styled.div`
   width: 100%;
-  margin-top: 50px;
-  /* height: 150px; */
+  height: 400px;
   background: #eeeeee;
-  /* position: absolute;
-  bottom: 0px; */
-  border-radius: 7px;
+  background: #eeeeee;
+  position: relative;
+  border-radius: 17px;
+  overflow: hidden;
   @media screen and (max-width: 600px) {
     margin-top: 0px;
     }
 `;
 
-const Dot = styled.div`
-  display: inline-block;
-  width: 7px;
-  height: 7px;
-  background: #000000;
-`;
-
-const Section = styled.div`
-  font-size: 12px;
-  font-weight: 600;
-  margin-left: 5px;
-`;
-
-const SectionBox = styled.div`
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  /* margin-bottom: 5px; */
-  margin-bottom: 3px;
+const BigImage = styled.div`
   
 `;
 
+const BigImageTextBox = styled.div`
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  height: 100px;
+  /* background: #dddddd; */
+  background: linear-gradient(to top, #808080, transparent);
+`;
+
+
 const TopBlock = () => {
-  const [currentTime, setCurrentTime] = useState(new Date());
-
-  useEffect(() => {
-    const intervalId = setInterval(() => {
-      setCurrentTime(new Date());
-    }, 1000);
-
-    // Clean up interval on component unmount
-    return () => clearInterval(intervalId);
-  }, []);
-
-  const formatTime = (date) => {
-    return `${date.toLocaleDateString("en-US", {
-      month: "long",
-      day: "numeric",
-      year: "numeric",
-    })}, at ${date.toLocaleTimeString("en-US", { hour12: false })}`;
-  };
-
   const Picks = [
     "Shining College Life with English, a New Beginning",
     "How People Conform to an Unjust Society",
@@ -96,19 +70,20 @@ const TopBlock = () => {
       <Content>
         <BlockBox>
           <Block2>
-            <Text1>Last published on July 25, 2024</Text1>
-            <Text2>Now is {formatTime(currentTime)}</Text2>
-            <Ad src="/images/aaa.svg"></Ad>
+            <BigImageBox>
+              <BigImage>
+
+              </BigImage>
+              <BigImageTextBox>
+
+              </BigImageTextBox>
+            </BigImageBox>
           </Block2>
           <VerticalLine></VerticalLine>
           <Block1>
             <Text2>Editor's Picks</Text2>
             {Picks.map((pick, index) => (
               <Link to={"/article/"+ 1}key={index}>
-                <SectionBox>
-                <Dot></Dot><Section>Cover Story</Section>
-                </SectionBox>
-
                 <Text3>{pick}</Text3>
               </Link>
             ))}

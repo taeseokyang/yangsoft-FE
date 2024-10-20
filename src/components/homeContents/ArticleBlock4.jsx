@@ -50,15 +50,20 @@ const ArticleBlock2 = () => {
     <Content>
       <Section>{Articles[0].section}</Section>
       <BlockBox>
-      <Block1>
+      {Articles.slice(0,2).map((article, index) => (
+              <Block1>
             
-              <Title1>{Articles[0].title}</Title1>
-              <SubTitle1>{Articles[0].subtitle}</SubTitle1>
-              <ImageBox><Image src={Articles[0].img}></Image></ImageBox>
-              <Copy>{Articles[0].copy}</Copy>
-      </Block1>
+              <Title1>{article.title}</Title1>
+              <SubTitle1>{article.subtitle}</SubTitle1>
+              <ImageBox><Image src={article.img}></Image></ImageBox>
+              <Copy>{article.copy}</Copy>
+          </Block1>
+           
+             
+        ))}
+  
       <VerticalLine></VerticalLine>
-      <Block2>
+      <Block1>
           
               {Articles.slice().map((article, index) => (
               <Link to={"/article/"+ 1}key={index}>
@@ -69,7 +74,7 @@ const ArticleBlock2 = () => {
              
             ))}
              
-      </Block2>
+      </Block1>
       </BlockBox>
     </Content>
   </Container>

@@ -2,7 +2,7 @@ import { Link } from "react-router-dom";
 import styled from "styled-components";
 import { Container, Content, Block1,Block2, BlockBox, ImageBox, Image, Section, Title1, SubTitle1, Reporter1, Copy, SectionBox, Dot } from "../StyledComponents";
 import VerticalLine from "./VerticalLine";
-import HorizontalLine2 from "./HorizontalLine2";
+import HorizontalLine from "./HorizontalLine";
 
 const Mobile = styled.div` 
     display: none;
@@ -50,26 +50,17 @@ const ArticleBlock2 = () => {
     <Content>
       <Section>{Articles[0].section}</Section>
       <BlockBox>
-      <Block1>
+      {Articles.map((article, index) => (
+              <Block1>
             
-              <Title1>{Articles[0].title}</Title1>
-              <SubTitle1>{Articles[0].subtitle}</SubTitle1>
-              <ImageBox><Image src={Articles[0].img}></Image></ImageBox>
-              <Copy>{Articles[0].copy}</Copy>
-      </Block1>
-      <VerticalLine></VerticalLine>
-      <Block2>
-          
-              {Articles.slice().map((article, index) => (
-              <Link to={"/article/"+ 1}key={index}>
-                 <Title1>{article.title}</Title1>
-                 <SubTitle1>{article.subtitle}</SubTitle1>
-                 <HorizontalLine2></HorizontalLine2>
-              </Link>
+              <Title1>{article.title}</Title1>
+              <SubTitle1>{article.subtitle}</SubTitle1>
+              <ImageBox><Image src={article.img}></Image></ImageBox>
+              <Copy>{article.copy}</Copy>
+          </Block1>
              
-            ))}
-             
-      </Block2>
+        ))}
+  
       </BlockBox>
     </Content>
   </Container>

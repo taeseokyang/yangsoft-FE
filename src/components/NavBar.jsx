@@ -11,6 +11,7 @@ const Content = styled.div`
     flex-direction: row;
     position: relative;
     overflow: hidden;
+    background: #eeeeee;
     @media screen and (max-width: 600px) {
       /* height: 40px; */
     }

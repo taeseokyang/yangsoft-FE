@@ -3,7 +3,7 @@ import styled from "styled-components";
 import { useState, useEffect } from 'react';
 import { PageContainer } from "../../components/StyledComponents";
 import Title from "../../components/Title";
-import NavBar from "../../components/NavBar";
+import Nav from "../../components/Nav";
 import TopHeader from "../../components/TopHeader";
 import Footer from "../../components/Footer";
 import ArticleList from "../../components/ArticleList";
@@ -14,7 +14,7 @@ const Section = () => {
     <PageContainer>
       <TopHeader></TopHeader>
         <Title></Title>
-        <NavBar></NavBar>
+        <Nav></Nav>
         <ArticleList></ArticleList>
         <Footer></Footer>
     </PageContainer>
