@@ -34,16 +34,20 @@ export const Block3 = styled.div`
 
 export const ImageBox = styled.div`
   width: 100%;
-  /* height: 180px; */
-  /* position: absolute; */
-  background: #eeeeee;
+  height: 180px;
+  background: #f5f5f5;
   border-radius: 17px;
   overflow: hidden;
-  /* margin-bottom: 5px; */
+  display: flex; /* Flexbox 사용 */
+  justify-content: center; /* 가로 중앙 정렬 */
+  align-items: center; /* 세로 중앙 정렬 */
 `;
 
 export const Image = styled.img`
-  width: 100%;
+  max-width: 100%; /* 가로 100% 제한 */
+  max-height: 100%; /* 세로 100% 제한 */
+  object-fit: contain; /* 비율을 유지하면서 이미지 맞춤 */
+  /* border-radius: 17px; */
 `;
 
 export const Copy = styled.div`

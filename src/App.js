@@ -9,7 +9,7 @@ function App() {
     <BrowserRouter>
       <Routes>
         <Route path="/" Component={Home} />
-        <Route path="/section/:section" Component={Section} />
+        <Route path="/section/:sectionId" Component={Section} />
         <Route path="/article/:articleId" Component={Article} />
         <Route path="/reporter/:reporterId" Component={Reporter} />
       </Routes>

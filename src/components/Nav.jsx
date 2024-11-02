@@ -1,6 +1,7 @@
 import { Link } from "react-router-dom";
 import styled from "styled-components";
-
+import { useState, useEffect } from 'react';
+import axios from "axios";
 
 const Container = styled.div`
   margin-bottom: 10px;
@@ -68,34 +69,49 @@ const Section = styled.div`
 
 const TopHeader = () => {
 
-  const sections = [
-    "Cover Story",
-    "Feature",
-    "World Wide",
-    "Brief",
-    "Gachonian",
-    "Campus Talk",
-    "Book",
-    "Drama",
-    "Movie",
-    "Experience",
-    "Editorial"
-];
+  const [sections, setSections] = useState([]);
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const response = await axios.get(process.env.REACT_APP_BACK_URL + "/sections/list", {
+        });
+        setSections(response.data.data.activeSections);
+        console.log(response.data.data)
+      } catch (error) {
+        console.error("오류 발생:", error);
+      }
+    };
+    fetchData();
+  }, []);
+
+//   const sections = [
+//     "Cover Story",
+//     "Feature",
+//     "World Wide",
+//     "Brief",
+//     "Gachonian",
+//     "Campus Talk",
+//     "Book",
+//     "Drama",
+//     "Movie",
+//     "Experience",
+//     "Editorial"
+// ];
 
   return (
     <Container>
       <Layout>
         <Content>
         <SectionBar>
-                    {sections.map((section, index) => (
-                        <Section>
-                            <Link to={"/section/" + section}>
-                                <SectionTitle>{section}</SectionTitle>
+                    {sections.map((section) => (
+                        <Section key={section.sectionId}>
+                            <Link to={"/section/" + section.sectionId+"?page=1"}>
+                                <SectionTitle>{section.name}</SectionTitle>
                                 {/* <UnderBar></UnderBar> */}
                             </Link>
                         </Section>
                     ))}
-                </SectionBar>
+             </SectionBar>
         </Content>
       </Layout>
     </Container>

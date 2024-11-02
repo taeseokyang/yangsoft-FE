@@ -1,8 +1,9 @@
-import { Link } from "react-router-dom";
+import { Link, useNavigate, useParams } from "react-router-dom";
 import styled from "styled-components";
 import { Container, Content, Block1, Block2, BlockBox, ImageBox, Image, Section, Title1, SubTitle1, Reporter1, Copy, Date } from "./StyledComponents";
 import HorizontalLine from "./homeContents/HorizontalLine2";
-
+import { useState, useEffect } from 'react';
+import axios from "axios";
 
 const SectionTitle = styled.div`
   font-size: 20px;
@@ -11,74 +12,98 @@ const SectionTitle = styled.div`
   color: #3E5977;
 `;
 
+const Pages = styled.div`
+  margin-top: 50px;
+  width: 100%;
+  /* height: 50px; */
+  /* background: #eeeeee; */
+  display: flex;
+  justify-content: center; /* 가운데 정렬 */
+  align-items: center;
+  gap:15px;
+`;
+
+const PageNumber = styled.div`
+  font-weight: ${({ isOn }) => (isOn ? '700' : '500')};
+  
+  color: ${({ isOn }) => (isOn ? '#3E5977' : '#bcbcbc')};
+  display: flex;
+  justify-content: center; /* 숫자 중앙 정렬 */
+  align-items: center; 
+`;
+
 const ArticleList = () => {
-  const Articles = [
-    {
-      section: "Cover Story",
-      title: "South Korea's Environmental Policy in Retreat",
-      subtitle: "Reacting to the Extension of the Regulation Transition Period for Disposable Items",
-      reporter: "Tae-seok Yan",
-    },
-    {
-      section: "Cover Story",
-      title: "South Korea's Environmental Policy in Retreat",
-      subtitle: "Reacting to the Extension of the Regulation Transition Period for Disposable Items",
-      reporter: "Tae-seok Yan",
-    },
-    {
-      section: "Cover Story",
-      title: "South Korea's Environmental Policy in Retreat",
-      subtitle: "Reacting to the Extension of the Regulation Transition Period for Disposable Items",
-      reporter: "Tae-seok Yan",
-    },
-    {
-      section: "Cover Story",
-      title: "South Korea's Environmental Policy in Retreat",
-      subtitle: "Reacting to the Extension of the Regulation Transition Period for Disposable Items",
-      reporter: "Tae-seok Yan",
-    },
-    {
-      section: "Cover Story",
-      title: "South Korea's Environmental Policy in Retreat",
-      subtitle: "Reacting to the Extension of the Regulation Transition Period for Disposable Items",
-      reporter: "Tae-seok Yan",
-    },
-    {
-      section: "Cover Story",
-      title: "South Korea's Environmental Policy in Retreat",
-      subtitle: "Reacting to the Extension of the Regulation Transition Period for Disposable Items",
-      reporter: "Tae-seok Yan",
-    }
-  ];
+  const { sectionId } = useParams();
+  const queryParams = new URLSearchParams(location.search);
+  const page = queryParams.get('page'); // page 쿼리 파라미터 가져오기
+  const [pageNumbers, setPageNumbers] = useState([]);
+  const [articles, setArticles] = useState([]);
+  const [sectionName, setSectionName] = useState();
+  useEffect(() => {
+    window.scrollTo(0, 0);
+    const fetchData = async () => {
+      try {
+        const response = await axios.get(process.env.REACT_APP_BACK_URL + "/articles/list/section/"+sectionId+"?pageNumber="+(page-1), {
+        });
+        setArticles(response.data.data.articles);
+        setPageNumbers(Array.from({ length: response.data.data.pageCount }, (_, index) => index + 1));
+        console.log(response.data.data);
+        const response2 = await axios.get(process.env.REACT_APP_BACK_URL + "/sections/"+sectionId, {
+        });
+        setSectionName(response2.data.data.name);
+      } catch (error) {
+        console.error("오류 발생:", error);
+      }
+    };
+    fetchData();
+  }, [sectionId, page]);
+
   return (
     <Container>
       <Content>
-      <SectionTitle>Cover Story</SectionTitle>
-      {Articles.map((article, index) => (
-          <div>
+      <SectionTitle>{sectionName}</SectionTitle>
+      {articles.map((article) => (
+          <div key={article.articleId}>
           <BlockBox>
             <Block2>
-              <Date>July 5, 2024</Date>
-              <Link to={"/article/" + 1}>
+              <Date>{article.publishedAt}</Date>
+              <Link to={"/article/" + article.articleId}>
                 <Title1>{article.title}</Title1>
               </Link>
               <SubTitle1>{article.subtitle}</SubTitle1>
-              <Link to={"/reporter/" + 1}>
-                <Reporter1>By {article.reporter}</Reporter1>
+              <Link to={"/reporter/" + article.reporterId}>
+                <Reporter1>By {article.reporterName}</Reporter1>
               </Link>
             </Block2>
-            <Block1>
-            <Link to={"/article/" + 1}>
-              <ImageBox><Image src="/images/test.jpg"></Image></ImageBox>
+              {
+                article.mainImage != "" ?
+                <Block1>
+                <Link to={"/article/" + article.articleId}>
+              <ImageBox><Image src={ process.env.REACT_APP_BACK_URL + "/image?path=" + article.mainImage}></Image></ImageBox>
             </Link>
             <Copy>Provided by NYT</Copy>
             </Block1>
+            : 
+            null
+            }
+            
+           
             
           </BlockBox>
           <HorizontalLine></HorizontalLine>
           </div>
        
       ))}
+
+      <Pages>
+      {pageNumbers.map((number) => (
+        <Link to={"/section/" +sectionId+"?page="+number}>
+          <PageNumber key={number} isOn={page == number}>{number}</PageNumber>
+        </Link>
+      
+      ))}
+
+      </Pages>
  </Content>
     </Container>
   );
