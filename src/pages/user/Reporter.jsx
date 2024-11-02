@@ -2,7 +2,7 @@ import { Link, useParams } from "react-router-dom";
 import styled from "styled-components";
 import { useState, useEffect } from 'react';
 import ArticleHeader from "../../components/ArticleHeader";
-import { ThinPageContainer } from "../../components/StyledComponents";
+import { ThinContainer } from "../../components/StyledComponents";
 import Footer from "../../components/Footer";
 
 const ArticleTitle = styled.div`
@@ -78,7 +78,7 @@ const Reporter = () => {
   }, []);
 
   return (
-    <ThinPageContainer>
+    <ThinContainer>
       <ArticleHeader></ArticleHeader>
       <ArticleTitle>{article.title}</ArticleTitle>
       <ArticleSubTitle>{article.subTitle}</ArticleSubTitle>
@@ -86,7 +86,7 @@ const Reporter = () => {
       <ArticleBody  dangerouslySetInnerHTML={{ __html: content }}>
       </ArticleBody>
       <Footer></Footer>
-    </ThinPageContainer>
+    </ThinContainer>
   );
 };
 

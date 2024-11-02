@@ -6,9 +6,9 @@ import { useState, useEffect } from 'react';
 import axios from "axios";
 
 const SectionTitle = styled.div`
-  font-size: 20px;
-  font-weight: 800;
-  margin-bottom: 20px;
+  font-size: 24px;
+  font-weight: 900;
+  margin-bottom: 30px;
   color: #3E5977;
 `;
 
@@ -66,7 +66,7 @@ const ArticleList = () => {
           <div key={article.articleId}>
           <BlockBox>
             <Block2>
-              <Date>{article.publishedAt}</Date>
+              <Date>{article.publishedAt.slice(0,10)}</Date>
               <Link to={"/article/" + article.articleId}>
                 <Title1>{article.title}</Title1>
               </Link>

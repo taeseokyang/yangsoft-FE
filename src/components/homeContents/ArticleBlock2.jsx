@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 import styled from "styled-components";
-import { Container, Content, Block1,Block2, BlockBox, ImageBox, Image, Section, Title1, SubTitle1, Reporter1, Copy, SectionBox, Dot } from "../StyledComponents";
+import { Container, ArticleItem, Block1,Block2, BlockBox, ImageBox, Image, Section, Title1, SubTitle1, Reporter1, Copy, SectionBox, Dot } from "../StyledComponents";
 import VerticalLine from "./VerticalLine";
 import HorizontalLine2 from "./HorizontalLine2";
 
@@ -47,7 +47,7 @@ const ArticleBlock2 = () => {
   ];
   return (
     <Container>
-    <Content>
+    <ArticleItem>
       <Section>{Articles[0].section}</Section>
       <BlockBox>
       <Block1>
@@ -71,7 +71,7 @@ const ArticleBlock2 = () => {
              
       </Block2>
       </BlockBox>
-    </Content>
+    </ArticleItem>
   </Container>
   );
 };

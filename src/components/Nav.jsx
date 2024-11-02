@@ -4,7 +4,7 @@ import { useState, useEffect } from 'react';
 import axios from "axios";
 
 const Container = styled.div`
-  margin-bottom: 10px;
+  margin-bottom: 20px;
 `;
 const Layout = styled.div`
 background: #3E5977;

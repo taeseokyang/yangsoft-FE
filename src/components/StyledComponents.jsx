@@ -10,6 +10,13 @@ export const Content = styled.div`
   margin: 0px auto;
   padding: 10px 20px;
   max-width: 1200px;
+  min-height: 800px;
+`;
+
+export const ArticleItem = styled.div`
+  margin: 0px auto;
+  padding: 10px 20px;
+  max-width: 1200px;
 `;
 
 export const BlockBox = styled.div`
@@ -142,9 +149,9 @@ export const PageContainer = styled.div`
   margin: 0px auto;
 `;
 
-export const ThinPageContainer = styled.div`
+export const ThinContainer = styled.div`
   margin: 0px auto;
-  max-width: 600px;
+  max-width: 800px;
   padding: 0px 20px;
 `;
 

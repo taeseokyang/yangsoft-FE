@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 import styled from "styled-components";
-import { Container, Content, Block1, Block2, BlockBox, ImageBox, Section, Title1, SubTitle1, Reporter1, Image, Copy, SectionBox } from "../StyledComponents";
+import { Container, ArticleItem, Block1, Block2, BlockBox, ImageBox, Section, Title1, SubTitle1, Reporter1, Image, Copy, SectionBox } from "../StyledComponents";
 
 const ArticleBlock1 = () => {
 
@@ -12,7 +12,7 @@ const ArticleBlock1 = () => {
   };
   return (
     <Container>
-      <Content>
+      <ArticleItem>
       <Link to={"/section/" + Article.section}>
             <SectionBox>
                 <Section>{Article.section}</Section>
@@ -33,7 +33,7 @@ const ArticleBlock1 = () => {
             <Copy>Provided by NYT</Copy>
           </Block1>
         </BlockBox>
-      </Content>
+      </ArticleItem>
     </Container>
   );
 };
