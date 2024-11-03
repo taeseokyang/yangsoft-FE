@@ -41,20 +41,45 @@ export const Block3 = styled.div`
 
 export const ImageBox = styled.div`
   width: 100%;
-  height: 180px;
-  background: #f5f5f5;
+  height: 200px;
+  position: relative;
   border-radius: 17px;
   overflow: hidden;
-  display: flex; /* Flexbox 사용 */
-  justify-content: center; /* 가로 중앙 정렬 */
-  align-items: center; /* 세로 중앙 정렬 */
+  display: flex;
+  justify-content: center;
+  align-items: center;
 `;
 
 export const Image = styled.img`
-  max-width: 100%; /* 가로 100% 제한 */
-  max-height: 100%; /* 세로 100% 제한 */
-  object-fit: contain; /* 비율을 유지하면서 이미지 맞춤 */
-  /* border-radius: 17px; */
+  width: 100%;
+  max-height: 100%;
+  object-fit: contain;
+  z-index: 3;
+  position: relative;
+  transition: opacity 0.5s;
+`;
+
+export const BackgroundImage = styled.img`
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  filter: blur(10px);
+  z-index: 1;
+  opacity: ${({ fade }) => (fade ? 0 : 1)};
+  transition: opacity 0.5s;
+`;
+
+export const Overlay = styled.div`
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(255, 255, 255, 0.5);
+  z-index: 2;
 `;
 
 export const Copy = styled.div`
@@ -92,11 +117,12 @@ export const BigImageBox = styled.div`
 
 export const Section = styled.div`
   display: inline-block;
-  font-size: 12px;
+  font-size: 16px;
   /* height: 25px; */
-  font-weight: 800;
+  font-weight: 900;
   color: #3E5977;
-  margin-bottom: 30px;
+  margin-bottom: 10px;
+  margin-top: 10px;
   &:hover{
     text-decoration: underline;
   }
@@ -121,8 +147,8 @@ display: inline-block;
 `;
 export const Title1 = styled.div`
   font-size: 16px;
-  font-weight: 600;
-  /* margin-bottom: 5px; */
+  font-weight: 700;
+  margin-bottom: 5px;
   &:hover{
     text-decoration: underline;
   }
@@ -130,14 +156,14 @@ export const Title1 = styled.div`
 
 export const SubTitle1 = styled.div`
   font-size: 14px;
-  font-weight: 600;
-  color: #767676;
+  font-weight: 700;
+  color: #bcbcbc;
   margin-bottom: 10px;
 `;
 
 export const Reporter1 = styled.div`
   font-size: 14px;
-  font-weight: 400;
+  font-weight: 500;
   color: #767676;
   margin-bottom: 10px;
   &:hover{
@@ -160,3 +186,4 @@ export const BoxContainer = styled.div`
     max-width: 1200px;
     padding: 0px 20px;
 `;
+

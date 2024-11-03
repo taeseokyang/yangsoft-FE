@@ -11,7 +11,8 @@ const Text1 = styled.div`
   margin-left: 20px;
   color: #ffffff;
   @media screen and (max-width: 600px) {
-    font-size: 30px;
+    font-size: 16px;
+    margin-left: 10px;
   }
 `;
 const Text2 = styled.div`
@@ -20,7 +21,8 @@ const Text2 = styled.div`
   color: #ffffff;
   margin-left: 20px;
   @media screen and (max-width: 600px) {
-    font-size: 24px;
+    font-size: 12px;
+    margin-left: 10px;
   }
 `;
 
@@ -31,7 +33,8 @@ const Section = styled.div`
   margin-left: 20px;
   margin-bottom: 10px;
   @media screen and (max-width: 600px) {
-    font-size: 24px;
+    font-size: 12px;
+    margin-left: 10px;
   }
 `;
 const Text3 = styled.div`
@@ -47,11 +50,28 @@ const Text3 = styled.div`
 `;
 
 const EditorsPick = styled.div`
+  /* border-bottom: 3px solid #3e5977; */
+  /* padding-bottom: 7px; */
   color: #3e5977;
   font-size: 24px;
   font-weight: 700;
   margin-bottom: 20px;
+  display: flex;
 `;
+
+const EditorsPickText = styled.div`
+  display: inline-block;
+  /* flex: 1; */
+`;
+
+const UnderLine = styled.div`
+  display: inline-block;
+  flex: 1;
+  height: 21px;
+  margin-left: 3px;
+  border-bottom: 2.5px solid #3e5977;
+`;
+
 
 const BigImageBox = styled.div`
   width: 100%;
@@ -62,6 +82,9 @@ const BigImageBox = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
+  @media screen and (max-width: 600px) {
+    height: 200px;
+  }
 `;
 
 const BackgroundImage = styled.img`
@@ -106,26 +129,29 @@ const BigImageTextBox = styled.div`
   z-index: 3;
   opacity: ${({ fade }) => (fade ? 0 : 1)};
   transition: opacity 0.5s;
+  @media screen and (max-width: 600px) {
+    padding: 10px 0px;
+  }
 `;
 
-const TopBlock = () => {
-  const [articles, setArticles] = useState([]);
+const TopBlock = ({ articles }) => {
+  // const [articles, setArticles] = useState([]);
   const [currentIndex, setCurrentIndex] = useState(0);
   const [fade, setFade] = useState(false);
 
-  useEffect(() => {
-    window.scrollTo(0, 0);
-    const fetchData = async () => {
-      try {
-        const response = await axios.get(process.env.REACT_APP_BACK_URL + "/articles/list/section/1?pageNumber=0");
-        setArticles(response.data.data.articles.slice(5, 10));
-        console.log(response.data.data.articles);
-      } catch (error) {
-        console.error("오류 발생:", error);
-      }
-    };
-    fetchData();
-  }, []);
+  // useEffect(() => {
+  //   window.scrollTo(0, 0);
+  //   const fetchData = async () => {
+  //     try {
+  //       const response = await axios.get(process.env.REACT_APP_BACK_URL + "/articles/list/section/5?pageNumber=0");
+  //       setArticles(response.data.data.articles.slice(5, 10));
+  //       console.log(response.data.data.articles);
+  //     } catch (error) {
+  //       console.error("오류 발생:", error);
+  //     }
+  //   };
+  //   fetchData();
+  // }, []);
 
   useEffect(() => {
     const interval = setInterval(() => {
@@ -160,7 +186,7 @@ const TopBlock = () => {
                   
                   <BigImageTextBox fade={fade}>
                     {/* <Section>{articles[currentIndex].sectionName}</Section> */}
-                    <Section>{"Editorial"}</Section>
+                    <Link to={"/section/" + articles[currentIndex].sectionId + "?page=1"} ><Section>{articles[currentIndex].sectionName}</Section></Link>
                     <Link to={"/article/" + articles[currentIndex].articleId} ><Text1>{articles[currentIndex].title}</Text1></Link>
                     <Link to={"/article/" + articles[currentIndex].articleId} ><Text2>{articles[currentIndex].subtitle}</Text2></Link>
                   </BigImageTextBox>
@@ -170,7 +196,7 @@ const TopBlock = () => {
           </Block2>
           <VerticalLine />
           <Block1>
-            <EditorsPick>Editor's Picks</EditorsPick>
+            <EditorsPick><EditorsPickText>Editor's Picks</EditorsPickText><UnderLine></UnderLine></EditorsPick>
             {articles.map((article, index) => (
               <Link to={"/article/" + article.articleId} key={article.articleId}>
                 <Text3 

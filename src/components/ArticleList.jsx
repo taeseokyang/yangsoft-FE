@@ -32,6 +32,30 @@ const PageNumber = styled.div`
   align-items: center; 
 `;
 
+const BackgroundImage = styled.img`
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  filter: blur(10px);
+  z-index: 1;
+  opacity: ${({ fade }) => (fade ? 0 : 1)};
+  transition: opacity 0.5s;
+`;
+
+const Overlay = styled.div`
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(255, 255, 255, 0.5);
+  z-index: 2;
+`;
+
+
 const ArticleList = () => {
   const { sectionId } = useParams();
   const queryParams = new URLSearchParams(location.search);
@@ -79,15 +103,20 @@ const ArticleList = () => {
                 article.mainImage != "" ?
                 <Block1>
                 <Link to={"/article/" + article.articleId}>
-              <ImageBox><Image src={ process.env.REACT_APP_BACK_URL + "/image?path=" + article.mainImage}></Image></ImageBox>
+                <ImageBox>
+  
+                  <BackgroundImage src={ process.env.REACT_APP_BACK_URL + "/image?path=" + article.mainImage} />
+                  <Overlay />
+                 <Image src={ process.env.REACT_APP_BACK_URL + "/image?path=" + article.mainImage}></Image>
+
+            </ImageBox>
             </Link>
             <Copy>Provided by NYT</Copy>
             </Block1>
             : 
             null
             }
-            
-           
+          
             
           </BlockBox>
           <HorizontalLine></HorizontalLine>
