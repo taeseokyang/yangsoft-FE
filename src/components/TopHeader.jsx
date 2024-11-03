@@ -18,13 +18,17 @@ const Layout = styled.div`
 const Content = styled.div`
     margin: 0px auto;
     padding: 0px 20px;
-    max-width: 1000px;
+    max-width: 1200px;
     height: 30px;
     display: flex;
-    justify-content: center;
+    justify-content: space-between;
     align-items: center;
     font-size: 13px;
     font-weight: 500;
+`;
+
+const Item = styled.div`
+    color: #bcbcbc;
 `;
 
 const TopHeader = () => {
@@ -32,6 +36,10 @@ const TopHeader = () => {
     <Container>
       <Layout>
         <Content>
+          <Item>Published At 2024-12-20</Item>
+          <Link to={"Login"}>
+          <Item>Login</Item>
+            </Link>
         </Content>
       </Layout>
       <Dummy></Dummy>

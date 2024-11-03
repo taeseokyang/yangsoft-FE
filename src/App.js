@@ -5,6 +5,7 @@ import Article from "./pages/user/Article";
 import Reporter from "./pages/user/Reporter";
 import AboutUs from "./pages/user/AboutUs";
 import ContactUs from "./pages/user/ContactUs";
+import Login from "./pages/user/Login";
 /* eslint-disable */
 function App() {
   return (
@@ -16,6 +17,7 @@ function App() {
         <Route path="/reporter/:reporterId" Component={Reporter} />
         <Route path="/aboutus" Component={AboutUs} />
         <Route path="/contactus" Component={ContactUs} />
+        <Route path="/login" Component={Login} />
       </Routes>
     </BrowserRouter>
   );
