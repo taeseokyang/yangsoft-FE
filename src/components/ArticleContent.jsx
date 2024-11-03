@@ -80,12 +80,12 @@ const SectionTitle = styled.div`
 
 const ArticleContent = () => {
   const { articleId } = useParams();
-  const [article, setArticle] = useState({publishedAt:""});
+  const [article, setArticle] = useState({ publishedAt: "" });
   useEffect(() => {
     window.scrollTo(0, 0);
     const fetchData = async () => {
       try {
-        const response = await axios.get(process.env.REACT_APP_BACK_URL + "/articles/"+articleId, {
+        const response = await axios.get(process.env.REACT_APP_BACK_URL + "/articles/" + articleId, {
         });
         setArticle(response.data.data);
         console.log(response.data.data);
@@ -99,24 +99,29 @@ const ArticleContent = () => {
   return (
     <ThinContainer>
       <Content>
-      <SectionTitle>{article.sectionName}</SectionTitle>
-      <ArticleTitle>{article.title}</ArticleTitle>
-      <ArticleSubTitle>{article.subtitle}</ArticleSubTitle>
-      {/* <Separator></Separator> */}
-      <InfoBox>
-        <ReporterBox>
-          <ReporterImg>
+        <SectionTitle>{article.sectionName}</SectionTitle>
+        <ArticleTitle>{article.title}</ArticleTitle>
+        <ArticleSubTitle>{article.subtitle}</ArticleSubTitle>
+        {/* <Separator></Separator> */}
+        <InfoBox>
+          <Link to={"/reporter/" + article.reporterId}>
+            <ReporterBox>
 
-          </ReporterImg>
-          <ReporterName>
-          By {article.reporterName}
-          </ReporterName>
-        </ReporterBox>
-        <PublishedDate>{article.publishedAt.slice(0,10)}</PublishedDate>
-      </InfoBox>
-      <ArticleBody  dangerouslySetInnerHTML={{ __html: article.content }}>
-      </ArticleBody>
- </Content>
+
+
+              <ReporterImg>
+
+              </ReporterImg>
+              <ReporterName>
+                By {article.reporterName}
+              </ReporterName>
+
+            </ReporterBox></Link>
+          <PublishedDate>{article.publishedAt.slice(0, 10)}</PublishedDate>
+        </InfoBox>
+        <ArticleBody dangerouslySetInnerHTML={{ __html: article.content }}>
+        </ArticleBody>
+      </Content>
     </ThinContainer>
   );
 };

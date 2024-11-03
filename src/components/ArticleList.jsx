@@ -1,6 +1,6 @@
 import { Link, useNavigate, useParams } from "react-router-dom";
 import styled from "styled-components";
-import { Container, Content, Block1, Block2, BlockBox, ImageBox, Image, Section, Title1, SubTitle1, Reporter1, Copy, Date } from "./StyledComponents";
+import { Container, Content, Block1, Block2, BlockBox, ImageBox, Image, Section, Title1, SubTitle1, Reporter1, Copy, Date, BackgroundImage, Overlay } from "./StyledComponents";
 import HorizontalLine from "./homeContents/HorizontalLine2";
 import { useState, useEffect } from 'react';
 import axios from "axios";
@@ -30,30 +30,9 @@ const PageNumber = styled.div`
   display: flex;
   justify-content: center; /* 숫자 중앙 정렬 */
   align-items: center; 
+  cursor: pointer;
 `;
 
-const BackgroundImage = styled.img`
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  filter: blur(10px);
-  z-index: 1;
-  opacity: ${({ fade }) => (fade ? 0 : 1)};
-  transition: opacity 0.5s;
-`;
-
-const Overlay = styled.div`
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background-color: rgba(255, 255, 255, 0.5);
-  z-index: 2;
-`;
 
 
 const ArticleList = () => {

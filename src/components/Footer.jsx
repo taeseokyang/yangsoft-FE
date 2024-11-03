@@ -29,14 +29,27 @@ const Item = styled.div`
   color: #5c5c5c;
 `;
 
+const ClickItem = styled.div`
+  font-size: 13px;
+  color: #5c5c5c;
+  &:hover{
+      border-bottom: 1px solid #5c5c5c;
+    }
+`;
+
 const Footer = () => {
   return (
     <Container>
       <Layout>
           <Content>
             <Item>ⓒ 2024 The Gachon Herald</Item>
-            <Item>Contact Us</Item>
-            <Item>About Us</Item>
+            <Link to={"/contactus"}>
+            <ClickItem>Contact Us</ClickItem>
+            </Link>
+            <Link to={"/aboutus"}>
+            <ClickItem>About Us</ClickItem>
+            </Link>
+            
           </Content>
       </Layout>
       <Dummy></Dummy>

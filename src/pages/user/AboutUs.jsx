@@ -8,9 +8,10 @@ import Title from "../../components/Title";
 import Nav from "../../components/Nav";
 import TopHeader from "../../components/TopHeader";
 import Profile from "../../components/Profile";
+import AboutUsContent from "../../components/AboutUsContent";
 
 
-const Reporter = () => {
+const AboutUs = () => {
   useEffect(() => {
     window.scrollTo(0, 0);
   }, []);
@@ -20,10 +21,10 @@ const Reporter = () => {
       <TopHeader></TopHeader>
         <Title></Title>
         <Nav></Nav>
-        <Profile></Profile>
+        <AboutUsContent></AboutUsContent>
         <Footer></Footer>
     </PageContainer>
   );
 };
 
-export default Reporter;
+export default AboutUs;
