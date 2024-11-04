@@ -11,7 +11,6 @@ const CommentTitle = styled.div`
   font-weight: 700;
   color: #3E5977;
   padding-bottom: 10px;
-  /* border-bottom: 2px solid #eeeeee; */
   margin-bottom: 10px;
 `;
 
@@ -36,25 +35,24 @@ const PageNumber = styled.div`
 const CommentInputBox = styled.div`
   display: flex;
   justify-content: space-around;
-  gap:10px;
-  
+  gap: 10px;
 `;
+
 const CommentInput = styled.input`
   width: 100%;
   padding: 10px;
   box-sizing: border-box;
-  /* margin-bottom: 10px; */
   border-radius: 5px;
   border: none;
   font-size: 16px;
   outline: none;
   background: #f5f5f5;
   font-weight: 500;
+  opacity: ${({ isDisabled }) => (isDisabled ? 0.5 : 1)};
 `;
 
 const CommentBox = styled.div`
   margin: 20px 0px;
-  
 `;
 
 const Commenter = styled.div`
@@ -65,14 +63,14 @@ const Commenter = styled.div`
 `;
 
 const CommentContent = styled.div`
-    font-size: 14px;
+  font-size: 14px;
   font-weight: 500;
   color: #828282;
   margin-bottom: 5px;
 `;
 
 const CommentDate = styled.div`
-      font-size: 12px;
+  font-size: 12px;
   font-weight: 500;
   color: #bcbcbc;
 `;
@@ -89,7 +87,27 @@ const SubmitButton = styled.button`
   cursor: pointer;
 `;
 
+const DeleteButton = styled.button`
+  /* margin-left: 10px; */
+  padding: 0px;
+  background: none;
+  /* background-color: #d9534f; */
+  color: #bcbcbc;
+  /* color: white; */
+  border: none;
+  font-weight: 500;
+  border-radius: 5px;
+  cursor: pointer;
+`;
+
+const CommentTop = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+`;
+
 const Comment = () => {
+  const navigate = useNavigate(); 
   const { articleId } = useParams();
   const [cookie] = useCookies(); 
   const [page, setPage] = useState(0);
@@ -99,7 +117,7 @@ const Comment = () => {
 
   const fetchData = async () => {
     try {
-      const response = await axios.get(process.env.REACT_APP_BACK_URL + "/comments/" + articleId+"?pageNumber="+page);
+      const response = await axios.get(process.env.REACT_APP_BACK_URL + "/comments/" + articleId + "?pageNumber=" + page);
       setComments(response.data.data.comments);
       setPageNumbers(Array.from({ length: response.data.data.pageCount }, (_, index) => index + 1));
     } catch (error) {
@@ -108,7 +126,7 @@ const Comment = () => {
   };
 
   useEffect(() => {
-    window.scrollTo(0, 0);
+    // window.scrollTo(0, 0);
     fetchData();
   }, [articleId]);
 
@@ -121,6 +139,7 @@ const Comment = () => {
   };
 
   const handleCommentSubmit = async () => {
+    if (!content) return; // 내용이 없으면 제출하지 않음
     try {
       await axios.post(`${process.env.REACT_APP_BACK_URL}/comments`, {
         articleId,
@@ -134,7 +153,22 @@ const Comment = () => {
       setPage(0);
       fetchData();
     } catch (error) {
+      navigate("/");
       console.error("댓글 작성 오류:", error);
+    }
+  };
+
+  const handleDeleteComment = async (commentId) => {
+    try {
+      await axios.delete(`${process.env.REACT_APP_BACK_URL}/comments/${commentId}`, {
+        headers: {
+          Authorization: `Bearer ${cookie.accessToken}`,
+        },
+      });
+      fetchData(); 
+    } catch (error) {
+      navigate("/");
+      console.error("댓글 삭제 오류:", error);
     }
   };
 
@@ -144,20 +178,27 @@ const Comment = () => {
         <CommentTitle>Comments</CommentTitle>
 
         <CommentInputBox>
-        <CommentInput 
-          value={content}
-          onChange={(e) => setContent(e.target.value)}
-          placeholder="Write a comment..."
-        />
-        <SubmitButton onClick={handleCommentSubmit}>Submit</SubmitButton>
-
+          <CommentInput 
+            value={content}
+            onChange={(e) => setContent(e.target.value)}
+            placeholder={cookie.accessToken != null ? "Write a comment..." : "Please log in to write a comment."}
+            disabled={true} // 로그인 여부에 따라 비활성화
+          />
+          <SubmitButton onClick={handleCommentSubmit} disabled={cookie.accessToken != null}>Submit</SubmitButton>
         </CommentInputBox>
        
         {comments.map((comment) => (
           <CommentBox key={comment.commentId}>
+            <CommentTop>
             <Commenter>{comment.commenterNickname}</Commenter>
+            {cookie.id == comment.commenterId && ( // 본인 댓글인 경우 삭제 버튼 표시
+              <DeleteButton onClick={() => handleDeleteComment(comment.commentId)}>Delete</DeleteButton>
+            )}
+            </CommentTop>
+            
             <CommentContent>{comment.content}</CommentContent>
-            <CommentDate>{comment.createdAt.slice(0,10)}</CommentDate>
+            <CommentDate>{comment.createdAt.slice(0, 10)}</CommentDate>
+            
           </CommentBox>
         ))}
 

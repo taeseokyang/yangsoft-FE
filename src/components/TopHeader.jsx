@@ -50,10 +50,12 @@ const TopHeader = () => {
   const [cookie, setCookie, removeCookie] = useCookies(); 
   const navigate = useNavigate(); 
   const handleLogout = () => {
-    removeCookie('token'); 
-    removeCookie('userId'); 
-    removeCookie('nickname'); 
-    removeCookie('roles'); 
+    removeCookie('accessToken', { path: "/" }); 
+    removeCookie('userId', { path: "/" }); 
+    removeCookie('id', { path: "/" }); 
+    removeCookie('nickname', { path: "/" }); 
+    removeCookie('roles', { path: "/" }); 
+
     navigate("/");
   };
 

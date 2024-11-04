@@ -1,4 +1,4 @@
-import { Link } from "react-router-dom";
+import { Link, useNavigate, useParams } from "react-router-dom";
 import { useCookies } from "react-cookie";
 import styled from "styled-components";
 import { Container, Content, Block1, Block2, BlockBox, ImageBox, Image, Title1, SubTitle1, Reporter1, Copy, Date, BackgroundImage, Overlay } from "./StyledComponents";
@@ -158,6 +158,7 @@ const PageNumber = styled.div`
 
 
 const ManageProfile = () => {
+  const navigate = useNavigate(); 
   const [cookie] = useCookies(); 
   const [page, setPage] = useState(0);
   const [pageNumbers, setPageNumbers] = useState([]);
@@ -180,6 +181,7 @@ const ManageProfile = () => {
         setEditFields(response2.data.data);
         console.log(response2.data.data);
       } catch (error) {
+        navigate("/");
         console.error("오류 발생:", error);
       }
     };
@@ -200,6 +202,7 @@ const ManageProfile = () => {
       setReporter(editFields);
       setIsEditing(false);
     } catch (error) {
+      navigate("/");
       console.error("수정 오류:", error);
     }
   };
