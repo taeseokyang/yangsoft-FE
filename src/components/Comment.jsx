@@ -182,9 +182,9 @@ const Comment = () => {
             value={content}
             onChange={(e) => setContent(e.target.value)}
             placeholder={cookie.accessToken != null ? "Write a comment..." : "Please log in to write a comment."}
-            disabled={true} // 로그인 여부에 따라 비활성화
+            disabled={cookie.accessToken == null} // 로그인 여부에 따라 비활성화
           />
-          <SubmitButton onClick={handleCommentSubmit} disabled={cookie.accessToken != null}>Submit</SubmitButton>
+          <SubmitButton onClick={handleCommentSubmit} disabled={cookie.accessToken == null}>Submit</SubmitButton>
         </CommentInputBox>
        
         {comments.map((comment) => (
@@ -202,6 +202,7 @@ const Comment = () => {
           </CommentBox>
         ))}
 
+        {comments.length != 0 ?
         <Pages>
           {pageNumbers.map((number) => (
             <PageNumber 
@@ -213,6 +214,7 @@ const Comment = () => {
             </PageNumber>
           ))}
         </Pages>
+        : null}
       </ContentFit>
     </ThinContainer>
   );
