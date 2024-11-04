@@ -6,6 +6,7 @@ import Reporter from "./pages/user/Reporter";
 import AboutUs from "./pages/user/AboutUs";
 import ContactUs from "./pages/user/ContactUs";
 import Login from "./pages/user/Login";
+import ReportersPage from "./pages/user/ReportersPage";
 /* eslint-disable */
 function App() {
   return (
@@ -18,6 +19,7 @@ function App() {
         <Route path="/aboutus" Component={AboutUs} />
         <Route path="/contactus" Component={ContactUs} />
         <Route path="/login" Component={Login} />
+        <Route path="/reporter/manage" Component={ReportersPage} />
       </Routes>
     </BrowserRouter>
   );

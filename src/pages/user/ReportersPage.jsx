@@ -7,10 +7,11 @@ import Footer from "../../components/Footer";
 import Title from "../../components/Title";
 import Nav from "../../components/Nav";
 import TopHeader from "../../components/TopHeader";
-import ArticleContent from "../../components/ArticleContent";
-import Comment from "../../components/Comment";
+import Profile from "../../components/Profile";
+import ManageProfile from "../../components/ManageProfile";
 
-const Article = () => {
+
+const ReportersPage = () => {
   useEffect(() => {
     window.scrollTo(0, 0);
   }, []);
@@ -20,11 +21,11 @@ const Article = () => {
       <TopHeader></TopHeader>
         <Title></Title>
         <Nav></Nav>
-        <ArticleContent></ArticleContent>
-        <Comment></Comment>
+
+        <ManageProfile></ManageProfile>
         <Footer></Footer>
     </PageContainer>
   );
 };
 
-export default Article;
+export default ReportersPage;

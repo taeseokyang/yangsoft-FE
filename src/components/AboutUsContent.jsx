@@ -107,30 +107,23 @@ const Text = styled.div`
 
 
 const AboutUsContent = () => {
-  const { reporterId } = useParams();
-  const [reporter, setReporter] = useState({});
-  const [page, setPage] = useState(0);
-  const [pageNumbers, setPageNumbers] = useState([]);
-  const [articles, setArticles] = useState([]);
+  const [reporters, setReporters] = useState([]);
+
 
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await axios.get(process.env.REACT_APP_BACK_URL + "/articles/list/reporter/"+reporterId+"?pageNumber="+page, {
+        const response = await axios.get(process.env.REACT_APP_BACK_URL + "/account/reporters", {
         });
-        setArticles(response.data.data.articles);
-        setPageNumbers(Array.from({ length: response.data.data.pageCount }, (_, index) => index + 1));
+        setReporters(response.data.data.reporters);
+        // console.log(response.data.data);
 
-        const response2 = await axios.get(process.env.REACT_APP_BACK_URL + "/account/"+reporterId, {
-        });
-        setReporter(response2.data.data);
-        console.log(response2.data.data);
       } catch (error) {
         console.error("오류 발생:", error);
       }
     };
     fetchData();
-  }, [reporterId, page]);
+  }, []);
 
   // 페이지 번호 클릭 핸들러
   const handlePageClick = (number) => {
@@ -151,10 +144,16 @@ const AboutUsContent = () => {
         </Box>
         <Box>
             <Title>Our Reporters</Title>
-            <Info><InfoName>Editor In Chief</InfoName>Tae-seok yang</Info>
-            <Info><InfoName>Head Of Administration</InfoName>Yeon-seo Park</Info>
-            <Info><InfoName>Regular Reporter</InfoName>Yeon-seo Park</Info>
-            <Info><InfoName>Intern Reporter</InfoName>Yeon-seo Park</Info>
+            {reporters.map((reporter, index) => (
+            <Info><InfoName>{reporter.position}</InfoName>
+             <Link to={"/reporter/" + reporter.reporterId} key={index}>
+             {reporter.nickname}
+             </Link>
+            </Info>
+              
+               
+
+          ))}
         </Box>
 
         

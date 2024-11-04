@@ -13,6 +13,12 @@ export const Content = styled.div`
   min-height: 800px;
 `;
 
+export const ContentFit = styled.div`
+  margin: 0px auto;
+  padding: 10px 20px;
+  /* max-width: 800px; */
+`;
+
 export const ArticleItem = styled.div`
   margin: 0px auto;
   padding: 10px 20px;

@@ -1,10 +1,12 @@
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import styled from "styled-components";
 import { useState, useEffect } from 'react';
 import axios from "axios";
 import { PageContainer } from "../../components/StyledComponents";
 import Footer from "../../components/Footer";
 import TopHeader from "../../components/TopHeader";
+import { useCookies } from "react-cookie";
+import moment from "moment";
 
 const Content = styled.div`
   display: flex;
@@ -66,11 +68,13 @@ const TitleImg = styled.img`
 `;
 
 const Login = () => {
+  const navigate = useNavigate(); 
   const [email, setEmail] = useState('');
   const [name, setName] = useState('');
   const [password, setPassword] = useState('');
   const [confirmPassword, setConfirmPassword] = useState('');
   const [loginStatus, setLoginStatus] = useState(0);
+  const [, setCookie] = useCookies(); 
 
   const checkEmail = async () => {
     try {
@@ -82,7 +86,47 @@ const Login = () => {
   };
 
   const handleContinueClick = () => {
-    checkEmail();
+    if (loginStatus == 0){
+      checkEmail();
+    }else if(loginStatus == 1){
+      handleSignIn();
+    }
+  };
+
+  const handleSignIn = async () => {
+    try {
+      const response = await axios.post(`${process.env.REACT_APP_BACK_URL}/account/email/signin`, {
+        email,
+        password,
+      });
+      console.log(response.data.data); 
+       if (response.status === 200) {
+          const expires = moment().add(48, "hours").toDate();
+          setCookie("id", response.data.data.id, {
+            path: "/",
+            expires: expires,
+          });
+          setCookie("accessToken", response.data.data.accessToken, {
+            path: "/",
+            expires: expires,
+          });
+          setCookie("userId", response.data.data.userId, {
+            path: "/",
+            expires: expires,
+          });
+          setCookie("nickname", response.data.data.nickname, {
+            path: "/",
+            expires: expires,
+          });
+          setCookie("roles", response.data.data.roles, {
+            path: "/",
+            expires: expires,
+          });
+          navigate("/");
+        }
+    } catch (error) {
+      console.error("Sign in error:", error);
+    }
   };
 
   const handleSignUp = async () => {
