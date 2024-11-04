@@ -14,6 +14,7 @@ const Content = styled.div`
   overflow: hidden;
   align-items: center;
   max-width: 1200px;
+  min-height: 500px;
   margin: 0px auto;
   flex-direction: column;
   padding: 10px 20px;
@@ -233,13 +234,13 @@ const Login = () => {
     } catch (error) {
       setIsTimerActive(false);
       setIsEmailSent(false);
-      setErrorMessage("Please enter a valid email.");
+      setErrorMessage("Please enter a valid email or check your network.");
       console.error("인증 이메일 전송 오류:", error);
     }
   };
 
   const filter = (text) => {
-    return text.replace(/[^a-zA-Z0-9@!?]/g, '');
+    return text.replace(/[^a-zA-Z0-9@!?.]/g, '');
   };
 
   const startTimer = () => {
@@ -329,10 +330,10 @@ const Login = () => {
         <EmailLogin onClick={handleContinueClick}>
           {loginStatus === 2 ? "Sign Up" : "Continue"}
         </EmailLogin>
-        <Or>or</Or> 
+        {/* <Or>or</Or> 
         <a href={"https://kauth.kakao.com/oauth/authorize?client_id=ddef038fa084012b787cdc2e0ac14a40&redirect_uri=https://baram.today/oauth/kakao&response_type=code"}>
           <KakaoLogin>Continue with Kakao Talk</KakaoLogin>
-        </a>
+        </a> */}
       </Content>
       <Footer />
     </PageContainer>

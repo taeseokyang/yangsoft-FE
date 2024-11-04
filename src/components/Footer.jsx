@@ -4,14 +4,14 @@ import { Container} from "./StyledComponents";
 
 
 const Dummy = styled.div`
-  height: 100px;
+  height: 200px;
 `;
 const Layout = styled.div`
     margin-top: 100px;
     position: absolute;
     left: 0;
     width: 100%;
-    height: 100px;
+    height:200px;
     background: #f1f1f1;
 
 `;
