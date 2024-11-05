@@ -92,35 +92,6 @@ const PageNumber = styled.div`
 
 
 const ContactUsContent = () => {
-  const { reporterId } = useParams();
-  const [reporter, setReporter] = useState({});
-  const [page, setPage] = useState(0);
-  const [pageNumbers, setPageNumbers] = useState([]);
-  const [articles, setArticles] = useState([]);
-
-  useEffect(() => {
-    const fetchData = async () => {
-      try {
-        const response = await axios.get(process.env.REACT_APP_BACK_URL + "/articles/list/reporter/"+reporterId+"?pageNumber="+page, {
-        });
-        setArticles(response.data.data.articles);
-        setPageNumbers(Array.from({ length: response.data.data.pageCount }, (_, index) => index + 1));
-
-        const response2 = await axios.get(process.env.REACT_APP_BACK_URL + "/account/"+reporterId, {
-        });
-        setReporter(response2.data.data);
-        console.log(response2.data.data);
-      } catch (error) {
-        console.error("오류 발생:", error);
-      }
-    };
-    fetchData();
-  }, [reporterId, page]);
-
-  // 페이지 번호 클릭 핸들러
-  const handlePageClick = (number) => {
-    setPage(number - 1); // 페이지 번호는 1부터 시작하므로 0으로 변환
-  };
 
   return (
     <Container>
@@ -131,8 +102,6 @@ const ContactUsContent = () => {
             <Info><InfoName>Phone</InfoName>010-5239-5132</Info>
             <Info><InfoName>Instagram</InfoName>@thegachonherald</Info>
         </Box>
-
-        
       </Content>
     </Container>
   );

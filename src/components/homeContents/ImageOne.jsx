@@ -41,7 +41,7 @@ const ImageOne = ({ sectionId, sectionName, imageArticles, articles }) => {
               <Image src={process.env.REACT_APP_BACK_URL + "/image?path=" + imageArticles[0].mainImage}></Image>
 
             </ImageBox>
-            <Copy>{imageArticles[0].copy}</Copy>
+            {/* <Copy>{imageArticles[0].copy}</Copy> */}
             </Link>
           </Block1>
           <VerticalLine></VerticalLine>

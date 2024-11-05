@@ -13,8 +13,14 @@ export const Content = styled.div`
     }
 `;
 
-export const TitleImg = styled.img`
+
+export const TitleImgBox = styled.div`
+ pointer-events: auto;
+`;
+
+export const TitleImg = styled.object`
   height: 120px;
+  pointer-events: none;
   @media screen and (max-width: 600px) {
       height: 50px;
     }
@@ -25,7 +31,10 @@ const Title = () => {
     <Container>
       <Content>
         <Link to={"/"}>
-          <TitleImg src="/images/gachonherald.svg"></TitleImg>
+        <TitleImgBox>
+        <TitleImg data="/images/gachonherald.svg"></TitleImg>
+        </TitleImgBox>
+          
         </Link>
       </Content>
     </Container>

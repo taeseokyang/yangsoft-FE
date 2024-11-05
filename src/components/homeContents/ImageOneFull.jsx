@@ -29,7 +29,7 @@ const ImageOneFull = ({ sectionId, sectionName, article }) => {
                 <Image src={process.env.REACT_APP_BACK_URL + "/image?path=" + article.mainImage} />
               </ImageBox>
             </Link>
-            <Copy>Provided by NYT</Copy>
+            {/* <Copy>Provided by NYT</Copy> */}
           </Block1>
         </BlockBox>
       </ArticleItem>

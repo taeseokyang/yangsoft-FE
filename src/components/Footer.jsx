@@ -22,16 +22,18 @@ const Content = styled.div`
   display: flex;
     align-items: center; 
     flex-direction: row;
-    gap: 20px;
+    gap: 15px;
 `;
 const Item = styled.div`
   font-size: 13px;
   color: #5c5c5c;
+  white-space: nowrap;
 `;
 
 const ClickItem = styled.div`
   font-size: 13px;
   color: #5c5c5c;
+  white-space: nowrap;
   &:hover{
       border-bottom: 1px solid #5c5c5c;
     }

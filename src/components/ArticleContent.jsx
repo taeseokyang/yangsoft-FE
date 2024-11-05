@@ -30,9 +30,13 @@ const ArticleBody = styled.div`
   color: #000000;
   & img{
     align-items: center; 
-    margin: 0px auto;
+    margin: 20px auto;
     width: 100%;
     border-radius: 17px;
+  }
+
+  & strong{
+    margin: 10px 0px;
   }
 `;
 
@@ -99,7 +103,10 @@ const ArticleContent = () => {
   return (
     <ThinContainer>
       <Content>
-        <SectionTitle>{article.sectionName}</SectionTitle>
+      <Link to={"/section/" + article.sectionId+"?page=1"}>
+      <SectionTitle>{article.sectionName}</SectionTitle>
+      </Link>
+        
         <ArticleTitle>{article.title}</ArticleTitle>
         <ArticleSubTitle>{article.subtitle}</ArticleSubTitle>
         {/* <Separator></Separator> */}

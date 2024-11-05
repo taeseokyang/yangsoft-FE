@@ -167,40 +167,45 @@ const ManageProfile = () => {
   const [isEditing, setIsEditing] = useState(false);
   const [editFields, setEditFields] = useState({ nickname: '', intro: '', email: '', major: '' });
 
-  useEffect(() => {
-    const fetchData = async () => {
-      try {
-        const response = await axios.get(process.env.REACT_APP_BACK_URL + "/articles/list/reporter/"+cookie.id+"?pageNumber="+page, {
-        });
-        setArticles(response.data.data.articles);
-        setPageNumbers(Array.from({ length: response.data.data.pageCount }, (_, index) => index + 1));
+  const fetchData = async () => {
+    try {
+      const response = await axios.get(process.env.REACT_APP_BACK_URL + "/articles/list/reporter/"+cookie.id+"?pageNumber="+page, {
+      });
+      setArticles(response.data.data.articles);
+      setPageNumbers(Array.from({ length: response.data.data.pageCount }, (_, index) => index + 1));
 
-        const response2 = await axios.get(process.env.REACT_APP_BACK_URL + "/account/"+cookie.id, {
-        });
-        setReporter(response2.data.data);
-        setEditFields(response2.data.data);
-        console.log(response2.data.data);
-      } catch (error) {
-        navigate("/");
-        console.error("오류 발생:", error);
-      }
-    };
+      const response2 = await axios.get(process.env.REACT_APP_BACK_URL + "/account/"+cookie.id, {
+      });
+      setReporter(response2.data.data);
+      setEditFields(response2.data.data);
+      
+    } catch (error) {
+      navigate("/");
+      console.error("오류 발생:", error);
+    }
+  };
+
+  useEffect(() => {
     fetchData();
-  }, [page]);
+  }, []);
 
   const handleEditClick = () => {
     setIsEditing(true);
+    console.log(reporter);
+    console.log(editFields);
   };
 
   const handleSave = async () => {
     try {
+      console.log(editFields);
       await axios.patch(`${process.env.REACT_APP_BACK_URL}/account/reporter/profile`, editFields, {
         headers: {
           Authorization: `Bearer ${cookie.accessToken}`, // 쿠키에서 토큰 가져오기
         },
       });
-      setReporter(editFields);
+      fetchData();
       setIsEditing(false);
+      
     } catch (error) {
       navigate("/");
       console.error("수정 오류:", error);

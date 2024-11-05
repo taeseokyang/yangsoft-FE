@@ -90,7 +90,7 @@ const ArticleList = () => {
 
             </ImageBox>
             </Link>
-            <Copy>Provided by NYT</Copy>
+            {/* <Copy>Provided by NYT</Copy> */}
             </Block1>
             : 
             null

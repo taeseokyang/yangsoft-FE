@@ -3,6 +3,7 @@ import styled from "styled-components";
 import { useState, useEffect } from 'react';
 import axios from "axios";
 
+
 const Container = styled.div`
   margin-bottom: 20px;
 `;
@@ -24,17 +25,10 @@ const Content = styled.div`
 `;
 
 const SectionBar = styled.div`
-    height: 100%;
+padding: 15px 0px;
+height: 100%;
     width: 100%;
-    padding: 15px 0px;
-
     display: flex;
-    align-items: center; 
-    gap: 20px;
-    @media screen and (max-width: 600px) {
-      padding: 5px 0px;
-        gap: 5px;
-    }
     /* width: 80%; */
     overflow-x: auto;
 
@@ -42,7 +36,36 @@ const SectionBar = styled.div`
     display: none;
     }
     scrollbar-width: none;
+    @media screen and (max-width: 600px) {
+      padding: 5px 0px;
+        gap: 5px;
+    }
+    gap: 20px;
 `;
+
+const ActiveSetions = styled.div`
+    display: flex;
+    align-items: center; 
+    gap: 20px;
+
+    padding-right: 20px;
+    border-right: 1px solid #ffffff;
+`;
+
+const InActiveSetions = styled.div`
+    display: flex;
+    align-items: center; 
+    gap: 20px;
+
+    position: relative;
+    color: #ffffff;
+    font-weight: 400;
+    font-size: 16px;
+    white-space: nowrap;
+   
+`;
+
+
 const SectionTitle = styled.div`
     position: relative;
     color: #ffffff;
@@ -64,6 +87,19 @@ const Section = styled.div`
     &:hover{
       border-bottom: 1px solid #ffffff;
         /* background: #f0f0f0; */
+    }
+    a{
+      color: #ffffff;
+    }
+`;
+
+const Line = styled.span`
+  height: 100%;
+  width: 100px;
+  background: #ffffff;
+
+    @media screen and (max-width: 600px) {
+        padding: 5px 5px;
     }
 `;
 
@@ -103,6 +139,8 @@ const TopHeader = () => {
       <Layout>
         <Content>
         <SectionBar>
+         
+                  <ActiveSetions>
                     {sections.map((section) => (
                         <Section key={section.sectionId}>
                             <Link to={"/section/" + section.sectionId+"?page=1"}>
@@ -111,6 +149,16 @@ const TopHeader = () => {
                             </Link>
                         </Section>
                     ))}
+                    </ActiveSetions>
+                    {sections.length !=0 ?
+                    <InActiveSetions>
+                    <Section >
+                    <Link to={"/archive"}>
+                    Archive
+                    </Link>
+                    </Section>
+                    </InActiveSetions>
+                    : null }
              </SectionBar>
         </Content>
       </Layout>

@@ -43,7 +43,7 @@ const ImageTwo = ({ sectionId, sectionName, imageArticles, articles }) => {
 
               </ImageBox>
               
-              <Copy>{article.copy}</Copy>
+              {/* <Copy>{article.copy}</Copy> */}
               </Link>
             </Block1>
 
