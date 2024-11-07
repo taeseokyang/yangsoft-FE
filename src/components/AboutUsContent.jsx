@@ -133,15 +133,15 @@ const AboutUsContent = () => {
   return (
     <Container>
       <Content>
-        <Box>
+        {/* <Box>
             <Title>The Gachon Herald</Title>
             <TextBox>
               <Text>
-              The Gachon Herald is an English-language newspaper based at Gachon University, dedicated to delivering insightful news, engaging features, and diverse opinions. Founded by journalism students, it serves as a platform for promoting communication within the university community. <br></br><br></br>The Herald covers a range of topics, including campus events and global issues, while encouraging student voices and fostering critical thinking. With both print and digital editions, The Gachon Herald aims to keep readers informed and engaged in the stories that matter.
+              The Gachon Herald is an English newspaper based at Gachon University.
               </Text>
             
             </TextBox>
-        </Box>
+        </Box> */}
         <Box>
             <Title>Our Reporters</Title>
             {reporters.map((reporter, index) => (

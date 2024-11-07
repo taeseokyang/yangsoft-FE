@@ -37,8 +37,8 @@ height: 100%;
     }
     scrollbar-width: none;
     @media screen and (max-width: 600px) {
-      padding: 5px 0px;
-        gap: 5px;
+      padding: 10px 0px;
+      gap: 5px;
     }
     gap: 20px;
 `;
@@ -82,7 +82,7 @@ const Section = styled.div`
     border-top: 1px solid #3E5977;
     border-bottom: 1px solid #3E5977;
     @media screen and (max-width: 600px) {
-        padding: 5px 5px;
+        /* padding: 5px 0px; */
     }
     &:hover{
       border-bottom: 1px solid #ffffff;
