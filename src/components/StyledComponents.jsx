@@ -184,7 +184,6 @@ export const PageContainer = styled.div`
 export const ThinContainer = styled.div`
   margin: 0px auto;
   max-width: 800px;
-  padding: 0px 20px;
 `;
 
 export const BoxContainer = styled.div`
