@@ -28,6 +28,7 @@ const ArticleBody = styled.div`
   font-weight: 500;
   line-height: 150%;
   color: #000000;
+  white-space: pre-line;
   & img{
     align-items: center; 
     margin: 20px auto;
