@@ -9,6 +9,7 @@ import Login from "./pages/user/Login";
 import ReportersPage from "./pages/user/ReportersPage";
 import Archive from "./pages/user/Archive";
 import AddArticle from "./pages/user/AddArticle";
+import UpdateArticleContent from "./components/UpdateArticleContent";
 /* eslint-disable */
 function App() {
   return (
@@ -24,6 +25,7 @@ function App() {
         <Route path="/reporter/manage" Component={ReportersPage} />
         <Route path="/archive" Component={Archive} />
         <Route path="/add" Component={AddArticle} />
+        <Route path="/add/:articleId" Component={UpdateArticleContent} />
       </Routes>
     </BrowserRouter>
   );

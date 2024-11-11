@@ -4,6 +4,7 @@ import { ThinContainer, Container, Content, Block1, Block2, BlockBox, ImageBox, 
 import HorizontalLine from "./homeContents/HorizontalLine2";
 import { useState, useEffect } from 'react';
 import axios from "axios";
+import { useCookies } from "react-cookie";
 
 
 const ArticleTitle = styled.div`
@@ -31,11 +32,10 @@ const ArticleBody = styled.div`
   white-space: pre-line;
   & img{
     align-items: center; 
-    margin: 20px auto;
+    /* margin: 20px auto; */
     width: 100%;
     border-radius: 17px;
   }
-
   & strong{
     margin: 10px 0px;
   }
@@ -84,6 +84,7 @@ const SectionTitle = styled.div`
 
 
 const ArticleContent = () => {
+  const [cookie] = useCookies(); 
   const { articleId } = useParams();
   const [article, setArticle] = useState({ publishedAt: "" });
   useEffect(() => {
@@ -104,6 +105,7 @@ const ArticleContent = () => {
   return (
     <ThinContainer>
       <Content>
+      { cookie.roles == 'REPORTER'  ? <Link to={"/add/"+article.articleId}>수정</Link> : null}
       <Link to={"/section/" + article.sectionId+"?page=1"}>
       <SectionTitle>{article.sectionName}</SectionTitle>
       </Link>
