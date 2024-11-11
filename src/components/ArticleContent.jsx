@@ -23,13 +23,13 @@ const ArticleSubTitle = styled.div`
 `;
 
 const ArticleBody = styled.div`
-  display: flex;
-  flex-direction: column;
+  /* display: flex; */
+  /* flex-direction: column; */
   font-size: 16px;
   font-weight: 500;
   line-height: 150%;
   color: #000000;
-  white-space: pre-line;
+  white-space: ${props => props.isOldArticle ? 'normal' : 'pre-line'};
   & img{
     align-items: center; 
     /* margin: 20px auto; */
@@ -37,7 +37,7 @@ const ArticleBody = styled.div`
     border-radius: 17px;
   }
   & strong{
-    margin: 10px 0px;
+    /* margin: 10px 0px; */
   }
 `;
 
@@ -129,7 +129,7 @@ const ArticleContent = () => {
             </ReporterBox></Link>
           <PublishedDate>{article.publishedAt.slice(0, 10)}</PublishedDate>
         </InfoBox>
-        <ArticleBody dangerouslySetInnerHTML={{ __html: article.content }}>
+        <ArticleBody isOldArticle={article.articleId < 1262} dangerouslySetInnerHTML={{ __html: article.content }}>
         </ArticleBody>
       </Content>
     </ThinContainer>
