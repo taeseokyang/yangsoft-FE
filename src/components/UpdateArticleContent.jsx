@@ -30,23 +30,20 @@ const ImagePreview = styled.img`
   object-fit: cover;
   cursor: pointer;
   border: 1px solid #eeeeee;
-  border-radius: 15px;
-  ${props => props.isMain && `
-    border: 2px solid #3e5977; /* 메인 이미지 강조 */
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
-  `}
+  border-radius: 10px;
 `;
 
 const DeleteButton = styled.button`
   position: absolute;
   top: 5px;
   right: 5px;
-  background: #bcbcbc;
+  background: #828282;
   color: white;
   border: none;
   border-radius: 50%;
   width: 20px;
   height: 20px;
+  font-weight: 500;
   font-size: 12px;
   cursor: pointer;
   display: ${props => (props.visible ? 'block' : 'none')};
@@ -59,7 +56,7 @@ const MainImageButton = styled.button`
   position: absolute;
   bottom: 5px;
   left: 5px;
-  background: #3e5977;
+  background: #000000;
   color: white;
   border: none;
   border-radius: 5px;
@@ -81,6 +78,8 @@ const MainImageLabel = styled.div`
 
 const Button = styled.button`
   padding: 10px 20px;
+  border-radius: 10px;
+  font-weight: 700;
   background-color: #3e5977;
   color: white;
   border: none;
@@ -90,7 +89,6 @@ const Button = styled.button`
 const DropzoneArea = styled.div`
   width: 100%;
   box-sizing: border-box;
-  background: #f5f5f5;
   border-radius: 10px;
   text-align: center;
   cursor: pointer;
@@ -100,34 +98,122 @@ const DropzoneArea = styled.div`
 
 const InputField = styled.input`
   width: 100%;
+  font-size: 16px;
   box-sizing: border-box;
-  padding: 10px;
-  border: 1px solid #ddd;
-  border-radius: 5px;
+  padding: 10px 0px;
+  margin-top: 10px;
+  font-weight: 500;
+  outline: none;
+  border: none;
+  border-bottom: 3px solid #eeeeee;
+
+  &::placeholder {
+    color: #bcbcbc; 
+    font-weight: 700; 
+  }
+
+  /* 비활성화 스타일 */
+  ${({ disabled }) => disabled && `
+    background-color: #f0f0f0;
+    cursor: not-allowed;
+  `}
 `;
 
 const TextArea = styled.textarea`
+  margin-top: 30px;
   width: 100%;
-  padding: 10px;
+  outline: none;
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 150%;
   box-sizing: border-box;
-  border: 1px solid #ddd;
-  border-radius: 5px;
-  min-height: 200px;
+  border: none;
+  resize: none;
+  min-height: 600px;
+
+  &::placeholder {
+    color: #bcbcbc; 
+    font-weight: 700; 
+  }
+
+  /* 비활성화 스타일 */
+  ${({ disabled }) => disabled && `
+    background-color: #f0f0f0;
+    cursor: not-allowed;
+  `}
 `;
 
 const Dropdown = styled.select`
-  padding: 10px;
-  margin: 10px 0;
-  border: 1px solid #ddd;
+  margin-top: 20px;
+  padding: 5px;
+  font-size: 16px;
+  color: #3E5977;
+  font-weight: 700;
+  outline: none;
+  border: 3px solid #eeeeee;
   border-radius: 5px;
   width: 100%;
 `;
 
-const AddImageButton = styled.div`
-  width: 100px;
-  height: 20px;
+const StatusLabel = styled.div`
+  display: inline-block;
+  background: #3E5977;
+  border-radius: 5px;
+  color: #ffffff;
+  font-size: 14px;
+  padding: 5px 7px;
+  margin-bottom: 20px;
+  font-weight: 700;
+`;
+
+const RadioButtonGroup = styled.div`
+  display: flex;
+  gap: 10px;
+  margin-bottom: 20px;
+`;
+
+const RadioButton = styled.label`
+  display: flex;
+  align-items: center;
   cursor: pointer;
-  background: #eeeeee;
+  color: #3E5977;
+  font-size: 14px;
+  font-weight: 700;
+
+  input[type="radio"] {
+    appearance: none;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    background-color: #fff;
+    border: 2px solid #3E5977;
+    margin-right: 10px;
+    transition: all 0.3s ease;
+    cursor: pointer;
+  }
+
+  input[type="radio"]:checked {
+    background-color: #3E5977;
+    border: 2px solid #3E5977;
+  }
+
+  input[type="radio"]:hover {
+    background-color: #f0f0f0;
+    border-color: #3E5977;
+  }
+
+  input[type="radio"]:checked {
+    background-color: #3E5977;
+    border: 2px solid #fff;
+  }
+
+  span {
+    transition: all 0.3s ease;
+  }
+
+  input[type="radio"]:checked + span {
+    color: #3E5977;
+  }
 `;
 
 const UpdateArticleContent = () => {
@@ -138,20 +224,31 @@ const UpdateArticleContent = () => {
   const [mainImage, setMainImage] = useState('');
   const [images, setImages] = useState([]);
   const [sections, setSections] = useState([]);
-  const [cookie] = useCookies(); 
+  const [cookie, setCookie, removeCookie] = useCookies(); 
   const navigate = useNavigate(); 
   const { articleId } = useParams();
+  const [articleStatus, setArticleStatus] = useState(''); // 기사 상태
+  const [status, setStatus] = useState('');
   useEffect(() => {
     window.scrollTo(0, 0);
     const fetchData = async () => {
       try {
-        const response = await axios.get(process.env.REACT_APP_BACK_URL + "/articles/" + articleId, {
+        const response = await axios.get(process.env.REACT_APP_BACK_URL + "/articles/reporter/" + articleId, {
+          headers: {
+            Authorization: `Bearer ${cookie.accessToken}`,
+          },
         });
         setTitle(response.data.data.title);
         setSubtitle(response.data.data.subtitle);
         setSectionId(response.data.data.sectionId);
         setContent(response.data.data.content);
-        console.log(response.data.data);
+        if (response.data.data.mainImage != ''){
+          setImages([response.data.data.mainImage]);
+        }
+        setMainImage(response.data.data.mainImage);
+        setArticleStatus(response.data.data.status);
+        setStatus(response.data.data.status);
+        console.log(response.data.data.status);
       } catch (error) {
         console.error("오류 발생:", error);
       }
@@ -238,48 +335,93 @@ const UpdateArticleContent = () => {
         subtitle,
         content,
         sectionId,
+        status: status,
       }, {
         headers: {
           Authorization: `Bearer ${cookie.accessToken}`,
         },
       });
-      alert("수정 완료");
-      navigate("/article/"+articleId);
+      // navigate("/article/"+articleId);
     } catch (error) {
       console.error("기사 저장 오류:", error);
+      removeCookie('accessToken', { path: "/" }); 
+      removeCookie('userId', { path: "/" }); 
+      removeCookie('id', { path: "/" }); 
+      removeCookie('nickname', { path: "/" }); 
+      removeCookie('roles', { path: "/" }); 
+      navigate("/Login");
+    }
+  };
+
+  const handleStatusChange = (status) => {
+    if (status === 'PENDING') {
+      if (window.confirm("승인 신청 시 더 이상 기사를 수정할 수 없습니다.")) {
+        setStatus(status);
+      }
+    } else {
+      setStatus(status);
     }
   };
 
   return (
     <Container>
-      <h2>기사 작성</h2>
-
-      <InputField
-        type="text"
-        placeholder="제목"
-        value={title}
-        onChange={(e) => setTitle(e.target.value)}
-      />
-
-      <InputField
-        type="text"
-        placeholder="부제목"
-        value={subtitle}
-        onChange={(e) => setSubtitle(e.target.value)}
-      />
-
-      <Dropdown value={sectionId} onChange={(e) => setSectionId(e.target.value)}>
+      <StatusLabel>{articleStatus}</StatusLabel>
+      {
+        articleStatus == "EDITING" ?
+      
+      <RadioButtonGroup>
+        <RadioButton>
+          <input
+            type="radio"
+            id="draft"
+            name="articleStatus"
+            value="EDITING"
+            checked={status === 'EDITING'}
+            onChange={() => handleStatusChange('EDITING')}
+          />
+          <span>기사 작성</span>
+        </RadioButton>
+        <RadioButton>
+          <input
+            type="radio"
+            id="pending"
+            name="articleStatus"
+            value="PENDING"
+            checked={status === 'PENDING'}
+            onChange={() => handleStatusChange('PENDING')}
+          />
+          <span>승인 신청</span>
+        </RadioButton>
+      </RadioButtonGroup>:null
+}
+      <Dropdown disabled={articleStatus === 'PENDING'} value={sectionId} onChange={(e) => setSectionId(e.target.value)}>
         {sections.map((section) => (
           <option key={section.sectionId} value={section.sectionId}>{section.name}</option>
         ))}
       </Dropdown>
 
+      <InputField
+        type="text"
+        placeholder="Title"
+        value={title}
+        onChange={(e) => setTitle(e.target.value)}
+        disabled={articleStatus === 'PENDING'}
+      />
+      <InputField
+        type="text"
+        placeholder="Subtitle"
+        value={subtitle}
+        onChange={(e) => setSubtitle(e.target.value)}
+        disabled={articleStatus === 'PENDING'}
+      />
+
       <DropzoneArea {...getRootProps()}>
         <TextArea
           id="articleContent"
-          placeholder="기사 내용"
+          placeholder="Write your article content here..."
           value={content}
           onChange={(e) => setContent(e.target.value)}
+          disabled={articleStatus === 'PENDING'}
         />
       </DropzoneArea>
 
@@ -288,9 +430,9 @@ const UpdateArticleContent = () => {
         {images.map((image, index) => (
           <ImagePreviewContainer key={index}>
             <ImagePreview
-              src={process.env.REACT_APP_BACK_URL + '/image?path=' + image}
+              src={'https://api.thegachonherald.com/image?path=' + image}
               alt={`Uploaded ${image}`}
-              onClick={() => handleImageDrag(image)}
+              onClick={() => handleSetMainImage(image)}
               isMain={mainImage === image}  // 메인 이미지 강조
             />
             {mainImage === image && (
@@ -302,15 +444,14 @@ const UpdateArticleContent = () => {
             >
               X
             </DeleteButton>
-            <MainImageButton onClick={() => handleSetMainImage(image)}>
-              메인 이미지로 설정
-            </MainImageButton>
           </ImagePreviewContainer>
         ))}
       </ImagePreviewBox>
 
       {/* 기사 저장 버튼 */}
+      {articleStatus != 'PENDING' ? 
       <Button onClick={handleSave}>수정하기</Button>
+      : null }
     </Container>
   );
 };

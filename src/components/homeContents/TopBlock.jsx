@@ -180,9 +180,9 @@ const TopBlock = ({ articles }) => {
             <BigImageBox>
               {articles.length > 0 && articles[currentIndex]?.mainImage ? (
                 <>
-                  <BackgroundImage src={process.env.REACT_APP_BACK_URL + "/image?path=" + articles[currentIndex].mainImage} fade={fade} />
+                  <BackgroundImage src={ "https://api.thegachonherald.com/image?path=" + articles[currentIndex].mainImage} fade={fade} />
                   <Overlay />
-                  <BigImage src={process.env.REACT_APP_BACK_URL + "/image?path=" + articles[currentIndex].mainImage} fade={fade} />
+                  <BigImage src={"https://api.thegachonherald.com/image?path=" + articles[currentIndex].mainImage} fade={fade} />
                   
                   <BigImageTextBox fade={fade}>
                     {/* <Section>{articles[currentIndex].sectionName}</Section> */}

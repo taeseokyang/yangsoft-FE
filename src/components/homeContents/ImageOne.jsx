@@ -36,9 +36,9 @@ const ImageOne = ({ sectionId, sectionName, imageArticles, articles }) => {
             <SubTitle1>{imageArticles[0].subtitle}</SubTitle1>
             <ImageBox>
 
-              <BackgroundImage src={process.env.REACT_APP_BACK_URL + "/image?path=" + imageArticles[0].mainImage} />
+              <BackgroundImage src={"https://api.thegachonherald.com/image?path=" + imageArticles[0].mainImage} />
               <Overlay />
-              <Image src={process.env.REACT_APP_BACK_URL + "/image?path=" + imageArticles[0].mainImage}></Image>
+              <Image src={"https://api.thegachonherald.com/image?path=" + imageArticles[0].mainImage}></Image>
 
             </ImageBox>
             {/* <Copy>{imageArticles[0].copy}</Copy> */}

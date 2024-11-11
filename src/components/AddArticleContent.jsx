@@ -3,6 +3,7 @@ import styled from 'styled-components';
 import { useDropzone } from 'react-dropzone';
 import { useState, useEffect } from 'react';
 import { useCookies } from "react-cookie";
+import { useNavigate } from "react-router-dom";
 
 const Container = styled.div`
   padding: 20px;
@@ -28,23 +29,20 @@ const ImagePreview = styled.img`
   object-fit: cover;
   cursor: pointer;
   border: 1px solid #eeeeee;
-  border-radius: 15px;
-  ${props => props.isMain && `
-    border: 2px solid #3e5977; /* 메인 이미지 강조 */
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
-  `}
+  border-radius: 10px;
 `;
 
 const DeleteButton = styled.button`
   position: absolute;
   top: 5px;
   right: 5px;
-  background: #bcbcbc;
+  background: #828282;
   color: white;
   border: none;
   border-radius: 50%;
   width: 20px;
   height: 20px;
+  font-weight: 500;
   font-size: 12px;
   cursor: pointer;
   display: ${props => (props.visible ? 'block' : 'none')};
@@ -57,7 +55,7 @@ const MainImageButton = styled.button`
   position: absolute;
   bottom: 5px;
   left: 5px;
-  background: #3e5977;
+  background: #000000;
   color: white;
   border: none;
   border-radius: 5px;
@@ -79,6 +77,8 @@ const MainImageLabel = styled.div`
 
 const Button = styled.button`
   padding: 10px 20px;
+  border-radius: 10px;
+  font-weight: 700;
   background-color: #3e5977;
   color: white;
   border: none;
@@ -88,7 +88,6 @@ const Button = styled.button`
 const DropzoneArea = styled.div`
   width: 100%;
   box-sizing: border-box;
-  background: #f5f5f5;
   border-radius: 10px;
   text-align: center;
   cursor: pointer;
@@ -98,34 +97,122 @@ const DropzoneArea = styled.div`
 
 const InputField = styled.input`
   width: 100%;
+  font-size: 16px;
   box-sizing: border-box;
-  padding: 10px;
-  border: 1px solid #ddd;
-  border-radius: 5px;
+  padding: 10px 0px;
+  margin-top: 10px;
+  font-weight: 500;
+  outline: none;
+  border: none;
+  border-bottom: 3px solid #eeeeee;
+
+  &::placeholder {
+    color: #bcbcbc; 
+    font-weight: 700; 
+  }
+
+  /* 비활성화 스타일 */
+  ${({ disabled }) => disabled && `
+    background-color: #f0f0f0;
+    cursor: not-allowed;
+  `}
 `;
 
 const TextArea = styled.textarea`
+  margin-top: 30px;
   width: 100%;
-  padding: 10px;
+  outline: none;
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 150%;
   box-sizing: border-box;
-  border: 1px solid #ddd;
-  border-radius: 5px;
-  min-height: 200px;
+  border: none;
+  resize: none;
+  min-height: 600px;
+
+  &::placeholder {
+    color: #bcbcbc; 
+    font-weight: 700; 
+  }
+
+  /* 비활성화 스타일 */
+  ${({ disabled }) => disabled && `
+    background-color: #f0f0f0;
+    cursor: not-allowed;
+  `}
 `;
 
 const Dropdown = styled.select`
-  padding: 10px;
-  margin: 10px 0;
-  border: 1px solid #ddd;
+  margin-top: 20px;
+  padding: 5px;
+  font-size: 16px;
+  color: #3E5977;
+  font-weight: 700;
+  outline: none;
+  border: 3px solid #eeeeee;
   border-radius: 5px;
   width: 100%;
 `;
 
-const AddImageButton = styled.div`
-  width: 100px;
-  height: 20px;
+const StatusLabel = styled.div`
+  display: inline-block;
+  background: #3E5977;
+  border-radius: 5px;
+  color: #ffffff;
+  font-size: 14px;
+  padding: 5px 7px;
+  margin-bottom: 20px;
+  font-weight: 700;
+`;
+
+const RadioButtonGroup = styled.div`
+  display: flex;
+  gap: 10px;
+  margin-bottom: 20px;
+`;
+
+const RadioButton = styled.label`
+  display: flex;
+  align-items: center;
   cursor: pointer;
-  background: #eeeeee;
+  color: #3E5977;
+  font-size: 14px;
+  font-weight: 700;
+
+  input[type="radio"] {
+    appearance: none;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    background-color: #fff;
+    border: 2px solid #3E5977;
+    margin-right: 10px;
+    transition: all 0.3s ease;
+    cursor: pointer;
+  }
+
+  input[type="radio"]:checked {
+    background-color: #3E5977;
+    border: 2px solid #3E5977;
+  }
+
+  input[type="radio"]:hover {
+    background-color: #f0f0f0;
+    border-color: #3E5977;
+  }
+
+  input[type="radio"]:checked {
+    background-color: #3E5977;
+    border: 2px solid #fff;
+  }
+
+  span {
+    transition: all 0.3s ease;
+  }
+
+  input[type="radio"]:checked + span {
+    color: #3E5977;
+  }
 `;
 
 const AddArticleContent = () => {
@@ -136,8 +223,9 @@ const AddArticleContent = () => {
   const [mainImage, setMainImage] = useState('');
   const [images, setImages] = useState([]);
   const [sections, setSections] = useState([]);
-  const [cookie] = useCookies(); 
-
+  const [articleStatus, setArticleStatus] = useState('EDITING'); // 기사 상태
+  const [cookie, setCookie, removeCookie] = useCookies(); 
+  const navigate = useNavigate(); 
   useEffect(() => {
     const fetchData = async () => {
       try {
@@ -150,12 +238,9 @@ const AddArticleContent = () => {
     fetchData();
   }, []);
 
-  // 이미지 업로드 핸들러
   const handleImageUpload = (file) => {
     const formData = new FormData();
     formData.append('pic', file);
-
-    // 이미지 업로드 API 호출
     axios
       .post(process.env.REACT_APP_BACK_URL + '/image', formData)
       .then((response) => {
@@ -165,7 +250,6 @@ const AddArticleContent = () => {
       .catch((error) => console.error('이미지 업로드 실패', error));
   };
 
-  // react-dropzone 설정
   const { getRootProps, getInputProps } = useDropzone({
     onDrop: (acceptedFiles) => {
       acceptedFiles.forEach((file) => {
@@ -175,17 +259,13 @@ const AddArticleContent = () => {
     accept: 'image/*', // 이미지 파일만 업로드 가능
   });
 
-  // 이미지 이름을 커서 위치에 삽입하는 함수
   const handleImageDrag = (imageName) => {
     const textarea = document.getElementById('articleContent');
     const cursorPosition = textarea.selectionStart;
-
     const beforeText = content.substring(0, cursorPosition);
     const afterText = content.substring(cursorPosition);
-
     const imgTag = `<img src="${process.env.REACT_APP_BACK_URL}/image?path=${imageName}" />`;
     setContent(beforeText + imgTag + afterText);
-
     setTimeout(() => {
       textarea.selectionStart = cursorPosition + imgTag.length;
       textarea.selectionEnd = textarea.selectionStart;
@@ -193,19 +273,16 @@ const AddArticleContent = () => {
     }, 0);
   };
 
-  // 이미지 삭제 핸들러
   const handleImageDelete = (imageName) => {
     setImages((prev) => prev.filter((image) => image !== imageName));
   };
 
-  // 메인 이미지 설정 핸들러
   const handleSetMainImage = (imageName) => {
     setMainImage(imageName);
   };
 
   const handleSave = async () => {
-
-    if (images.length != 0 && mainImage == "") {
+    if (images.length !== 0 && mainImage === "") {
       alert("메인 이미지를 선택하세요.");
       return; 
     }
@@ -217,6 +294,7 @@ const AddArticleContent = () => {
         content,
         mainImage,
         sectionId,
+        status: articleStatus, // 선택된 상태를 함께 전송
       }, {
         headers: {
           Authorization: `Bearer ${cookie.accessToken}`,
@@ -228,29 +306,56 @@ const AddArticleContent = () => {
       setContent(""); // 입력 필드 초기화
       setMainImage(""); // 메인 이미지 초기화
       setImages([]);
+      setArticleStatus('EDITING'); // 상태 초기화
       alert("작성 완료");
     } catch (error) {
       console.error("기사 저장 오류:", error);
+      removeCookie('accessToken', { path: "/" }); 
+      removeCookie('userId', { path: "/" }); 
+      removeCookie('id', { path: "/" }); 
+      removeCookie('nickname', { path: "/" }); 
+      removeCookie('roles', { path: "/" }); 
+      navigate("/Login");
+    }
+  };
+
+  const handleStatusChange = (status) => {
+    if (status === 'PENDING') {
+      if (window.confirm("승인 신청 시 더 이상 기사를 수정할 수 없습니다.")) {
+        setArticleStatus(status);
+      }
+    } else {
+      setArticleStatus(status);
     }
   };
 
   return (
     <Container>
-      <h2>기사 작성</h2>
-
-      <InputField
-        type="text"
-        placeholder="제목"
-        value={title}
-        onChange={(e) => setTitle(e.target.value)}
-      />
-
-      <InputField
-        type="text"
-        placeholder="부제목"
-        value={subtitle}
-        onChange={(e) => setSubtitle(e.target.value)}
-      />
+      <StatusLabel>{"EDITING"}</StatusLabel>
+      <RadioButtonGroup>
+        <RadioButton>
+          <input
+            type="radio"
+            id="draft"
+            name="articleStatus"
+            value="draft"
+            checked={articleStatus === 'EDITING'}
+            onChange={() => handleStatusChange('EDITING')}
+          />
+          <span>기사 작성</span>
+        </RadioButton>
+        <RadioButton>
+          <input
+            type="radio"
+            id="pending"
+            name="articleStatus"
+            value="pending"
+            checked={articleStatus === 'PENDING'}
+            onChange={() => handleStatusChange('PENDING')}
+          />
+          <span>승인 신청</span>
+        </RadioButton>
+      </RadioButtonGroup>
 
       <Dropdown value={sectionId} onChange={(e) => setSectionId(e.target.value)}>
         {sections.map((section) => (
@@ -258,27 +363,41 @@ const AddArticleContent = () => {
         ))}
       </Dropdown>
 
+      <InputField
+        type="text"
+        placeholder="Title"
+        value={title}
+        onChange={(e) => setTitle(e.target.value)}
+        // disabled={articleStatus === 'pending'}
+      />
+      <InputField
+        type="text"
+        placeholder="Subtitle"
+        value={subtitle}
+        onChange={(e) => setSubtitle(e.target.value)}
+    
+      />
+
       <DropzoneArea {...getRootProps()}>
         <TextArea
           id="articleContent"
-          placeholder="기사 내용"
+          placeholder="Write your article content here..."
           value={content}
           onChange={(e) => setContent(e.target.value)}
         />
       </DropzoneArea>
 
-      {/* 업로드된 이미지 미리보기 */}
       <ImagePreviewBox>
         {images.map((image, index) => (
           <ImagePreviewContainer key={index}>
             <ImagePreview
               src={process.env.REACT_APP_BACK_URL + '/image?path=' + image}
               alt={`Uploaded ${image}`}
-              onClick={() => handleImageDrag(image)}
-              isMain={mainImage === image}  // 메인 이미지 강조
+              onClick={() => handleSetMainImage(image)}
+              isMain={mainImage === image}  
             />
             {mainImage === image && (
-              <MainImageLabel>메인 이미지</MainImageLabel> // 메인 이미지 레이블
+              <MainImageLabel>메인 이미지</MainImageLabel>
             )}
             <DeleteButton
               visible={true}
@@ -286,15 +405,14 @@ const AddArticleContent = () => {
             >
               X
             </DeleteButton>
-            <MainImageButton onClick={() => handleSetMainImage(image)}>
+            {/* <MainImageButton onClick={() => handleSetMainImage(image)}>
               메인 이미지로 설정
-            </MainImageButton>
+            </MainImageButton> */}
           </ImagePreviewContainer>
         ))}
       </ImagePreviewBox>
 
-      {/* 기사 저장 버튼 */}
-      <Button onClick={handleSave}>저장하기</Button>
+      <Button onClick={handleSave}>작성 완료</Button>
     </Container>
   );
 };

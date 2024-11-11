@@ -9,7 +9,7 @@ import Login from "./pages/user/Login";
 import ReportersPage from "./pages/user/ReportersPage";
 import Archive from "./pages/user/Archive";
 import AddArticle from "./pages/user/AddArticle";
-import UpdateArticleContent from "./components/UpdateArticleContent";
+import UpdateArticle from "./pages/user/UpdateArticle";
 /* eslint-disable */
 function App() {
   return (
@@ -24,8 +24,8 @@ function App() {
         <Route path="/login" Component={Login} />
         <Route path="/reporter/manage" Component={ReportersPage} />
         <Route path="/archive" Component={Archive} />
-        <Route path="/add" Component={AddArticle} />
-        <Route path="/add/:articleId" Component={UpdateArticleContent} />
+        <Route path="/edit" Component={AddArticle} />
+        <Route path="/edit/:articleId" Component={UpdateArticle} />
       </Routes>
     </BrowserRouter>
   );
