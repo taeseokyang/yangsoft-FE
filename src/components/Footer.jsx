@@ -3,11 +3,7 @@ import styled from "styled-components";
 import { Container} from "./StyledComponents";
 
 
-const Dummy = styled.div`
-  height: 200px;
-`;
 const Layout = styled.div`
-    margin-top: 100px;
     position: absolute;
     left: 0;
     width: 100%;
@@ -17,18 +13,26 @@ const Layout = styled.div`
 `;
 const Content = styled.div`
   padding: 20px 20px;
-  max-width: 1200px;
+  max-width: 1000px;
   margin: 0px auto;
   display: flex;
-    align-items: center; 
-    flex-direction: row;
-    gap: 15px;
+    gap: 10px;
+    flex-direction: column;
+`;
+
+
+const ItemLine = styled.div`
+  display: flex;
+  gap: 10px;
+  
 `;
 const Item = styled.div`
+  display: inline-block;
   font-size: 13px;
-  color: #5c5c5c;
+  color: #949494;
   white-space: nowrap;
 `;
+
 
 const ClickItem = styled.div`
   font-size: 13px;
@@ -44,17 +48,19 @@ const Footer = () => {
     <Container>
       <Layout>
           <Content>
-            <Item>ⓒ 2024 The Gachon Herald</Item>
-            <Link to={"/contactus"}>
-            <ClickItem>Contact Us</ClickItem>
-            </Link>
-            <Link to={"/aboutus"}>
-            <ClickItem>About Us</ClickItem>
-            </Link>
-            
+            <ItemLine>
+              <Item>상호명 : 양소프트</Item>
+            <Item>대표자 : 양태석</Item>
+            </ItemLine>
+            <ItemLine>
+            <Item>사업자등록번호 : 674-64-00706 </Item>
+            </ItemLine>
+            <ItemLine>
+            <Item>이용약관</Item>
+            <Item>개인정보처리방침</Item>
+            </ItemLine>
           </Content>
       </Layout>
-      <Dummy></Dummy>
     </Container>
   );
 };
