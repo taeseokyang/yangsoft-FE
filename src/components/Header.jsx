@@ -2,7 +2,6 @@ import { Link } from "react-router-dom";
 import styled from "styled-components";
 import { Container } from "./StyledComponents";
 
-
 const Content = styled.div`
   margin: 0px auto;
   display: flex;
@@ -11,12 +10,6 @@ const Content = styled.div`
   padding: 0px 20px;
   height: 70px;
   max-width: 1000px;
-  
-  /* text-align: center; */
-  /* @media screen and (max-width: 600px) {
-    padding: 20px 20px;
-    } */
-
 `;
 
 const Title = styled.div`
@@ -26,17 +19,12 @@ const Title = styled.div`
   & span{
     font-weight: 300;
   }
-  /* text-align: center; */
-  /* @media screen and (max-width: 600px) {
-    padding: 20px 20px;
-    } */  
 `;
 
 const NavBox = styled.div`
-    display: flex;
-    /* gap: 10px; */
-    margin-left: 30px;
-    align-items: center;
+  display: flex;
+  margin-left: 30px;
+  align-items: center;
 `;
 
 const Nav = styled.div`
@@ -44,28 +32,26 @@ const Nav = styled.div`
   margin-top: 1px;
   white-space: nowrap;
   cursor: pointer;
-    padding: 0px 10px;
+  padding: 0px 10px;
   border-right: 1px solid #eeeeee;
   &:last-child {
     border-right: none;
   }
 `;
 
-
 const GoToConsole = styled.div`
   color: #ffffff;
   background: linear-gradient(to right, #6093FF, #93B6FF);
   border-radius: 100px;
-  padding: 5px 17px;
+  padding: 7px 17px;
   cursor: pointer;
-  font-size: 16px;
-  font-weight: 500;
-
+  font-size: 14px;
+  font-weight: 700;
 `;
+
 const Box = styled.div`
    display: flex;
    align-items: center;
-
 `;
 
 const Header = () => {
@@ -73,20 +59,16 @@ const Header = () => {
     <Container>
       <Content>
         <Box>
-        <Link to={"/"}>
-          <Title>YANG<span>SOFT</span></Title>
-        </Link>
-
-        <NavBox>
-          <Nav>웹 호스팅</Nav>
-          <Nav>서비스</Nav>
-        </NavBox>
+          <Link to={"/"}>
+            <Title>YANG<span>SOFT</span></Title>
+          </Link>
         </Box>
         <Box>
-
-        <GoToConsole>
-          사용자 콘솔
-        </GoToConsole>
+          <a href="mailto:ts.yang.0123@gmail.com?subject=상담 요청&body=상담 요청 내용:">
+            <GoToConsole>
+              상담 요청
+            </GoToConsole>
+          </a>
         </Box>
       </Content>
     </Container>

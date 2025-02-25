@@ -76,7 +76,7 @@ const HomeContent = () => {
         </Box>
         <Items> 
 
-          <Item>
+          {/* <Item>
             <ItemImage src="/images/thegachonherald.png"></ItemImage>
           </Item>
           <Item>
@@ -84,7 +84,7 @@ const HomeContent = () => {
           </Item>
           <Item>
             <ItemImage src="/images/onheart.png"></ItemImage>
-          </Item>
+          </Item> */}
         </Items>
       </Content>
     </Container>

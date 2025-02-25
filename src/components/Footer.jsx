@@ -53,11 +53,10 @@ const Footer = () => {
             <Item>대표자 : 양태석</Item>
             </ItemLine>
             <ItemLine>
-            <Item>사업자등록번호 : 674-64-00706 </Item>
+            <Item>연락처 : 010-5239-5132</Item>
             </ItemLine>
             <ItemLine>
-            <Item>이용약관</Item>
-            <Item>개인정보처리방침</Item>
+            <Item>사업자등록번호 : 674-64-00706 </Item>
             </ItemLine>
           </Content>
       </Layout>
