@@ -34,8 +34,9 @@ const BigText = styled.div`
   font-weight: 100;
   
   & span{
+    /* border-bottom: 1px solid #6093FF;  */
     color: #6093FF;
-    font-weight: 700;
+    /* font-weight: 00; */
   }
 `;
 
@@ -69,22 +70,18 @@ const HomeContent = () => {
    
         <Box> 
           <BigText>
-          <span>양소프트,</span><br/>
-          그리다, 이루다.
+          믿을 수 있는<br/>
+          인터넷 신문 솔루션<br/>
+          <span>양소프트</span> 입니다.
           </BigText>
           <BigImage src="/images/mainImage.png"></BigImage>
         </Box>
         <Items> 
 
-          {/* <Item>
-            <ItemImage src="/images/thegachonherald.png"></ItemImage>
-          </Item>
           <Item>
-            <ItemImage src="/images/pagether.png"></ItemImage>
+            <a href="https://thegachonherald.com"><ItemImage src="/images/thegachonherald.png"></ItemImage></a>
           </Item>
-          <Item>
-            <ItemImage src="/images/onheart.png"></ItemImage>
-          </Item> */}
+
         </Items>
       </Content>
     </Container>

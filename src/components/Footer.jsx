@@ -59,6 +59,9 @@ const Footer = () => {
             <Item>사업자등록번호 : 674-64-00706 </Item>
             </ItemLine>
             <ItemLine>
+            <Item>문의 : 카카오톡 채널 양소프트 </Item>
+            </ItemLine>
+            <ItemLine>
             <Link to={"/terms-of-service"}><Item>이용약관</Item></Link>
             <Link to={"/privacy-policy"}><Item>개인정보처리방침</Item></Link>
             </ItemLine>
