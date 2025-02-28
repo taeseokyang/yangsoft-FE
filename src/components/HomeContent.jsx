@@ -51,7 +51,7 @@ const Item = styled.div`
   width: 200px;
   height: 100px;
   border: 1px solid #eeeeee;
-  border-radius: 20px;
+  border-radius: 10px;
   box-sizing: border-box;
   display: flex;
   align-items: center;
