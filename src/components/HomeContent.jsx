@@ -94,15 +94,9 @@ const FeatureBody = styled.p`
 `;
 
 const ClientsStrip = styled.section`
-  background: #F5F5F5;
-  margin: 0 -16px;
-  padding: 28px 16px;
+  padding: 48px 0 80px;
 `;
 
-const StripInner = styled.div`
-  max-width: 1200px;
-  margin: 0 auto;
-`;
 
 const SectionLabel = styled.div`
   font-size: 10px;
@@ -123,9 +117,13 @@ const LogoRow = styled.div`
 const LogoLink = styled.a`
   display: flex;
   align-items: center;
+  padding: 12px 20px;
+  border: 1px solid #E0E0E0;
+  border-radius: 8px;
+  background: #ffffff;
 
   & img {
-    height: 28px;
+    height: 24px;
     width: auto;
     object-fit: contain;
   }
@@ -170,18 +168,16 @@ const HomeContent = () => {
       </Features>
 
       <ClientsStrip>
-        <StripInner>
-          <SectionLabel>Clients</SectionLabel>
-          <LogoRow>
-            <LogoLink
-              href="https://thegachonherald.com"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              <img src="/images/thegachonherald.png" alt="The Gachon Herald" />
-            </LogoLink>
-          </LogoRow>
-        </StripInner>
+        <SectionLabel>Clients</SectionLabel>
+        <LogoRow>
+          <LogoLink
+            href="https://thegachonherald.com"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <img src="/images/thegachonherald.png" alt="The Gachon Herald" />
+          </LogoLink>
+        </LogoRow>
       </ClientsStrip>
     </Wrap>
   );
