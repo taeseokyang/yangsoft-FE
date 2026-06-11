@@ -1,21 +1,32 @@
-import { Link } from "react-router-dom";
 import styled from "styled-components";
-import { useState, useEffect } from 'react';
-import { PageContainer } from "../../components/StyledComponents";
+import { useEffect } from "react";
 import Footer from "../../components/Footer";
 import Header from "../../components/Header";
-import PrivacyPolicyContent from "../../components/\bPrivacyPolicyContent";
+import PrivacyPolicyContent from "../../components/PrivacyPolicyContent";
+
+const Page = styled.div`
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+`;
+
+const Main = styled.main`
+  flex: 1;
+`;
 
 const PrivacyPolicy = () => {
   useEffect(() => {
     window.scrollTo(0, 0);
   }, []);
+
   return (
-    <PageContainer>
-        <Header></Header>
-        <PrivacyPolicyContent></PrivacyPolicyContent>
-        <Footer></Footer>
-    </PageContainer>
+    <Page>
+      <Header />
+      <Main>
+        <PrivacyPolicyContent />
+      </Main>
+      <Footer />
+    </Page>
   );
 };
 

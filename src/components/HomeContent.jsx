@@ -1,90 +1,189 @@
-import { Link } from "react-router-dom";
 import styled from "styled-components";
-import { Container} from "./StyledComponents";
 
-
-
-const Content = styled.div`
-  padding: 20px 20px;
-  min-height: 500px;
-  max-width: 1000px;
-  margin: 0px auto;
-  display: flex;
-    flex-direction: column;
-    gap: 15px;
+const Wrap = styled.div`
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 16px;
 `;
 
-const Box = styled.div`
-  position: relative;
-  width: 100%;
-  height: 500px;
+const Hero = styled.section`
+  padding: 100px 0 80px;
+  max-width: 640px;
+`;
 
+const Eyebrow = styled.p`
+  font-size: 11px;
+  font-weight: 400;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: #AAAAAA;
+  margin-bottom: 28px;
 `;
-const BigImage = styled.img`
-  position: absolute;
-  right: 0;
-  top: 100px;
-  max-width: 400px;
+
+const Headline = styled.h1`
+  font-size: 52px;
+  font-weight: 200;
+  line-height: 1.18;
+  color: #111111;
+  margin-bottom: 28px;
+  letter-spacing: -0.02em;
 `;
-const BigText = styled.div`
-  position: absolute;
-  /* right: 0; */
-  top: 100px;
-  font-size: 50px;
-  font-weight: 100;
-  
-  & span{
-    /* border-bottom: 1px solid #6093FF;  */
-    color: #6093FF;
-    /* font-weight: 00; */
+
+const Sub = styled.p`
+  font-size: 15px;
+  font-weight: 300;
+  color: #777777;
+  line-height: 1.8;
+  max-width: 440px;
+`;
+
+const Divider = styled.div`
+  height: 1px;
+  background: #EEEEEE;
+`;
+
+const Features = styled.section`
+  padding: 56px 0;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 0;
+
+  @media (max-width: 640px) {
+    grid-template-columns: 1fr;
   }
 `;
 
-const Items = styled.div`
-  display: flex;
-  gap: 10px;
-  /* width: 200px; */
-  /* height: 100px; */
+const Feature = styled.div`
+  padding: 0 40px 0 0;
+  border-right: 1px solid #EEEEEE;
+  margin-right: 40px;
+
+  &:last-child {
+    border-right: none;
+    margin-right: 0;
+    padding-right: 0;
+  }
+
+  @media (max-width: 640px) {
+    border-right: none;
+    border-bottom: 1px solid #EEEEEE;
+    padding: 0 0 32px;
+    margin: 0 0 32px;
+
+    &:last-child {
+      border-bottom: none;
+      padding-bottom: 0;
+      margin-bottom: 0;
+    }
+  }
 `;
 
-const Item = styled.div`
-  width: 200px;
-  height: 100px;
-  border: 1px solid #eeeeee;
-  border-radius: 10px;
-  box-sizing: border-box;
+const FeatureTitle = styled.h3`
+  font-size: 12px;
+  font-weight: 500;
+  color: #111111;
+  letter-spacing: 0.04em;
+  margin-bottom: 10px;
+`;
+
+const FeatureBody = styled.p`
+  font-size: 13px;
+  font-weight: 300;
+  color: #888888;
+  line-height: 1.8;
+`;
+
+const ClientsStrip = styled.section`
+  background: #F5F5F5;
+  margin: 0 -16px;
+  padding: 28px 16px;
+`;
+
+const StripInner = styled.div`
+  max-width: 1200px;
+  margin: 0 auto;
+`;
+
+const SectionLabel = styled.div`
+  font-size: 10px;
+  font-weight: 400;
+  letter-spacing: 0.14em;
+  color: #BBBBBB;
+  text-transform: uppercase;
+  margin-bottom: 28px;
+`;
+
+const LogoRow = styled.div`
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 32px;
+`;
+
+const LogoLink = styled.a`
   display: flex;
   align-items: center;
-  padding: 30px;
-`;
 
-const ItemImage = styled.img`
-  width: 100%;
+  & img {
+    height: 28px;
+    width: auto;
+    object-fit: contain;
+  }
 `;
-
 
 const HomeContent = () => {
   return (
-    <Container>
-      <Content>
-   
-        <Box> 
-          <BigText>
-          믿을 수 있는<br/>
-          인터넷 신문 솔루션<br/>
-          <span>양소프트</span> 입니다.
-          </BigText>
-          <BigImage src="/images/mainImage.png"></BigImage>
-        </Box>
-        <Items> 
+    <Wrap>
+      <Hero>
+        <Headline>
+          Software for<br />
+          digital media.
+        </Headline>
+        <Sub>
+          We design, deploy, and maintain internet newspaper
+          platforms for media organizations — from day one
+          to long-term operation.
+        </Sub>
+      </Hero>
 
-          <Item>
-            <a href="https://thegachonherald.com"><ItemImage src="/images/thegachonherald.png"></ItemImage></a>
-          </Item>
+      <Divider />
 
-        </Items>
-      </Content>
-    </Container>
+      <Features>
+        <Feature>
+          <FeatureTitle>Installation</FeatureTitle>
+          <FeatureBody>
+            Complete setup and deployment of internet newspaper platforms, configured to your organization's needs.
+          </FeatureBody>
+        </Feature>
+        <Feature>
+          <FeatureTitle>Maintenance</FeatureTitle>
+          <FeatureBody>
+            Ongoing technical support, infrastructure management, and platform updates to keep your operation running.
+          </FeatureBody>
+        </Feature>
+        <Feature>
+          <FeatureTitle>Custom Development</FeatureTitle>
+          <FeatureBody>
+            Tailored features and integrations built to the specific requirements of your publication.
+          </FeatureBody>
+        </Feature>
+      </Features>
+
+      <ClientsStrip>
+        <StripInner>
+          <SectionLabel>Clients</SectionLabel>
+          <LogoRow>
+            <LogoLink
+              href="https://thegachonherald.com"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <img src="/images/thegachonherald.png" alt="The Gachon Herald" />
+            </LogoLink>
+          </LogoRow>
+        </StripInner>
+      </ClientsStrip>
+    </Wrap>
   );
 };
 

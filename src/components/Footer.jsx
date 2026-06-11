@@ -1,73 +1,77 @@
 import { Link } from "react-router-dom";
 import styled from "styled-components";
-import { Container} from "./StyledComponents";
 
-
-const Layout = styled.div`
-    position: absolute;
-    left: 0;
-    width: 100%;
-    height:200px;
-    background: #f1f1f1;
-
-`;
-const Content = styled.div`
-  padding: 20px 20px;
-  max-width: 1000px;
-  margin: 0px auto;
-  display: flex;
-    gap: 10px;
-    flex-direction: column;
+const FooterWrap = styled.footer`
+  border-top: 1px solid #EEEEEE;
+  background: #FAFAFA;
 `;
 
-
-const ItemLine = styled.div`
+const Inner = styled.div`
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 28px 16px;
   display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  gap: 24px;
+  flex-wrap: wrap;
+`;
+
+const Left = styled.div`
+  display: flex;
+  flex-direction: column;
   gap: 10px;
-  
-`;
-const Item = styled.div`
-  display: inline-block;
-  font-size: 13px;
-  color: #949494;
-  white-space: nowrap;
 `;
 
+const InfoRow = styled.div`
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px 16px;
+`;
 
-const ClickItem = styled.div`
-  font-size: 13px;
-  color: #5c5c5c;
-  white-space: nowrap;
-  &:hover{
-      border-bottom: 1px solid #5c5c5c;
-    }
+const Info = styled.span`
+  font-size: 11.5px;
+  font-weight: 300;
+  color: #AAAAAA;
+`;
+
+const Right = styled.div`
+  display: flex;
+  gap: 16px;
+  align-items: center;
+`;
+
+const FooterLink = styled(Link)`
+  font-size: 11.5px;
+  font-weight: 300;
+  color: #AAAAAA;
+  transition: color 0.15s;
+
+  &:hover {
+    color: #111111;
+  }
 `;
 
 const Footer = () => {
   return (
-    <Container>
-      <Layout>
-          <Content>
-            <ItemLine>
-              <Item>상호명 : 양소프트</Item>
-            <Item>대표자 : 양태석</Item>
-            </ItemLine>
-            <ItemLine>
-            <Item>연락처 : 010-5239-5132</Item>
-            </ItemLine>
-            <ItemLine>
-            <Item>사업자등록번호 : 674-64-00706 </Item>
-            </ItemLine>
-            <ItemLine>
-            <Item>문의 : 카카오톡 채널 양소프트 </Item>
-            </ItemLine>
-            <ItemLine>
-            <Link to={"/terms-of-service"}><Item>이용약관</Item></Link>
-            <Link to={"/privacy-policy"}><Item>개인정보처리방침</Item></Link>
-            </ItemLine>
-          </Content>
-      </Layout>
-    </Container>
+    <FooterWrap>
+      <Inner>
+        <Left>
+          <InfoRow>
+            <Info>Yangsoft</Info>
+            <Info>CEO · Taeseok Yang</Info>
+            <Info>+82 10-5239-5132</Info>
+          </InfoRow>
+          <InfoRow>
+            <Info>Business Reg. · 674-64-00706</Info>
+          </InfoRow>
+        </Left>
+        <Right>
+          <FooterLink to="/terms-of-service">Terms</FooterLink>
+          <FooterLink to="/privacy-policy">Privacy</FooterLink>
+        </Right>
+      </Inner>
+    </FooterWrap>
   );
 };
 

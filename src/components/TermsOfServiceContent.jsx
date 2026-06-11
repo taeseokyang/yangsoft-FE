@@ -1,361 +1,511 @@
-import { Container } from "./StyledComponents";
 import styled from "styled-components";
 
-const Content = styled.div`
-  padding: 20px 20px;
-  min-height: 500px;
-  max-width: 1000px;
-  margin: 0px auto;
-  display: flex;
-  flex-direction: column;
-  gap: 15px;
-  color : #333333;
+const Wrap = styled.div`
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 16px;
 `;
 
-const Section = styled.div`
-  margin-bottom: 20px;
+const PageHeader = styled.div`
+  padding: 64px 0 40px;
+  border-bottom: 1px solid #EEEEEE;
+  margin-bottom: 52px;
 `;
 
-const Title = styled.h2`
-  font-size: 20px;
-  font-weight: bold;
+const PageTitle = styled.h1`
+  font-size: 26px;
+  font-weight: 200;
+  color: #111111;
   margin-bottom: 10px;
+  letter-spacing: -0.01em;
 `;
 
-const Subtitle = styled.h3`
-  font-size: 18px;
-  font-weight: bold;
-  margin-bottom: 5px;
+const PageMeta = styled.p`
+  font-size: 12px;
+  color: #BBBBBB;
+  font-weight: 300;
 `;
 
-const Paragraph = styled.p`
-  font-size: 16px;
-  line-height: 1.5;
-  margin-bottom: 10px;
+const Chapter = styled.div`
+  margin-bottom: 52px;
+`;
+
+const ChapterTitle = styled.h2`
+  font-size: 10px;
+  font-weight: 500;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: #BBBBBB;
+  margin-bottom: 24px;
+  padding-bottom: 12px;
+  border-bottom: 1px solid #F0F0F0;
+`;
+
+const Article = styled.div`
+  margin-bottom: 28px;
+`;
+
+const ArticleTitle = styled.h3`
+  font-size: 13px;
+  font-weight: 500;
+  color: #111111;
+  margin-bottom: 8px;
+`;
+
+const Body = styled.p`
+  font-size: 13px;
+  font-weight: 300;
+  color: #555555;
+  line-height: 1.9;
+  margin-bottom: 6px;
+`;
+
+const List = styled.ol`
+  font-size: 13px;
+  font-weight: 300;
+  color: #555555;
+  line-height: 1.9;
+  padding-left: 18px;
+  margin: 6px 0 0;
+
+  & li {
+    margin-bottom: 4px;
+  }
+
+  & p {
+    margin: 2px 0;
+    font-size: 13px;
+    color: #555555;
+    line-height: 1.9;
+  }
+`;
+
+const DocFooter = styled.div`
+  padding: 32px 0 72px;
+  border-top: 1px solid #EEEEEE;
+  margin-top: 16px;
 `;
 
 const TermsOfServiceContent = () => {
   return (
-    <Container>
-      <Content>
-        <div>
-          <h3 class="p-titles">제1장 총칙</h3>
-          <p><strong>제1조 (목적)</strong></p>
-          <p>이 약관은 양소프트(이하 ”회사”)가 제공하는 임대형 인터넷신문 서비스(이하 “서비스”)의 이용조건 및 절차에 관한 사항을 규정함을 목적으로 합니다.</p>
-          <p><strong>제2조 (용어의 정의)</strong></p>
-          <p>이 약관에서 사용되는 용어의 정의는 다음과 같습니다.</p>
-          <ol class="privacy-list">
-            <li>인터넷신문 서비스 : 고객이 기사, 사진, 영상 등의 콘텐츠를 활용하여 인터넷신문을 운영할 수 있도록 회사가 설치하는 프로그램 및 호스팅 서비스를 말합니다.</li>
-            <li>호스팅 : 회사가 고객에게 서버의 일정 공간을 제공하는 기본 또는 부가서비스를 말합니다.</li>
-            <li>관리자 : 서비스를 이용하고자 회원으로 가입하여 인터넷신문을 운영하거나 회사가 제공하는 각종 서비스를 이용하는 자로써 회사가 정한 일정한 자격을 충족한 회원을 의미합니다.</li>
-            <li>관리자모드 : 인터넷신문에서 기사, 회원, 팝업, 배너 등을 관리할 수 있도록 회사가 고객에게 제공하는 관리자를 위한 기능을 말합니다.</li>
-            <li>서버 : 고객이 인터넷신문을 운영할 수 있도록 구성한 관리 소프트웨어 또는 하드웨어를 말합니다.</li>
-            <li>고객 : 회사와 이용계약을 체결하고 서비스를 받는 자를 말합니다.</li>
-            <li>이용계약 : 서비스의 이용과 관련하여 회사와 고객간에 체결하는 계약을 말합니다.</li>
-            <li>이용요금 : 본 서비스 계약을 수행하기 위하여 고객에게 청구하는 회사의 제반 서비스 비용으로, 계약된 정규성 경비와 추가적인 트래픽 이용료, 서버의 설치, 기술지원 등 계약서 내에 규정되어 있지는 않으나 쌍방 합의에 의하여 수행된 추가적인 서비스 업무에 대한 실비기준의 비정규성 경비를 말합니다.</li>
-            <li>부가 서비스 : 고객이 서비스의 이용 및 운영을 원활하게 하기 위하여 회사에서 기본으로 제공하는 서비스 이외의 추가 제공 서비스를 말합니다.</li>
-            <li>모바일웹 : 서비스를 이용해 생산한 콘텐츠를 모바일기기로 보여주는 무료 부가서비스를 말합니다.</li>
-            <li>네트워크광고 : 제휴 매체의 특정 광고 위치에 동시 다발적으로 노출시키는 광고를 말합니다. 문맥 또는 사이트 타깃팅을 통해 노출되거나 광고주의 웹사이트에 방문한 고객이 제휴 매체에 접속한 경우 광고가 노출되는 리타깃팅 형태의 광고를 말합니다.</li>
-            <li>백업(Backup) : 데이터 저장 장치의 고장, 불순한 침입 혹은 고객의 실수에 의한 데이터의 망실에 대비하여, 여벌의 데이터 복제본을 별도의 저장 장치에 보관하여 주는 서비스를 말합니다.</li>
-            <li>보안 서비스 : 고객의 시스템에 불순한 접속자가 침입되거나 서비스 운영을 방해받지 않도록 제공하는 부가 서비스를 말하며, 필요시 고객은 보안서비스 제공 업체와 별도의 계약을 체결하여야 합니다.</li>
-          </ol>
+    <Wrap>
+      <PageHeader>
+        <PageTitle>Terms of Service</PageTitle>
+        <PageMeta>Effective date: February 27, 2025</PageMeta>
+      </PageHeader>
 
-          <p><strong>제3조 (약관의 효력 및 변경)</strong></p>
-          <ol class="privacy-list">
-            <li>회사는 합리적인 사유가 발생할 경우 관련법령에 위배되지 않는 범위에서 이 약관을 개정할 수 있습니다.</li>
-            <li>회사가 약관을 개정할 경우에는 시행일자 및 개정사유를 명시하여 현행 약관과 함께 회사의 홈페이지 초기화면에 시행일자 이전부터 7일 이상 게시합니다.</li>
-            <li>고객은 변경된 약관에 동의하지 않을 경우 이용계약 해지를 요청할 수 있으며, 변경된 약관의 효력 발생일로부터 7일 이후에도 거부의사를 표시하지 아니하고 서비스를 계속 사용할 경우 약관의 변경 사항에 동의한 것으로 간주됩니다.
-            </li></ol>
+      <Chapter>
+        <ChapterTitle>Chapter 1 — General Provisions</ChapterTitle>
 
-          <p><strong>제4조 (약관 외 준칙)</strong></p>
-          <p>이 약관에서 정하지 않은 사항과 이 약관의 해석에 관하여는 전자상거래등에서의 소비자보호에 관한 법률, 약관의 규제에 관한 법률, 기타 관련 법령의 규정에 따릅니다.</p>
+        <Article>
+          <ArticleTitle>Article 1 (Purpose)</ArticleTitle>
+          <Body>
+            These terms govern the conditions and procedures for using the rental-type internet newspaper service (the "Service") provided by Yangsoft (the "Company").
+          </Body>
+        </Article>
 
-        </div>
+        <Article>
+          <ArticleTitle>Article 2 (Definitions)</ArticleTitle>
+          <Body>The terms used in these terms are defined as follows:</Body>
+          <List>
+            <li>Internet Newspaper Service: A program and hosting service installed by the Company that allows customers to operate an internet newspaper using content such as articles, photos, and videos.</li>
+            <li>Hosting: A basic or additional service in which the Company provides customers with a designated space on its servers.</li>
+            <li>Administrator: A member who has joined as a member to use the Service and operates an internet newspaper or uses the various services provided by the Company, and who meets the qualifications set by the Company.</li>
+            <li>Admin Mode: A feature provided by the Company to administrators for managing articles, members, pop-ups, banners, etc. on the internet newspaper.</li>
+            <li>Server: Management software or hardware configured to allow customers to operate an internet newspaper.</li>
+            <li>Customer: A person who has entered into a service agreement with the Company and receives services.</li>
+            <li>Service Agreement: A contract entered into between the Company and the customer regarding the use of the Service.</li>
+            <li>Service Fee: All service costs charged by the Company to the customer in order to fulfill this service agreement, including regular contracted costs and irregular additional costs based on actual expenses for additional services performed by mutual agreement.</li>
+            <li>Additional Service: A service provided in addition to the basic service to help customers smoothly use and operate the Service.</li>
+            <li>Mobile Web: A free additional service that displays content produced using the Service on mobile devices.</li>
+            <li>Network Advertising: Advertising that is simultaneously exposed on specific advertising positions across affiliated media, either through contextual or site targeting, or retargeted to customers who visited the advertiser's website.</li>
+            <li>Backup: A service that stores duplicate copies of data on a separate storage device to protect against data loss due to storage device failure, unauthorized intrusion, or customer error.</li>
+            <li>Security Service: An additional service that protects against unauthorized access or service disruption; customers may need to enter into a separate contract with a security service provider when necessary.</li>
+          </List>
+        </Article>
 
+        <Article>
+          <ArticleTitle>Article 3 (Effect and Amendment of Terms)</ArticleTitle>
+          <List>
+            <li>The Company may amend these terms within the scope permitted by applicable law if there is a reasonable cause.</li>
+            <li>If the Company amends the terms, it will post the effective date and reason for amendment on the Company's homepage at least 7 days before the effective date.</li>
+            <li>If a customer does not agree to the amended terms, they may request termination of the service agreement. If the customer continues to use the service without objecting after 7 days from the effective date of the amended terms, the customer is deemed to have consented to the changes.</li>
+          </List>
+        </Article>
 
-        <div class="privacy-group">
-          <h3 class="p-titles">제2장 이용계약</h3>
-          <p><strong>제5조 (서비스의 종류 및 변경)</strong></p>
-          <ol class="privacy-list">
-            <li>고객은 상담 요청을 통해 이용신청을 진행 하며, 회사는 이용신청 진행 과정에서 고객에게 자세한 서비스 종류, 서비스 내용, 가격 및 기타 서비스 관련 사항 정보를 제공합니다.</li>
-            <li>회사는 서비스 종류의 신설 또는 기타 변경 사항에 대해 홈페이지를 통하여 게시하며, 이미 서비스를 이용 중인 고객에 대해서는 회사의 홈페이지에 게시하거나 고객의 전자우편 주소를 통해서 통보하며 게시 또는 통보 후 7일 이내에 이의를 제기하지 않으면 고객이 변경사항에 대해서 동의한 것으로 간주합니다.</li>
-          </ol>
+        <Article>
+          <ArticleTitle>Article 4 (Rules Outside These Terms)</ArticleTitle>
+          <Body>
+            Matters not covered by these terms and the interpretation of these terms shall be governed by the Act on Consumer Protection in Electronic Commerce, the Act on Regulation of Terms and Conditions, and other applicable laws and regulations.
+          </Body>
+        </Article>
+      </Chapter>
 
-          <p><strong>제6조 (이용신청 및 약관 동의)</strong></p>
-          <ol class="privacy-list">
-            <li>이용신청은 고객이 이 약관에 동의하고 회사가 정한 신청양식을 오프라인에서 작성 후 신청하는 것으로 이루어지며, 회사는 고객에게 구비서류 제출을 요구할 수 있습니다. 이 이용약관에 대한 동의는 이용신청 시 계약서의 “서비스 이용약관에 동의합니다” 항목에 체크함로써 의사표시를 합니다.</li>
-            <li>고객은 이용신청 시 실명과 실제정보를 작성하여야 하며 이를 위반한 고객은 법적인 보호를 받을 수 없습니다.</li>
-            <li>고객이 이용신청 시 제공한 개인정보는 관계법령 및 회사의 개인정보보호정책에 따라 보호를 받습니다.</li>
-            <li>고객의 연령이 만 14세 미만의 아동인 경우 서비스 신청이 불가능 합니다.</li>
-          </ol>
+      <Chapter>
+        <ChapterTitle>Chapter 2 — Service Agreement</ChapterTitle>
 
-          <p><strong>제7조 (이용 신청 승낙)</strong></p>
-          <ol class="privacy-list">
-            <li>회사는 고객이 제6조에서 정한 사항을 정확히 기재하여 이용 신청을 하였을 때 특별한 사정이 없는 한 접수 순서에 따라서 이용 신청을 승낙합니다.</li>
-            <li>회사는 다음 각호에 대해서는 서비스 신청을 거절할 수 있습니다.
-              <p>가. 비 실명으로 서비스를 신청하는 경우</p>
-              <p>나. 타인 명의를 사용하여 서비스를 신청한 경우</p>
-              <p>다. 신청서의 내용을 허위로 기재한 경우</p>
-              <p>라. 타 고객의 서비스 운영에 지장이 있을 것으로 판단되는 경우</p>
-              <p>마. 회사의 과거 서비스 이용요금을 체납하고 있는 경우</p>
+        <Article>
+          <ArticleTitle>Article 5 (Types and Changes of Service)</ArticleTitle>
+          <List>
+            <li>Customers apply for the service through a consultation request, during which the Company provides detailed information on service types, content, pricing, and other relevant details.</li>
+            <li>The Company will post any new or changed service types on its homepage. For existing customers, notice will be given via the homepage or by email. If no objection is raised within 7 days of such posting or notice, the customer is deemed to have agreed to the changes.</li>
+          </List>
+        </Article>
+
+        <Article>
+          <ArticleTitle>Article 6 (Application for Use and Agreement to Terms)</ArticleTitle>
+          <List>
+            <li>Applications are submitted offline using a Company-prescribed form after the customer agrees to these terms. The Company may request supporting documents. Agreement to these terms is indicated by checking the "I agree to the Terms of Service" box on the service application form.</li>
+            <li>Customers must provide their real name and accurate information when applying. Customers who violate this may not receive legal protection.</li>
+            <li>Personal information provided at the time of application is protected in accordance with applicable laws and the Company's privacy policy.</li>
+            <li>Applications are not accepted from individuals under the age of 14.</li>
+          </List>
+        </Article>
+
+        <Article>
+          <ArticleTitle>Article 7 (Approval of Application)</ArticleTitle>
+          <List>
+            <li>The Company will approve service applications in order of receipt, barring special circumstances, when customers have accurately completed the information required under Article 6.</li>
+            <li>The Company may reject applications in the following cases:
+              <p>a. Applications submitted under a false name</p>
+              <p>b. Applications submitted using another person's identity</p>
+              <p>c. Applications containing false information</p>
+              <p>d. Cases where approval is judged to interfere with other customers' service operations</p>
+              <p>e. Cases where the applicant has outstanding unpaid fees from prior use</p>
             </li>
-            <li>회사는 다음 각호의 경우에는 승낙을 유보할 수 있습니다.
-              <p>가. 회사 사정으로 이용 승낙이 곤란한 경우</p>
-              <p>나. 이용신청 고객이 관계법령에서 규정하는 미성년자일 경우</p>
+            <li>The Company may defer approval in the following cases:
+              <p>a. When approval is difficult due to internal Company circumstances</p>
+              <p>b. When the applicant is a minor as defined by applicable law</p>
             </li>
-          </ol>
-        </div>
+          </List>
+        </Article>
+      </Chapter>
 
-        <div class="privacy-group">
-          <h3 class="p-titles">제3장 서비스 설치</h3>
-          <p><strong>제8조 (서비스의 설치)</strong></p>
-          <ol class="privacy-list">
-            <li>회사는 고객의 입금을 확인한 후 서비스 개통 예정일 안내와 필요한 준비자료를 요청합니다.</li>
-            <li>고객이 준비한 자료를 제출하면 회사는 그 내용을 확인한 후 서비스 설치 작업에 착수 합니다.</li>
-            <li>고객이 회사가 요청한 자료제출을 지연할 경우 서비스 개통은 최초 예정일보다 지연될 수 있습니다.</li>
-          </ol>
+      <Chapter>
+        <ChapterTitle>Chapter 3 — Service Installation</ChapterTitle>
 
-          <p><strong>제9조 (데이터 이관)</strong></p>
-          <ol class="privacy-list">
-            <li>고객이 타사에서 이용중인 서비스를 이관하는 경우 회사는 데이터 이관 서비스를 제공합니다.</li>
-            <li>데이터 이관 범위는 기사로 한정되며, 댓글, 회원정보, 게시판, 기타 프로그램 등은 포함되지 않습니다.</li>
-            <li>고객이 기사 이외의 데이터 이관을 희망하는 경우, 회사와 사전협의를 통해 작업을 진행하실 수 있으며 별도의 비용이 청구 됩니다.</li>
-            <li>고객은 이관하고자하는 데이터를 백업받아 회사에 전달해야 합니다.</li>
-            <li>회사는 데이터 이관시 모든 기사데이터의 변환을 위해 노력하지만, 부득이한 경우 일부데이터가 누락 될 수 있습니다.</li>
-          </ol>
-        </div>
+        <Article>
+          <ArticleTitle>Article 8 (Service Installation)</ArticleTitle>
+          <List>
+            <li>After confirming receipt of payment, the Company will notify the customer of the expected service activation date and request the necessary materials.</li>
+            <li>Upon receipt of the submitted materials, the Company will review them and commence service installation.</li>
+            <li>If the customer delays in submitting the requested materials, service activation may be delayed beyond the originally scheduled date.</li>
+          </List>
+        </Article>
 
-        <div class="privacy-group">
-          <h3 class="p-titles">제4장 기술지원</h3>
-          <p><strong>제10조 (기술 지원 절차)</strong></p>
-          <ol class="privacy-list">
-            <li>인터넷신문은 고객의 책임하에 관리하여야 하며 필요시 회사에 기술지원요청을 할 수 있습니다.</li>
-            <li>고객은 전화나 이메일 등의 방법으로 기술지원을 신청할 수 있습니다.</li>
-            <li>고객은 기술 지원에 대한 작업 완료 후 24시간 이내에 처리결과를 검수하여 오류에 대한 재작업 요구를 할 수 있습니다.</li>
-            <li>회사는 고객의 기술지원 요청 시 내부정책과 작업의 난이도에 따라 비용을 청구할 수 있습니다.</li>
-          </ol>
+        <Article>
+          <ArticleTitle>Article 9 (Data Migration)</ArticleTitle>
+          <List>
+            <li>If a customer wishes to migrate a service currently used with another provider, the Company will provide a data migration service.</li>
+            <li>Data migration is limited to articles; comments, member information, bulletin boards, and other programs are not included.</li>
+            <li>If the customer wishes to migrate data other than articles, this may be arranged through prior consultation with the Company at an additional cost.</li>
+            <li>The customer must back up the data to be migrated and deliver it to the Company.</li>
+            <li>The Company will make every effort to migrate all article data, but some data may be omitted in unavoidable circumstances.</li>
+          </List>
+        </Article>
+      </Chapter>
 
-          <p><strong>제11조 (프로그램의 수정)</strong></p>
-          <ol class="privacy-list">
-            <li>회사에서 제공하는 서비스는 임대형 솔루션이므로 수정하지 않는 것을 원칙으로 합니다.</li>
-            <li>전항에도 불구하고 고객의 부득이한 사유로 프로그램의 수정이 필요한 경우 회사와 사전 협의하여 작업을 진행할 수 있습니다.</li>
-            <li>회사는 고객의 프로그램 수정 및 개발 요청에 대해 그 내용을 검토하여 작업 진행여부를 결정할 수 있으며, 이에 따른 비용과 일정을 협의 한 후 진행합니다.</li>
-            <li>고객은 프로그램의 개발 또는 수정 작업 후 정상 작동 여부에 대한 검수 의무가 있으며, 이후 발견되는 장애나 오류에 따른 손해에 대해서 회사는 책임지지 않습니다.</li>
-          </ol>
-        </div>
+      <Chapter>
+        <ChapterTitle>Chapter 4 — Technical Support</ChapterTitle>
 
-        <div class="privacy-group">
-          <h3 class="p-titles">제5장 부가서비스</h3>
-          <p><strong>제12조 (모바일웹)</strong></p>
-          <ol class="privacy-list">
-            <li>회사는 고객이 요청하는 경우 모바일 웹사이트를 부가 서비스로 제공합니다.</li>
-            <li>고객은 회사가 기본 제공하는 모바일웹 사이트에 별도의 디자인이나 기능을 추가하고자하는 경우 사전에 비용과 일정을 협의해야 합니다.</li>
-          </ol>
-        </div>
+        <Article>
+          <ArticleTitle>Article 10 (Technical Support Procedures)</ArticleTitle>
+          <List>
+            <li>Customers are responsible for managing their own internet newspaper and may request technical support from the Company as needed.</li>
+            <li>Technical support requests may be submitted by phone or email.</li>
+            <li>After completion of technical support work, customers have 24 hours to inspect the results and request rework for any errors.</li>
+            <li>The Company may charge a fee for technical support requests in accordance with its internal policies and the complexity of the work.</li>
+          </List>
+        </Article>
 
-        <div class="privacy-group">
-          <h3 class="p-titles">제6장 의 무</h3>
-          <p><strong>제13조 (회사의 의무)</strong></p>
-          <ol class="privacy-list">
-            <li>회사는 고객이 신청한 서비스를 안정적이고 지속적으로 제공해야 합니다.</li>
-            <li>회사는 서비스 운영에 지장이 되는 장애가 발생했을 경우 이를 즉시 수리 또는 복구해야 하며, 안정적인 서비스 운영을 위해 최선을 다해야 합니다.</li>
-            <li>회사는 고객이 정당하게 요구하는 의견이나 불만에 대해서 회사가 정한 기간과 절차에 따라 처리해야 합니다.</li>
-            <li>회사는 원활한 서비스 신청 및 운영을 위해 고객의 개인정보를 수집하여 보관하며 고객의 허락없이는 제3자에게 이를 제공하지 않습니다. 다만, 관계법령에 의한 수사상의 목적으로 관계기관으로부터 요구받은 경우나 방송통신위원회의 요청이 있는 경우, 회사의 이용요금을 체납하여 신용정보사업자 또는 신용정보집중기관에 제공하는 경우는 예외로 합니다.</li>
-            <li>회사는 이용계약의 체결, 계약사항의 변경 및 해지 등 고객과의 계약관련 절차 및 내용 등에 있어 고객에게 편의를 제공하도록 노력합니다.</li>
-          </ol>
+        <Article>
+          <ArticleTitle>Article 11 (Program Modification)</ArticleTitle>
+          <List>
+            <li>As this is a rental-type solution, program modification is generally not performed.</li>
+            <li>Notwithstanding the above, if a customer has compelling reasons to require program modification, the work may proceed after prior consultation with the Company.</li>
+            <li>The Company may review the customer's request for program modification or development and decide whether to proceed, and will proceed after agreeing on costs and schedule.</li>
+            <li>Customers are responsible for inspecting whether the developed or modified program operates normally. The Company is not responsible for any issues or errors discovered thereafter.</li>
+          </List>
+        </Article>
+      </Chapter>
 
-          <p><strong>제14조 (고객의 의무)</strong></p>
-          <ol class="privacy-list">
-            <li>고객은 회사가 정한 서비스 이용요금을 지정된 일자에 납입할 의무가 있습니다.</li>
-            <li>고객은 회사의 동의없이 회사가 제공하는 서비스를 제3자에게 제공해서는 안 됩니다.</li>
-            <li>고객은 회사와 타 고객의 서비스 운영에 방해가 되는 행위를 하지 않아야 합니다.</li>
-            <li>고객은 운영하는 서비스를 통해 제공하는 정보의 저작권에 대해 책임을 지고 불법적인 행위를 하지 않아야 합니다.</li>
-            <li>고객은 서비스 신청 시 회사에 제공한 정보에 변경내용이 발생했을 경우, 해당절차를 거쳐 빠른 시일 내에 수정, 보완해야 합니다.</li>
-            <li>고객은 회사의 명시적 동의가 없는 한 서비스의 이용권한, 기타 이용계약상의 지위를 타인에게 양도하거나 증여할 수 없으며 이를 담보로 제공할 수 없습니다.</li>
-            <li>고객은 정보통신망이용촉진및정보보호등에관한법률의 광고성 정보 전송 시 의무사항 및 회사의 이용약관을 준수하여야 합니다.</li>
-          </ol>
+      <Chapter>
+        <ChapterTitle>Chapter 5 — Additional Services</ChapterTitle>
 
-          <p><strong>제15조 (도메인 관리)</strong></p>
-          <ol class="privacy-list">
-            <li>회사는 고객의 신청에 의하여 도메인 연결 업무를 대행합니다.</li>
-            <li>회사는 고객의 도메인 관련사고를 예방하기 위하여 도메인 관리를 위한 편의를 제공하도록 노력합니다.</li>
-          </ol>
+        <Article>
+          <ArticleTitle>Article 12 (Mobile Web)</ArticleTitle>
+          <List>
+            <li>The Company provides a mobile website as an additional service upon customer request.</li>
+            <li>If a customer wishes to add custom design or features to the basic mobile website provided by the Company, costs and schedule must be agreed upon in advance.</li>
+          </List>
+        </Article>
+      </Chapter>
 
-          <p><strong>제16조 (지식 재산권의 귀속 및 침해 금지)</strong></p>
-          <ol class="privacy-list">
-            <li>회사가 작성한 저작물에 대한 저작권 기타 지식 재산권은 회사에 귀속하며, 고객은 회사 및 제3자의 지식 재산권을 침해하여서는 안 됩니다.</li>
-            <li>고객은 회사의 서비스를 이용하여 얻은 정보를 회사의 사전 승낙 없이 복제, 송신, 출판, 배포, 방송 기타 방법에 의하여 영리목적으로 이용하거나 제3자에게 이용하게 하여서는 안 됩니다.</li>
-          </ol>
-        </div>
+      <Chapter>
+        <ChapterTitle>Chapter 6 — Obligations</ChapterTitle>
 
-        <div class="privacy-group">
-          <h3 class="p-titles">제7장 이용</h3>
-          <p><strong>제17조 (서비스의 제공)</strong></p>
-          <p>서비스 이용은 회사의 업무상 또는 기술상 특별한 지장이 없는 한 연중 무휴 제공을 원칙으로 합니다.</p>
-          <p>단, 정기점검이나 시스템의 업그레이드가 필요한 경우 서비스를 일시 중단할 수 있습니다.</p>
+        <Article>
+          <ArticleTitle>Article 13 (Company's Obligations)</ArticleTitle>
+          <List>
+            <li>The Company must provide the service applied for by the customer in a stable and continuous manner.</li>
+            <li>If a failure occurs that disrupts service operations, the Company must immediately repair or restore the service and make its best efforts to ensure stable service operation.</li>
+            <li>The Company must handle legitimate complaints or requests from customers in accordance with the Company's prescribed timeframes and procedures.</li>
+            <li>The Company collects and retains customers' personal information for smooth service application and operation, and shall not provide it to third parties without the customer's consent, except when required by investigative authorities under applicable law, when requested by the Korea Communications Commission, or when providing information to credit information companies due to unpaid fees.</li>
+            <li>The Company shall endeavor to provide convenience to customers in all contract-related procedures, including formation, modification, and termination of service agreements.</li>
+          </List>
+        </Article>
 
-          <p><strong>제18조 (서비스의 중단)</strong></p>
-          <ol class="privacy-list">
-            <li>회사는 긴급한 시스템 점검, 증설, 교체 등 부득이한 사유로 인하여 예고없이 일시적으로 서비스를 중단할 수 있습니다.</li>
-            <li>회사는 다음 각 호의 경우에 서비스 제공을 일시 중단할 수 있습니다. 서비스 중단이 발생할 경우 회사는 고객에게 이러한 사실을 전자우편 등의 방법으로 통보하며, 회사가 운영하는 홈페이지를 통하여 게시하는 것으로 대신할 수 있습니다.
-              <p>가. 서버 설비의 보수 혹은 공사상 불가피한 경우</p>
-              <p>나. 전용회선 경로상의 장애가 발생한 경우</p>
-              <p>다. 천재지변, 국가비상사태 등의 사유로 인하여 기계적인 작동불능이 발생한 경우</p>
-              <p>라. 해커에 의한 해킹 또는 분산서비스거부공격(DDoS) 등에 의한 사고</p>
+        <Article>
+          <ArticleTitle>Article 14 (Customer's Obligations)</ArticleTitle>
+          <List>
+            <li>Customers must pay the service fees set by the Company by the designated dates.</li>
+            <li>Customers must not provide the Company's services to third parties without the Company's consent.</li>
+            <li>Customers must not engage in any conduct that interferes with the service operations of the Company or other customers.</li>
+            <li>Customers are responsible for the copyright of the information provided through their services and must not engage in any illegal activities.</li>
+            <li>If any of the information provided to the Company at the time of service application changes, customers must promptly update this information through the appropriate procedures.</li>
+            <li>Without the Company's explicit consent, customers may not transfer, gift, or use as collateral their service usage rights or other rights under the service agreement.</li>
+            <li>Customers must comply with the obligations regarding transmission of advertising information under the Act on Promotion of Information and Communications Network Utilization and Information Protection, and with the Company's terms of service.</li>
+          </List>
+        </Article>
+
+        <Article>
+          <ArticleTitle>Article 15 (Domain Management)</ArticleTitle>
+          <List>
+            <li>The Company acts as an agent for domain connection services upon customer request.</li>
+            <li>The Company shall endeavor to provide domain management convenience to prevent domain-related incidents for customers.</li>
+          </List>
+        </Article>
+
+        <Article>
+          <ArticleTitle>Article 16 (Intellectual Property Ownership and Prohibition of Infringement)</ArticleTitle>
+          <List>
+            <li>Copyright and other intellectual property rights to works created by the Company belong to the Company, and customers must not infringe on the intellectual property rights of the Company or third parties.</li>
+            <li>Customers must not reproduce, transmit, publish, distribute, broadcast, or use for commercial purposes, or allow third parties to use, any information obtained through the Company's services without the Company's prior consent.</li>
+          </List>
+        </Article>
+      </Chapter>
+
+      <Chapter>
+        <ChapterTitle>Chapter 7 — Service Use</ChapterTitle>
+
+        <Article>
+          <ArticleTitle>Article 17 (Service Provision)</ArticleTitle>
+          <Body>Service is provided year-round without interruption, barring special operational or technical circumstances.</Body>
+          <Body>However, the service may be temporarily suspended for scheduled maintenance or system upgrades.</Body>
+        </Article>
+
+        <Article>
+          <ArticleTitle>Article 18 (Service Suspension)</ArticleTitle>
+          <List>
+            <li>The Company may temporarily suspend service without notice due to urgent system maintenance, expansion, or replacement.</li>
+            <li>The Company may suspend service in the following cases. In such cases, the Company will notify customers by email or through a notice posted on the Company's homepage:
+              <p>a. Unavoidable server maintenance or construction work</p>
+              <p>b. Network line failures</p>
+              <p>c. Mechanical failure due to natural disasters or national emergencies</p>
+              <p>d. Accidents caused by hacking or distributed denial-of-service (DDoS) attacks</p>
             </li>
-            <li>회사는 회사가 통제할 수 없는 사유로 인한 서비스 중단(시스템 관리자의 고의나 과실이 없는 디스크장애, 시스템 다운 등)의 경우, 사전통지가 불가능하며 타인의 고의, 또는 과실로 인한 시스템 중단 등의 경우에는 통지하지 않습니다.</li>
-          </ol>
-        </div>
+            <li>In cases of service suspension beyond the Company's control (e.g., disk failures or system downtime without administrator negligence), prior notice is not possible. No notice will be given in cases of system suspension caused by intentional or negligent acts of third parties.</li>
+          </List>
+        </Article>
+      </Chapter>
 
-        <div class="privacy-group">
-          <h3 class="p-titles">제8장 이용 제한</h3>
-          <p><strong>제19조 (이용의 제한)</strong></p>
-          <p>회사는 고객의 서비스 이용 내용이 다음 각 호에 해당할 경우, 운영 중인 사이트의 네트워크 접속을 중지하고 고객에게 이의 해소를 요구할 수 있습니다.</p>
+      <Chapter>
+        <ChapterTitle>Chapter 8 — Use Restrictions</ChapterTitle>
 
-          <ol class="privacy-list">
-            <li>제16조 규정에 의한 고객의 의무를 위반한 경우</li>
-            <li>1일 트래픽이 해당 서비스 종류에 명시된 사용범위를 초과하는 경우</li>
-            <li>회사가 제공하는 장비의 이용에 중대한 지장을 초래한 경우</li>
-          </ol>
+        <Article>
+          <ArticleTitle>Article 19 (Restrictions on Use)</ArticleTitle>
+          <Body>The Company may suspend network access to the operating site and request resolution if a customer's service use falls under any of the following:</Body>
+          <List>
+            <li>Violation of the customer's obligations under Article 16</li>
+            <li>Daily traffic exceeding the usage limits specified for the applicable service type</li>
+            <li>Serious interference with the use of Company-provided equipment</li>
+          </List>
+        </Article>
 
-          <p><strong>제20조 (이용제한 해제)</strong></p>
-          <p>회사는 제21조에 의하여 서비스가 제한된 고객이 그 위반행위를 해소할 경우에는 관련 절차에 따라 서비스 이용제한을 해제합니다.</p>
-        </div>
+        <Article>
+          <ArticleTitle>Article 20 (Lifting of Use Restrictions)</ArticleTitle>
+          <Body>
+            If a customer whose service has been restricted under Article 19 resolves the violation, the Company will lift the service restriction in accordance with the applicable procedures.
+          </Body>
+        </Article>
+      </Chapter>
 
-        <div class="privacy-group">
-          <h3 class="p-titles">제9장 계약변경 및 갱신</h3>
-          <p><strong>제21조(계약사항의 변경)</strong></p>
-          <ol class="privacy-list">
-            <li>고객은 서비스 이용계약 내용 중 다음에 해당하는 변경 사유가 발생한 즉시 관련 절차에 따라 변경 신청해야 하며 이와 관련한 정보 변경의 지연으로 인한 문제 발생 시 그 책임은 고객에게 있습니다.
-              <p>가. 고객의 사업자번호, 상호, 대표자, 주소, 관리자 등의 변경이 발생한 경우</p>
-              <p>나. 계약 종류(상품 및 회선의 종류, 이용계약기간, 이용목적 등)의 변경</p>
+      <Chapter>
+        <ChapterTitle>Chapter 9 — Contract Changes and Renewal</ChapterTitle>
+
+        <Article>
+          <ArticleTitle>Article 21 (Contract Changes)</ArticleTitle>
+          <List>
+            <li>Customers must promptly apply for changes through the applicable procedures when any of the following changes occur:
+              <p>a. Changes to business registration number, trade name, representative, address, or administrator</p>
+              <p>b. Changes to contract type (product, service type, contract period, or purpose of use)</p>
             </li>
-            <li>고객이 계약된 서비스의 기준을 초과하여 이용하는 경우, 회사는 등록되어 있는 고객의 연락처로 사실 통지 후 계약사항을 변경할 수 있습니다.</li>
-            <li>회사는 계약 기간 이전이라 하더라도 원가의 과도한 상승 요인이 발생할 경우 고객의 동의를 얻어 이용료를 인상할 수 있습니다. 이는 회사의 귀책사유이므로 고객이 변경된 이용료에 동의할 수 없을 경우, 고객은 계약 기간과 관련한 위약 수수료를 지급하지 않고도 일방적으로 해지할 수 있습니다.</li>
-            <li>고객이 회사가 청구한 서비스 이용 요금을 체납하고 있는 경우, 회사는 변경 신청을 제한할 수 있습니다.</li>
-            <li>설비의 여유가 없거나, 기술상 서비스 제공이 어렵거나 회사의 서비스 정책이 변경되는 경우에 회사는 변경 신청을 제한할 수 있습니다.</li>
-            <li>고객이 계약상품을 변경하고자 하는 경우에는 기존계약을 과거 3개월 이상 유지한 경우에 가능하며, 현재의 서비스 사용량이 변경하고자하는 상품 기준을 초과하는 경우 회사는 계약변경 요청을 거부할 수 있습니다.</li>
-          </ol>
+            <li>If a customer's usage exceeds the contracted service standards, the Company may modify the contract terms after notifying the customer at the registered contact information.</li>
+            <li>If cost increases arise before the contract period ends, the Company may increase fees with the customer's consent. As this constitutes a Company-initiated change, the customer may unilaterally terminate without paying any early termination fee if they cannot agree to the new fees.</li>
+            <li>The Company may restrict change requests if the customer has outstanding unpaid service fees.</li>
+            <li>The Company may restrict change requests if there is no available capacity, if the service cannot technically be provided, or if the Company's service policy changes.</li>
+            <li>Contract changes require the existing contract to have been maintained for at least 3 months. If current usage exceeds the standards of the new product, the Company may refuse the change request.</li>
+          </List>
+        </Article>
 
-          <p><strong>제22조(계약의 갱신)</strong></p>
-          <p>회사와 고객은 합의하여 서비스 이용계약의 기간을 정할 수 있으며 고객 또는 회사가 계약기간 만료 전일까지 이용계약을 갱신하지 않는다는 의사표시가 없으면 동일한 조건으로 이용계약기간이 연장되는 것으로 간주 합니다.</p>
-        </div>
+        <Article>
+          <ArticleTitle>Article 22 (Contract Renewal)</ArticleTitle>
+          <Body>
+            The Company and the customer may mutually agree on the service agreement term. If neither party expresses an intent not to renew before the contract expiration date, the contract is deemed to be automatically renewed under the same terms.
+          </Body>
+        </Article>
+      </Chapter>
 
-        <div class="privacy-group">
-          <h3 class="p-titles">제10장 계약해지</h3>
-          <p><strong>제23조(계약의 해지)</strong></p>
-          <ol class="privacy-list">
-            <li>고객이 이용 계약을 해지하고자 할 경우, 최소 30일 이전에 회사에서 안내한 절차와 방식에 따라 통보해야 합니다.</li>
-            <li>고객은 미납 이용 요금이 있는 경우, 해지 희망일 전에 회사에 미납요금 지불을 완료하여야 합니다.</li>
-          </ol>
+      <Chapter>
+        <ChapterTitle>Chapter 10 — Contract Termination</ChapterTitle>
 
-          <p><strong>제24조 (해지 고객의 데이터)</strong></p>
-          <ol class="privacy-list">
-            <li>고객이 서비스 이용 계약을 해지하는 경우, 회사는 데이터를 백업하여 이메일로 전송합니다.</li>
-            <li>고객이 서비스 이용 요금의 연체가 있는 경우, 회사는 전항의 작업을 보류할 수 있습니다.</li>
-            <li>계약 해지로 인해 서버에서 삭제한 데이터에 대해 회사는 복구의 책임이 없습니다.</li>
-          </ol>
+        <Article>
+          <ArticleTitle>Article 23 (Contract Termination)</ArticleTitle>
+          <List>
+            <li>To terminate the service agreement, customers must notify the Company at least 30 days in advance following the Company's prescribed procedures and method.</li>
+            <li>If there are any unpaid service fees, customers must complete payment before the requested termination date.</li>
+          </List>
+        </Article>
 
-          <p><strong>제25조 (직권해지)</strong></p>
-          <p>회사는 고객의 서비스 이용 내용이 다음 각호에 해당할 경우 서비스 이용 계약을 직권 해지할 수 있습니다.</p>
+        <Article>
+          <ArticleTitle>Article 24 (Data of Terminated Customers)</ArticleTitle>
+          <List>
+            <li>Upon termination of the service agreement, the Company will back up the data and send it to the customer by email.</li>
+            <li>If the customer has outstanding unpaid fees, the Company may defer this process.</li>
+            <li>The Company is not responsible for recovering data deleted from the server due to contract termination.</li>
+          </List>
+        </Article>
 
-          <p><strong class="subs">제21조 규정에 따라 이용 제한이 된 고객이 7일 이내에 이를 시정하지 않을 경우</strong></p>
-          <ol class="privacy-list">
-            <li>이용 신청서에 기재한 내용이 허위이거나 제3자 명의로 서비스를 신청한 경우</li>
-            <li>회사의 서비스 운영을 고의로 방해하여 손해를 입힌 경우</li>
-            <li>회사의 서비스 제공 목적 외의 용도로 서비스를 이용하는 경우</li>
-          </ol>
-        </div>
+        <Article>
+          <ArticleTitle>Article 25 (Compulsory Termination)</ArticleTitle>
+          <Body>The Company may terminate the service agreement on its own authority in the following cases:</Body>
+          <Body>If a customer whose service has been restricted under Article 21 does not remedy the situation within 7 days:</Body>
+          <List>
+            <li>If the information provided on the service application is false or the service was applied for using a third party's identity</li>
+            <li>If the customer intentionally interferes with the Company's service operations and causes damage</li>
+            <li>If the customer uses the service for purposes other than those for which the Company provides it</li>
+          </List>
+        </Article>
+      </Chapter>
 
-        <div class="privacy-group">
-          <h3 class="p-titles">제11장 이용요금</h3>
-          <p><strong>제26조(이용요금의 알반원칙)</strong></p>
-          <ol class="privacy-list">
-            <li>서비스 이용요금의 세부 내역 및 그 변경사항은 제5조에 따라 회사의 홈페이지에 명기합니다.</li>
-            <li>고객이 납부하여야 하는 서비스 이용 요금의 종류는 다음 각호와 같으며 후납제로 운영됩니다.
-              <p>가. 셋팅요금 : 서비스 개통, 재설치, 변경을 신청하는 경우에 지불하는 요금</p>
-              <p>나. 월 이용요금 : 서비스 제공 및 유지보수를 위해 매월 지불하는 요금</p>
-              <p>다. 추가요금 : 서비스 기준을 초과하거나 별도의 부가 서비스 신청할 경우 지불하는 요금</p>
+      <Chapter>
+        <ChapterTitle>Chapter 11 — Service Fees</ChapterTitle>
+
+        <Article>
+          <ArticleTitle>Article 26 (General Principles of Service Fees)</ArticleTitle>
+          <List>
+            <li>Details of service fees and any changes thereto are posted on the Company's homepage in accordance with Article 5.</li>
+            <li>Service fee types are as follows and are collected on a postpaid basis:
+              <p>a. Setup fee: A fee paid when applying for service activation, reinstallation, or modification</p>
+              <p>b. Monthly fee: A fee paid monthly for service provision and maintenance</p>
+              <p>c. Additional fee: A fee paid when usage exceeds service standards or when applying for additional services</p>
             </li>
-          </ol>
+          </List>
+        </Article>
 
-          <p><strong>제27조(이용요금의 납부)</strong></p>
-          <ol class="privacy-list">
-            <li>고객은 회사가 인지하기 어려운 이름으로 이용요금을 납부하는 경우, 이에 대해 회사에 통보할 의무가 있습니다. 회사가 인지하기 어려운 이름의 납부에 대한 통지를 하지 않음으로 인해 발생하는 서비스 중단 등의 불이익에 대해 회사는 책임을 지지 않습니다.</li>
-            <li>고객은 정해진 납부일자에 이용요금을 납부해야 합니다. 이를 납부하지 못할 경우에는 제21조에 따른 서비스 이용제한 또는 제27조에 의거 이용계약이 해지 될 수 있습니다.</li>
-          </ol>
+        <Article>
+          <ArticleTitle>Article 27 (Payment of Service Fees)</ArticleTitle>
+          <List>
+            <li>If a customer pays fees under a name that is difficult for the Company to identify, the customer must notify the Company. The Company is not responsible for any service suspension resulting from the customer's failure to provide such notification.</li>
+            <li>Customers must pay service fees by the designated due date. Failure to do so may result in service restriction under Article 21 or termination under Article 27.</li>
+          </List>
+        </Article>
 
-          <p><strong>제28조(이용요금의 정산)</strong></p>
-          <ol class="privacy-list">
-            <li>서비스 이용요금의 정산은 서비스개통일을 기준으로 하고, 회사가 정하고 있는 납입주기에 따라서 납입일자와 납입금액을 산정합니다.</li>
-            <li>이용중인 계약을 중도에 해지신청하는 경우 해당월의 말까지 납부된 서비스의 사용금액을 환불하지 않습니다. 단, 해지신청 월 이후의 비용이 미리 납부되어 있는 경우 그 금액은 환불 합니다.</li>
-          </ol>
+        <Article>
+          <ArticleTitle>Article 28 (Settlement of Service Fees)</ArticleTitle>
+          <List>
+            <li>Service fee settlement is based on the service activation date, and payment dates and amounts are calculated according to the Company's designated payment cycle.</li>
+            <li>If the contract is terminated mid-term, the service fees paid through the end of the termination month will not be refunded. However, fees prepaid for periods after the termination month will be refunded.</li>
+          </List>
+        </Article>
 
-          <p><strong>제29조(연체요금 관리)</strong></p>
-          <ol class="privacy-list">
-            <li>고객이 서비스 기간 만료일 경과 후에도 이용요금을 납부하지 않을 경우 차후의 서비스 이용제한을 제한하고, 이용제한일로부터 7일이 경과한 후에도 이를 납부하지 않으면 제27조에 따라 회사는 이용계약을 해지할 수 있습니다.</li>
-            <li>회사는 이용요금 등을 연체한 고객에 대하여 연체된 요금을 변제 받기 위하여 신용정보회사에 채권추심을 의뢰할 수 있습니다.</li>
-          </ol>
+        <Article>
+          <ArticleTitle>Article 29 (Overdue Fee Management)</ArticleTitle>
+          <List>
+            <li>If a customer has not paid service fees after the service period expires, the Company may restrict service. If payment is not made within 7 days of restriction, the Company may terminate the service agreement under Article 27.</li>
+            <li>The Company may refer overdue fees to a credit information company for collection.</li>
+          </List>
+        </Article>
 
-          <p><strong>제30조(위약금)</strong></p>
-          <ol class="privacy-list">
-            <li>고객의 요청으로 독립서버를 구성하는 경우 의무사용 기간은 1년입니다.</li>
-            <li>고객은 의무 사용기간 중 중도해지 시 남은기간 사용료의 30%만큼 위약금을 지불해야 합니다. 고객이 위약금 지불을 거부하는 경우 회사는 해당 서버의 데이터를 폐기할 수 있으며 고객은 이의제기를 할 수 없습니다.</li>
-          </ol>
-        </div>
+        <Article>
+          <ArticleTitle>Article 30 (Penalty Fees)</ArticleTitle>
+          <List>
+            <li>When a dedicated server is configured at a customer's request, the mandatory usage period is one year.</li>
+            <li>If the customer terminates the contract early during the mandatory usage period, a penalty equal to 30% of the remaining period's fees must be paid. If the customer refuses to pay, the Company may dispose of the server data and the customer may not object.</li>
+          </List>
+        </Article>
+      </Chapter>
 
-        <div class="privacy-group">
-          <h3 class="p-titles">제12장 소유권</h3>
-          <p><strong>제31조(소유권)</strong></p>
-          <ol class="privacy-list">
-            <li>고객이 인터넷신문에 게재한 기사, 사진, 영상, 게시물 데이터의 소유권은 고객에게 있습니다.</li>
-            <li>프로그램의 개발 또는 유지보수 서비스를 통해 산출된 결과물의 소유권은 회사에 있습니다.</li>
-          </ol>
+      <Chapter>
+        <ChapterTitle>Chapter 12 — Ownership</ChapterTitle>
 
-          <p><strong>제32조(사용권)</strong></p>
-          <ol class="privacy-list">
-            <li>고객은 서비스 과정에서 회사가 제공한 저작물에 대해 사용권을 가집니다.</li>
-            <li>사용권은 배타적인 권리가 아니며 회사는 다른 고객에게도 서비스를 제공할 수 있습니다.</li>
-          </ol>
-        </div>
+        <Article>
+          <ArticleTitle>Article 31 (Ownership)</ArticleTitle>
+          <List>
+            <li>Ownership of articles, photos, videos, and posting data published by customers on their internet newspapers belongs to the customer.</li>
+            <li>Ownership of deliverables produced through program development or maintenance services belongs to the Company.</li>
+          </List>
+        </Article>
 
-        <div class="privacy-group">
-          <h3 class="p-titles">제13장 손해배상, 면책, 분쟁조정</h3>
-          <p><strong>제33조 (손해배상의 책임)</strong></p>
-          <p>회사의 귀책 사유로 고객이 서비스를 이용하지 못하는 경우에 회사는 고객이 그 사실을 회사에서 정한 절차에 따라 통보한 때(또는 그 전에 회사가 그 사실을 알았거나 알 수 있게 된 때)로부터 계속 4시간 이상의 서비스 제공 중지시간에 대해 최근 3개월의 1일 평균요금에 서비스 제공중지 시간을 24로 나눈 수를 곱하여 산출한 금액의 5배 범위내에서 협의 후 배상합니다. 이 경우 단수가 1시간 미만인 경우에는 1시간으로 계산합니다.</p>
+        <Article>
+          <ArticleTitle>Article 32 (License)</ArticleTitle>
+          <List>
+            <li>Customers have a license to use the works provided by the Company through the service.</li>
+            <li>This license is non-exclusive, and the Company may provide the same services to other customers.</li>
+          </List>
+        </Article>
+      </Chapter>
 
-          <p><strong>제34조(고객의 손해배상의 청구)</strong></p>
-          <ol class="privacy-list">
-            <li>고객의 손해배상의 청구는 회사에 청구사유, 청구금액 및 산출근거를 기재하여 서면으로 제출하여야 합니다.</li>
-            <li>손해배상 청구는 그 청구 사유를 알게 된 날로부터 3개월 내에 청구하지 않으면 청구권이 소멸합니다. 청구사유가 발생한 날로부터 3개월이 경과한 때에도 이와 같습니다.</li>
-          </ol>
+      <Chapter>
+        <ChapterTitle>Chapter 13 — Liability, Indemnification and Dispute Resolution</ChapterTitle>
 
-          <p><strong>제35조(고객에 대한 손해배상 청구)</strong></p>
-          <p>회사는 고객이 제16조와 제18조에 규정한 의무사항을 위반하여 회사에 손해를 끼친 경우 고객에 대한 손해배상을 청구할 수 있습니다.</p>
+        <Article>
+          <ArticleTitle>Article 33 (Liability for Damages)</ArticleTitle>
+          <Body>
+            If a customer is unable to use the service due to the Company's fault, and the service is continuously unavailable for 4 or more hours from the time the customer notifies the Company (or from the time the Company became aware of the situation), the Company will compensate within 5 times the amount calculated by multiplying the average daily fee for the most recent 3 months by the ratio of the service unavailability time to 24 hours. Fractions of less than 1 hour are calculated as 1 hour.
+          </Body>
+        </Article>
 
-          <p><strong>제36조(면책)</strong></p>
-          <ol class="privacy-list">
-            <li>회사는 고객이 회사의 서비스 제공으로부터 기대되는 이익을 얻지 못하였거나 서비스로부터 수반되는 잠재가치 및 서비스 자료에 대한 취사선택 또는 이용으로 발생하는 손해에 대해서는 책임이 없습니다.</li>
-            <li>회사는 고객의 귀책사유로 인해 서비스 이용장애가 발생한 경우에는 책임을 지지 않습니다.</li>
-            <li>회사는 고객이 게시 또는 전송하거나 전송받은 자료의 내용 및 가치에 대해서는 책임이 없습니다.</li>
-            <li>회사는 고객 상호간 또는 이용고객과 제3자간 서비스를 매개로 한 거래의 손해에 대해 책임이 없습니다.</li>
-            <li>고객에게 무료로 제공되는 부가서비스나 제휴서비스의 이용과 관련해서는 책임을 지지 않습니다.</li>
-            <li>회사는 고객과 제3자간 서비스를 매개로 발생한 분쟁에 대해 개입할 의무가 없으며, 이로인한 손해를 배상할 책임이 없습니다.</li>
-            <li>회사는 제20조에 해당하는 서비스 중단으로 발생하는 손해에 대해서는 책임이 없습니다.</li>
-          </ol>
+        <Article>
+          <ArticleTitle>Article 34 (Customer's Claim for Damages)</ArticleTitle>
+          <List>
+            <li>Claims for damages must be submitted to the Company in writing, stating the reason for the claim, the claimed amount, and the basis for calculation.</li>
+            <li>Claims must be submitted within 3 months of becoming aware of the reason for the claim. Claims are also extinguished if 3 months have passed since the cause of claim arose.</li>
+          </List>
+        </Article>
 
-          <p><strong>제37조(관할법원)</strong></p>
-          <p>약관 및 서비스의 이용과 관련된 분쟁에 관한 소송은 회사의 본사 소재지를 관할하는 법원에 제기합니다.</p>
-        </div>
+        <Article>
+          <ArticleTitle>Article 35 (Company's Claim Against Customer)</ArticleTitle>
+          <Body>
+            The Company may claim damages against a customer who violates the obligations set forth in Articles 16 and 18 and causes damage to the Company.
+          </Body>
+        </Article>
 
-        <div class="privacy-group">
-          <h3 class="p-titles">[부칙]</h3>
-          <ul class="privacy-list">
-            <li>본 약관은 2025년 2월 27일 시행되었습니다.</li>
-          </ul>
-        </div>
-      </Content>
-    </Container>
+        <Article>
+          <ArticleTitle>Article 36 (Indemnification)</ArticleTitle>
+          <List>
+            <li>The Company is not responsible for a customer's failure to receive expected benefits from the Service, or for damages arising from the use or selection of potential value or service data provided through the Service.</li>
+            <li>The Company is not responsible for service disruptions caused by the customer.</li>
+            <li>The Company is not responsible for the content or value of data posted, transmitted, or received by customers.</li>
+            <li>The Company is not responsible for damages arising from transactions between customers or between customers and third parties through the Service.</li>
+            <li>The Company is not responsible for issues arising from the use of additional or affiliated services provided free of charge.</li>
+            <li>The Company has no obligation to intervene in disputes between customers and third parties arising through the Service, and is not responsible for any resulting damages.</li>
+            <li>The Company is not responsible for damages arising from service suspensions described in Article 20.</li>
+          </List>
+        </Article>
+
+        <Article>
+          <ArticleTitle>Article 37 (Jurisdiction)</ArticleTitle>
+          <Body>
+            Any litigation related to these terms and the use of the Service shall be filed with the court having jurisdiction over the Company's principal place of business.
+          </Body>
+        </Article>
+      </Chapter>
+
+      <DocFooter>
+        <Body>These terms took effect on February 27, 2025.</Body>
+      </DocFooter>
+    </Wrap>
   );
 };
 

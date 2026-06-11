@@ -1,77 +1,38 @@
 import { Link } from "react-router-dom";
 import styled from "styled-components";
-import { Container } from "./StyledComponents";
 
-const Content = styled.div`
-  margin: 0px auto;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 0px 20px;
-  height: 70px;
-  max-width: 1000px;
+const HeaderWrap = styled.header`
+  border-bottom: 1px solid #EEEEEE;
+  background: #ffffff;
+  position: sticky;
+  top: 0;
+  z-index: 100;
 `;
 
-const Title = styled.div`
-  font-size: 18px;
-  font-weight: 700;
-  color : #6093FF;
-  & span{
-    font-weight: 300;
-  }
-`;
-
-const NavBox = styled.div`
+const Inner = styled.div`
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 16px;
+  height: 60px;
   display: flex;
-  margin-left: 30px;
   align-items: center;
 `;
 
-const Nav = styled.div`
-  color: #828282;
-  margin-top: 1px;
-  white-space: nowrap;
-  cursor: pointer;
-  padding: 0px 10px;
-  border-right: 1px solid #eeeeee;
-  &:last-child {
-    border-right: none;
-  }
-`;
-
-const GoToConsole = styled.div`
-  color: #ffffff;
-  background: linear-gradient(to right, #6093FF, #93B6FF);
-  border-radius: 100px;
-  padding: 7px 17px;
-  cursor: pointer;
-  font-size: 14px;
-  font-weight: 700;
-`;
-
-const Box = styled.div`
-   display: flex;
-   align-items: center;
+const LogoLink = styled(Link)`
+  font-size: 13px;
+  font-weight: 300;
+  letter-spacing: 0.22em;
+  color: #111111;
+  text-transform: uppercase;
 `;
 
 const Header = () => {
   return (
-    <Container>
-      <Content>
-        <Box>
-          <Link to={"/"}>
-            <Title>YANG<span>SOFT</span></Title>
-          </Link>
-        </Box>
-        <Box>
-          <a href="mailto:ts.yang.0123@gmail.com?subject=상담 요청&body=상담 요청 내용:">
-            <GoToConsole>
-              상담 요청
-            </GoToConsole>
-          </a>
-        </Box>
-      </Content>
-    </Container>
+    <HeaderWrap>
+      <Inner>
+        <LogoLink to="/">Yangsoft</LogoLink>
+      </Inner>
+    </HeaderWrap>
   );
 };
 
